@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "eleventy && sandbox"
+    "build": "eleventy",
+    "start": "npm run build && sandbox"
   },
   "author": "Brian LeRoux <b@brian.io>",
   "license": "Apache-2.0",
