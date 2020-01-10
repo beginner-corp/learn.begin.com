@@ -1,0 +1,14 @@
+{
+  "name": "training.begin.com",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy && sandbox"
+  },
+  "author": "Brian LeRoux <b@brian.io>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@11ty/eleventy": "^0.10.0",
+    "@architect/architect": "^6.0.29"
+  }
+}
