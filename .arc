@@ -1,8 +1,14 @@
 @app
-training
+tacos-tlh
+
+@static
+folder _site
 
 @http
 post /notify
 
-@static
-folder _site
+@tables
+data
+  scopeID *String
+  dataID **String
+  ttl TTL
