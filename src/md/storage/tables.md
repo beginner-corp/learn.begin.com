@@ -3,7 +3,5 @@ layout: layout.11ty.js
 title: FASTstack training
 ---
 
+# tables
 
-  - local dev
-    - sandbox
-    - testing 

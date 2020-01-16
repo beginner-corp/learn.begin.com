@@ -11,6 +11,7 @@ module.exports = function layout(params) {
   <a href=/curriculum>curriculum</a>
   <a href=/instructors>instructors</a>
   <a href=/signup>sign up</a>
+  <a href=/jargon>jargon</a>
 </nav>
 <main>${params.content}</main>
 </body>

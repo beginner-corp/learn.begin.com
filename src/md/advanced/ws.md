@@ -3,7 +3,6 @@ layout: layout.11ty.js
 title: FASTstack training
 ---
 
+# Web sockets
 
-  - local dev
-    - sandbox
-    - testing 
+

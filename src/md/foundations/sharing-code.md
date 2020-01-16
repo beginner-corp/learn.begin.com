@@ -1,3 +1,8 @@
+---
+layout: layout.11ty.js
+title: FASTstack training
+---
+
 
   - sharing code
     - src/shared

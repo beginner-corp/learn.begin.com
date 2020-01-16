@@ -3,46 +3,57 @@ layout: layout.11ty.js
 title: FASTstack training
 ---
 
-## serverless foundations
+## Foundations
 
-- infra as code
-- setup
-- hello world
-- local dev
-- sharing code
-- deployment
+> Getting started with serverless
 
-## basic web primitives
+- [infra as code](/foundations/infra-as-code)
+- [setup](/foundations/setup)
+- [hello world](/foundations/hello-world)
+- [local dev](/foundations/local-dev)
+- [sharing code](/foundations/sharing-code)
+- [deployment](/foundations/deployment)
 
-- `@static` assets with S3
-- `@cdn` with CloudFront
-- `@http` functions with API Gateway
-- `@domains` with Route53 and ACM
+## Web primitives
 
-## persistent storage
+> Building blocks for web applications
 
-- `@begin/data`
-- `@tables`
-- `@indexes`
+- [`@static` assets with S3](/basic/static)
+- [`@http` functions with API Gateway](/basic/http)
+- [`@cdn` with CloudFront](/basic/cdn)
+- [`@domains` with Route53 and ACM](/basic/dns)
 
-## advanced web development
+## Persistent storage
 
-- environment variables
-- forms
-- tracking sessions
-- binary content
-- REST
-- GraphQL
-- oAuth
-- `@ws` functions
+> Reading and writing structured data 
 
-## background task primitives
+- [`@begin/data` simplified DynamoDB](/storage/begin-data)
+- [`@tables` low level DynamoDB](/storage/tables)
 
-- `@events` functions
-- `@queues` functions
-- `@scheduled` functions
-- `@tables` functions
+## Advanced web development
 
-## final boss
+> Proven techniques done serverless
 
-- macros
+- [serverless side rendering](/advanced/ssr)
+- [esmodules and progressive bundling](/advanced/esm)
+- [environment variables](/advanced/env)
+- [forms](/advanced/forms)
+- [tracking sessions](/advanced/sessions)
+- [dynamic binary content](/advanced/binary)
+- [REST](/advanced/rest)
+- [GraphQL](/advanced/graphql)
+- [oAuth](/advanced/oauth)
+- [`@ws` functions](/advanced/ws)
+
+## Asynchronous primitives
+
+> Background tasks that scale to zero
+
+- [`@events` with SNS and Lambda](/async/events)
+- [`@queues` with SQS and Lambda](/async/queues)
+- [`@scheduled` with EventBridge and Lambda](/async/scheduled)
+- [`@tables` with DynamoDB streams …and Lambda](/async/tables)
+
+## Final boss
+
+- [macros](/boss/macros)
