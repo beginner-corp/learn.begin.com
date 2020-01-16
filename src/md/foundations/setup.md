@@ -1,0 +1,5 @@
+  - setup
+    - mac
+    - windows
+    - linux
+

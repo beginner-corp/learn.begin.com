@@ -3,7 +3,7 @@ tacos-tlh
 
 @static
 folder _site
-spa true
+spa false
 
 @http
 post /notify

@@ -3,6 +3,7 @@ module.exports = function layout(params) {
 <html>
 <head>
 <title>${params.title}</title>
+<meta charset=UTF-8>
 </head>
 <body>
 <nav>

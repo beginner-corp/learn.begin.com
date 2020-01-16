@@ -3,71 +3,46 @@ layout: layout.11ty.js
 title: FASTstack training
 ---
 
+## serverless foundations
 
-- foundation
-  - infra as code
-    - formats: .arc, .json, .yaml and .toml
-    - primitives
-      - compute: http, ws, events, queues, scheduled
-      - storage: tables, indexes, static
-      - network: domains, cdn
-  - setup
-    - mac
-    - windows
-    - linux
-  - hello world by supported runtimes (note: any runtime can be supported with lambda layers)
-    - node
-    - deno
-    - ruby
-    - python
-  - local dev
-    - sandbox
-    - testing 
-  - sharing code
-    - src/shared
-    - src/views
-  - dependency management 
-    - node
-    - deno
-    - ruby
-    - python
-  - deployment
-    - package for AWS SAM
-    - deploy to AWS
-    - deploy to Begin
+- infra as code
+- setup
+- hello world
+- local dev
+- sharing code
+- deployment
 
-- web primitives
-  - `@static` assets with S3
-  - `@cdn` with CloudFront
-  - `@http` functions with API Gateway
-  - `@domains` with Route53 and ACM
+## basic web primitives
 
-- storage
-  - begin/data
-  - tables
-  - indexes
+- `@static` assets with S3
+- `@cdn` with CloudFront
+- `@http` functions with API Gateway
+- `@domains` with Route53 and ACM
 
-- advanced web dev
-  - environment variables
-  - forms
-  - tracking sessions
-  - binary content
-  - REST
-  - GraphQL
-  - oauth
-    - github
-    - slack
-  - `@ws` functions
-    - connecting
-    - tracking sessions
-    - sending messages
+## persistent storage
 
-- background tasks
-  - `@events` functions
-  - `@queues` functions
-  - `@scheduled` functions
-  - `@tables` functions
+- `@begin/data`
+- `@tables`
+- `@indexes`
 
-- advanced
-  - macros
-  - layers
+## advanced web development
+
+- environment variables
+- forms
+- tracking sessions
+- binary content
+- REST
+- GraphQL
+- oAuth
+- `@ws` functions
+
+## background task primitives
+
+- `@events` functions
+- `@queues` functions
+- `@scheduled` functions
+- `@tables` functions
+
+## final boss
+
+- macros

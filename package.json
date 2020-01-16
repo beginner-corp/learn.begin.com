@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "build": "eleventy",
-    "start": "npm run build && sandbox"
+    "watch": "eleventy --serve",
+    "start": "npm run build && ARC_STATIC_SPA=false sandbox"
   },
   "author": "Brian LeRoux <b@brian.io>",
   "license": "Apache-2.0",
