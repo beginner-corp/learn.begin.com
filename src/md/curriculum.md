@@ -22,6 +22,9 @@ title: FASTstack training
 - [`@http` functions with API Gateway](/basic/http)
 - [`@cdn` with CloudFront](/basic/cdn)
 - [`@domains` with Route53 and ACM](/basic/dns)
+- [serverless side rendering](/advanced/ssr)
+- [esmodules and progressive bundling](/advanced/esm)
+- [environment variables](/advanced/env)
 
 ## Persistent storage
 
@@ -34,9 +37,6 @@ title: FASTstack training
 
 > Proven techniques done serverless
 
-- [serverless side rendering](/advanced/ssr)
-- [esmodules and progressive bundling](/advanced/esm)
-- [environment variables](/advanced/env)
 - [forms](/advanced/forms)
 - [tracking sessions](/advanced/sessions)
 - [dynamic binary content](/advanced/binary)
