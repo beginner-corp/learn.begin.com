@@ -36,10 +36,12 @@ title: FASTstack training
 
 > Reading and writing structured data (1 hour)
 
+- [Why choose DynamoDB?](/storage/why)
 - [`@begin/data` simplified DynamoDB](/storage/begin-data)
-- [`@tables` low level DynamoDB](/storage/tables)
+- [DynamoDB low level](/storage/tables)
+- [Streams](/storage/streams)
 
-## Advanced web development
+## Web app development
 
 > Proven techniques done serverless (2 hours)
 
@@ -49,6 +51,7 @@ title: FASTstack training
 - [oAuth](/advanced/oauth)
 - [REST](/advanced/rest)
 - [GraphQL](/advanced/graphql)
+- [Web sockets](/final/boss/ws)
 
 ## Asynchronous primitives
 
@@ -60,7 +63,6 @@ title: FASTstack training
 
 ## Final boss
 
-> Real time web apps and extending beyond `.arc` into raw CloudFormation to access any AWS service (? hours)
+> Extend into raw CloudFormation to access any AWS service (? hours)
 
-- [`@ws` web sockets with API Gateway](/final/boss/ws)
 - [Macros](/final/boss/macros)
