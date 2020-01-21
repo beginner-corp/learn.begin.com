@@ -10,11 +10,15 @@ title: FASTstack training
 
 ## Sandbox
 
-The sandbox opens a local development web server
+The sandbox is a local development web server. You can run it as a binary with `arc sandbox` or programatically with Node.
 
 ## Testing
 
 ### Node
+
+```javascript
+let sandbox = require('@architect/sandbox')
+```
 
 ### Deno
 

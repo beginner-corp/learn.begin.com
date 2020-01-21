@@ -13,6 +13,7 @@ title: FASTstack training
 - [Local dev](/foundations/local-dev)
 - [Sharing code](/foundations/sharing-code)
 - [Deployment](/foundations/deployment)
+- [Logging](/foundations/logging)
 
 ## Web primitives
 

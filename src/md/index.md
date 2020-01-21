@@ -3,8 +3,10 @@ layout: layout.11ty.js
 title: FASTstack training
 ---
 
-For Beginners building a fully serverless note taking application using:
+For beginners seeking to learn how to build a fully serverless web application completely from scratch.
 
-- OpenJS Architect
-- AWS SAM/CloudFormation
-- …and Lambda, API Gateway, DynamoDB and more
+The curriculum walks through how to use the open source Architect project to work locally and deploy to Amazon Web Services.
+
+Course highlights
+
+- AWS services Lambda, API Gateway, DynamoDB and more
