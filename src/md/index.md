@@ -3,10 +3,14 @@ layout: layout.11ty.js
 title: FASTstack training
 ---
 
-For beginners seeking to learn how to build a fully serverless web application completely from scratch.
+# For beginners 
 
-The curriculum walks through how to use the open source Architect project to work locally and deploy to Amazon Web Services.
+Learn how to build a fully serverless web application completely from scratch.
 
 Course highlights
 
-- AWS services Lambda, API Gateway, DynamoDB and more
+- Understand the benefits and drawbacks of serverless architectures
+- How to implement common web patterns and best practices with a serverless architecture
+- Leveraging the OpenJS Architect project to work locally and deploy to AWS with standard SAM/CloudFormation
+- Compose AWS Lambda, API Gateway, DynamoDB into dynamic REST and GraphQL APIs
+- Building a realtime evented serverless app with web sockets

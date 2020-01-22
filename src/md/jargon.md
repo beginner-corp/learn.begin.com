@@ -5,17 +5,18 @@ title: FASTstack training
 
 # Jargon file
 
+- 100% utilization
 - artifact (build artifact)
+- Blast radius
 - declarative
 - determinism
-- 100% utilization
-- Least privilege security
-- Blast radius
+- FASTstack
 - Infra as Code
+- imperative
+- JAMstack
+- Least privilege security
 - Scale to zero
 - Serverless
 - Serverless side render (SSR)
-- Static Site Generator (SSG)
 - Single Page App (SPA)
-- JAMstack
-- FASTstack
+- Static Site Generator (SSG)

@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "main": "index.js",
   "scripts": {
+    "lint": "spellchecker -d dictionary.txt -f src/md/*",
     "build": "eleventy",
     "watch": "eleventy --serve",
     "start": "npm run build && ARC_STATIC_SPA=false sandbox"
@@ -12,5 +13,8 @@
   "dependencies": {
     "@11ty/eleventy": "^0.10.0",
     "@architect/architect": "^6.0.29"
+  },
+  "devDependencies": {
+    "spellchecker-cli": "^4.0.2"
   }
 }
