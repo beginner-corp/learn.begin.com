@@ -8,6 +8,7 @@ title: FASTstack training
 > Getting started with serverless (1 hour)
 
 - [Why be serverless?](/foundations/why)
+- [Why choose Architect](/foundations/why-arc)
 - [Setup](/foundations/setup)
 - [Hello world](/foundations/hello-world)
 - [Local development](/foundations/local-dev)
