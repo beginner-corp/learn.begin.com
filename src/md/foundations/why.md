@@ -7,13 +7,13 @@ title: FASTstack training
 
 - Outsource undifferentiated heavy lifting and focus on core business value
 - Scaling to zero to achieve 100% utilization
-- Operational excellence and resiliancy
-- Least priviledge security by default
+- Operational excellence and resiliency
+- Least privilege security by default
 - Better iteration speed, lead time to production and bug resolution
 
 ## Infrastructure as Code
 
-Infra as Code (IaC) is a practice to capture the cloud infrastructure resource requirements alongside the application code that depends on it by saving it, usually in a declarative manifest file, in version control with the code. In the most ideal scenario the code and cloud resources can be provisoined and updated from single deterministic artifact. IaC is like a lockfile for an applications cloud resources.
+Infra as Code (IaC) is a practice to capture the cloud infrastructure resource requirements alongside the application code that depends on it by saving it, usually in a declarative manifest file, in version control with the code. In the most ideal scenario the code and cloud resources can be provisioned and updated from single deterministic artifact. IaC is like a lockfile for an applications cloud resources.
 
 ## Implemenation
 
@@ -24,7 +24,7 @@ Architect is an IaC implementation for building serverless web apps. Architect i
 - `arc.yaml` 
 - `arc.toml`
 
-Architect takes the developer defined high level definition and compiles it into the neccessary CloudFormation for deployment to AWS.
+Architect takes the developer defined high level definition and compiles it into CloudFormation for deployment to AWS.
 
 ### Compute resources
 <details><summary><code>@http</code></summary><p>Lambda functions handing HTTP events from API Gateway</p></details>

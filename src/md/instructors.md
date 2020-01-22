@@ -3,8 +3,9 @@ layout: layout.11ty.js
 title: FASTstack training
 ---
 
-# instructors
+# Instructors
 
-- brian leroux
-- ryan block
-- paul chin jr
+- Ryan Block
+- Paul Chin Jr
+- Kristofer Joseph
+- Brian LeRoux

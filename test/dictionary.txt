@@ -30,3 +30,7 @@ runtime
 runtimes
 serverless
 vendored
+Kristofer
+LeRoux
+stdout
+stderr

@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "main": "index.js",
   "scripts": {
-    "lint": "spellchecker -d dictionary.txt -f src/md/*",
+    "lint": "spellchecker -q -d test/dictionary.txt -f src/md/**/*.md",
     "build": "eleventy",
     "watch": "eleventy --serve",
     "start": "npm run build && ARC_STATIC_SPA=false sandbox"

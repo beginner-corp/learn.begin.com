@@ -3,14 +3,14 @@ layout: layout.11ty.js
 title: FASTstack training
 ---
 
-# Local dev
+# Local development
 
 - sandbox
 - testing 
 
 ## Sandbox
 
-The sandbox is a local development web server. You can run it as a binary with `arc sandbox` or programatically with Node.
+The sandbox is a local development web server. You can run it as a binary with `arc sandbox` or require the module directly with Node.
 
 ## Testing
 

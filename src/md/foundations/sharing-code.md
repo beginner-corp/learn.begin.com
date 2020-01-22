@@ -5,8 +5,8 @@ title: FASTstack training
 
 # Sharing code
 
-- src/shared
-- src/views
+- `src/shared`
+- `src/views`
 - Dependency management 
 
 ## `src/share`
@@ -21,20 +21,15 @@ Share source code with all HTTP `GET` functions
 
 ### Static assets
 
-Architect has nice support for writing html, css and esmodules javascript. From the perspective of dep management the configuration settings to pay attention to are:
+Architect has nice support for writing HTML markup, CSS files and JavaScript modules. From the perspective of dependency management the configuration setting to pay attention to:
 
 - `folder` path to static assets to deploy (default: `/public`)
-- `ignore` files to ignore 
 
 An example `.arc`:
 
 ```
 @static
 folder dist
-fingerprint true
-ignore
-  zip
-  tar
 ```
 
 ### Hydrating Lambda functions
@@ -43,7 +38,7 @@ Architect encourages deploying isolated Lambda functions that vendor all their r
 
 Architect hydrates dependency manifests in `src/**/*` for the following runtimes:
 
-- *Node* looks for `package.json` and deps are vendored in `node_modules`
-- *Deno* looks for `deps.ts` and deps are vendored in `.deno_dir`
-- *Ruby* looks for `Gemfile` in `src` and deps are vendored in `./vendor`
-- *Python* look for `requirements.txt` in `src` and deps are vendored in `./vendor`
+- *Node* looks for `package.json` and dependencies are vendored in `node_modules`
+- *Deno* looks for `deps.ts` and dependencies are vendored in `.deno_dir`
+- *Ruby* looks for `Gemfile` in `src` and dependencies are vendored in `./vendor`
+- *Python* look for `requirements.txt` in `src` and dependencies are vendored in `./vendor`

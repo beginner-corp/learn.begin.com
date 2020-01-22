@@ -10,7 +10,7 @@ title: FASTstack training
 - [Why be serverless?](/foundations/why)
 - [Setup](/foundations/setup)
 - [Hello world](/foundations/hello-world)
-- [Local dev](/foundations/local-dev)
+- [Local development](/foundations/local-dev)
 - [Sharing code](/foundations/sharing-code)
 - [Deployment](/foundations/deployment)
 - [Logging](/foundations/logging)
