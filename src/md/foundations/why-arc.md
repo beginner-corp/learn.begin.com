@@ -5,8 +5,8 @@ title: FASTstack training
 
 # Why choose OpenJS Architect
 
-- Developer exerience tuned for building serverless web applications
-- Curated subset of free tier serverless primitives from AWS without the vendor specific configuration arcana
+- Developer experience tuned for building serverless web applications
+- Curated subset of free tier serverless primitives from AWS without the vendor specific configuration 
 - Front end development workflows are seamless
 - Open source, open governance, great cadence, no breaking changes, mature and well tested
 - Solid, helpful and growing community

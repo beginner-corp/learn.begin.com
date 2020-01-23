@@ -22,7 +22,7 @@ Share source code with all functions in `src`. Files in `src/shared` are copied 
 
 ## `src/views`
 
-Share source code with all Lambdas handing `GET` requests. Files in `src/views` are copied into `GET` functions defined by `.arc`. This is specifically for serverless side rendering templates. Coldstarts are downstream function payload size so this limits the frontend templates to only the Lambdas that need them.
+Share source code with all Lambdas handing `GET` requests. Files in `src/views` are copied into `GET` functions defined by `.arc`. This is specifically for serverless side rendering templates. Coldstart is downstream function payload size so this limits the frontend templates to only the Lambdas that need them.
 
 - *Node* `src/views` dependencies are vendored in `node_modules/@architect/shared`
 - *Deno* `src/views` dependencies are vendored in `./vendor/views`

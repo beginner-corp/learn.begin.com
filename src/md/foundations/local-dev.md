@@ -13,7 +13,7 @@ Run with `arc sandbox` or require the module directly in Node for test suites.
 
 ### Node
 
-Currently writing tests is best supported with Node. We reccomend the `tape` and `tap-spec` libraries.
+Currently writing tests is best supported with Node. We recommend the `tape` and `tap-spec` libraries.
 
 ```javascript
 // example sandbox start/stop

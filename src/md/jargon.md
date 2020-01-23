@@ -8,6 +8,7 @@ title: FASTstack training
 - 100% utilization
 - artifact (build artifact)
 - Blast radius
+- Coldstart
 - declarative
 - determinism
 - FASTstack
