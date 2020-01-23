@@ -32,13 +32,13 @@ post /login
 post /logout
 ```
 
-This defines an app namespace of `myapp` and three Lambda functions wired up to recieve requests from API Gateway for each route. Running `arc init`, `arc sandbox` or even `arc deploy` will generate the following local code:
+This defines an app namespace of `myapp` and three Lambda functions wired up to receive requests from API Gateway for each route. Running `arc init`, `arc sandbox` or even `arc deploy` will generate the following local code:
 
 - `src/http/get-index`
 - `src/http/post-login`
 - `src/http/post-logout`
 
-Architect supports many formats. The `arc.json` equivilent:
+Architect supports many formats. The `arc.json` equivalent:
 
 ```javascript
 {

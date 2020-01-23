@@ -1,3 +1,11 @@
+CLI
+CDN
+DNS
+s3-bucket
+JSON
+YAML
+scalable
+namespace
 IAM
 statusCode
 proxied
