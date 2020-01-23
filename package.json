@@ -15,6 +15,7 @@
     "@architect/architect": "^6.0.29"
   },
   "devDependencies": {
+    "clean-css": "^4.2.1",
     "spellchecker-cli": "^4.0.2"
   }
 }

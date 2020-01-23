@@ -1,4 +1,5 @@
 module.exports = function layout(params) {
+  console.log(params)
   return `<!doctype html>
 <html>
 <head>
@@ -8,7 +9,6 @@ module.exports = function layout(params) {
 <body>
 <nav>
   <a href=/>home</a>
-  <a href=/curriculum>curriculum</a>
   <a href=/instructors>instructors</a>
   <a href=/signup>sign up</a>
   <a href=/jargon>jargon</a>
