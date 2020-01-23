@@ -1,3 +1,7 @@
+IAM
+statusCode
+proxied
+CORS
 ACM
 Coldstart
 frontend

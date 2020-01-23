@@ -48,8 +48,8 @@ div > main {
     </blockquote>
     <ul>
       <li><a href="/basic/static"><code>@static</code> assets with S3</a></li>
-      <li><a href="/basic/http"><code>@http</code> functions with API Gateway</a></li>
       <li><a href="/basic/cdn"><code>@cdn</code> with CloudFront</a></li>
+      <li><a href="/basic/http"><code>@http</code> functions with API Gateway</a></li>
       <li><a href="/basic/dns"><code>@domains</code> with Route53 and ACM</a></li>
     </ul>
 
