@@ -3,9 +3,11 @@ layout: sidebar.11ty.js
 title: FASTstack training
 ---
 
-# Hello world by runtime
+# Exercise 💯: hello world by runtime
 
 > Note: any runtime can be supported with Lambda layers
+
+In this exercise build and preview as many of the different runtime starter applications as you can!
 
 - Static
 - Node
@@ -50,7 +52,7 @@ arc sandbox
 An HTTP function with Ruby
 
 ```bash
-arc init --runtime deno ./my-ruby-app 
+arc init --runtime ruby ./my-ruby-app 
 cd ./my-ruby-app
 arc sandbox
 ```
@@ -60,7 +62,7 @@ arc sandbox
 An HTTP function with Python
 
 ```bash
-arc init --runtime deno ./my-python-app 
-cd ./my-python-app
+arc init --runtime python ./mypy 
+cd ./mypy
 arc sandbox
 ```

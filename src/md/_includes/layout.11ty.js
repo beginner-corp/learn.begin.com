@@ -9,6 +9,7 @@ module.exports = function layout(params) {
 <body>
 <nav>
   <a href=/>home</a>
+  <a href=/faq>faq</a>
   <a href=/instructors>instructors</a>
   <a href=/signup>sign up</a>
   <a href=/jargon>jargon</a>

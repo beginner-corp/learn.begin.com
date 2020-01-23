@@ -20,6 +20,7 @@ div > main {
 <body>
 <nav>
   <a href=/>home</a>
+  <a href=/faq>faq</a>
   <a href=/instructors>instructors</a>
   <a href=/signup>sign up</a>
   <a href=/jargon>jargon</a>
@@ -32,10 +33,9 @@ div > main {
       <p>Getting started with serverless (1 hour)</p>
     </blockquote>
     <ul>
-      <li><a href="/foundations/why">Why be serverless?</a></li>
-      <li><a href="/foundations/why-arc">Why choose Architect</a></li>
       <li><a href="/foundations/setup">Setup</a></li>
        <li><a href="/foundations/hello-world">Hello world</a></li>
+       <li><a href="/foundations/iac">Infra as Code</a></li>
       <li><a href="/foundations/local-dev">Local development</a></li>
       <li><a href="/foundations/sharing-code">Sharing code</a></li>
       <li><a href="/foundations/deployment">Deployment</a></li>

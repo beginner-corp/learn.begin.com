@@ -17,6 +17,8 @@ Run with `arc sandbox` or require the module directly in Node for test suites.
 
 Currently writing tests is best supported with Node because you can interact with the sandbox directly however tests can be written with other languages by shelling out to `arc sandbox` in a child process. For the exercises we will use Node but you are encouraged to use other languages and we would appreciate contributions to port these exercises to other languages!
 
+---
+
 ### Exercise 101: setup a basic testing rig
 
 

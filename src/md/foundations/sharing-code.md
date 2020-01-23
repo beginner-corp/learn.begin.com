@@ -39,3 +39,8 @@ Architect hydrates dependency manifests in `src/**/*` for the following runtimes
 - *Deno* looks for `deps.ts` and dependencies are vendored in `.deno_dir`
 - *Ruby* looks for `Gemfile` in `src` and dependencies are vendored in `./vendor`
 - *Python* look for `requirements.txt` in `src` and dependencies are vendored in `./vendor`
+
+---
+### Exercise 102: add a layout
+
+Create an Architect application with two HTTP routes and a global layout in `src/views`.

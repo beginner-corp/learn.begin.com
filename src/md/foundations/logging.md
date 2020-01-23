@@ -17,3 +17,5 @@ To read production logs run:
 arc logs production src/http/get-index
 ```
 
+---
+### Exercise 104: add logs to an app and read them through the command line
