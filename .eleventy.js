@@ -5,7 +5,9 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPlugin(syntaxHighlight)
 
-	eleventyConfig.addFilter("cssmin", function(code) {
+  eleventyConfig.addPassthroughCopy({'src/css': 'css'})
+
+ 	eleventyConfig.addFilter("cssmin", function(code) {
 		if (process.env.NODE_ENV === 'production') {
 			return new CleanCSS({}).minify(code).styles
 		}
