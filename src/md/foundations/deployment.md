@@ -55,7 +55,7 @@ git push origin master
 
 Git tags deploy to production.
 
-```
+```bash
 npm version patch 
 git push origin master
 ```

@@ -54,10 +54,10 @@ module.exports = function layout(params) {
       <p>Techniques for modern web delivery (1 hour)</p>
     </blockquote>
     <ul>
-      <li><a href="/patterns/ssg" class=${params.page.url === '/patterns/ssg/'? 'active' : ''}>Static site generators</a></li>
-      <li><a href="/patterns/spa" class=${params.page.url === '/patterns/spa/'? 'active' : ''}>Single page apps</a></li>
-      <li><a href="/patterns/esm" class=${params.page.url === '/patterns/esm/'? 'active' : ''}>Deploy esmodules and progressive bundling</a></li>
-      <li><a href="/patterns/ssr" class=${params.page.url === '/patterns/ssr/'? 'active' : ''}>Master serverless side rendering</a></li>
+      <li><a href=/patterns/ssg class=${params.page.url === '/patterns/ssg/'? 'active' : ''}>Static site generators</a></li>
+      <li><a href=/patterns/spa class=${params.page.url === '/patterns/spa/'? 'active' : ''}>Single page apps</a></li>
+      <li><a href=/patterns/esm class=${params.page.url === '/patterns/esm/'? 'active' : ''}>Deploy esmodules and progressive bundling</a></li>
+      <li><a href=/patterns/ssr class=${params.page.url === '/patterns/ssr/'? 'active' : ''}>Master serverless side rendering</a></li>
     </ul>
 
     <hr>
@@ -67,10 +67,10 @@ module.exports = function layout(params) {
       <p>Reading and writing structured data (1 hour)</p>
     </blockquote>
     <ul>
-      <li><a href="/storage/why">Why choose DynamoDB?</a></li>
-      <li><a href="/storage/begin-data"><code>@begin/data</code> simplified DynamoDB</a></li>
-      <li><a href="/storage/tables">DynamoDB low level</a></li>
-      <li><a href="/storage/streams">Streams</a></li>
+      <li><a href=/storage/why-dynamo class=${params.page.url === '/storage/why-dynamo/'? 'active' : ''}>Why choose DynamoDB?</a></li>
+      <li><a href=/storage/begin-data class=${params.page.url === '/storage/begin-data/'? 'active' : ''}><code>@begin/data</code> simplified DynamoDB</a></li>
+      <li><a href=/storage/tables     class=${params.page.url === '/storage/tables/'? 'active' : ''}><code>@tables</code> and <code>@indexes</code></a></li>
+      <li><a href=/storage/streams    class=${params.page.url === '/storage/streams/'? 'active' : ''}>DynamoDB Streams</a></li>
     </ul>
 
     <hr>
@@ -80,13 +80,13 @@ module.exports = function layout(params) {
       <p>Proven techniques done serverless (2 hours)</p>
     </blockquote>
     <ul>
-      <li><a href="/advanced/forms">Forms</a></li>
-      <li><a href="/advanced/sessions">Tracking sessions</a></li>
-      <li><a href="/advanced/env">Environment variables</a></li>
-      <li><a href="/advanced/oauth">oAuth</a></li>
-      <li><a href="/advanced/rest">REST</a></li>
-      <li><a href="/advanced/graphql">GraphQL</a></li>
-      <li><a href="/final/boss/ws">Web sockets</a></li>
+      <li><a href=/advanced/forms    class=${params.page.url === '/advanced/forms/'? 'active' : ''}>Forms</a></li>
+      <li><a href=/advanced/sessions class=${params.page.url === '/advanced/sessions/'? 'active' : ''}>Tracking sessions</a></li>
+      <li><a href=/advanced/env      class=${params.page.url === '/advanced/env/'? 'active' : ''}>Environment variables</a></li>
+      <li><a href=/advanced/oauth    class=${params.page.url === '/advanced/oauth/'? 'active' : ''}>oAuth</a></li>
+      <li><a href=/advanced/rest     class=${params.page.url === '/advanced/rest/'? 'active' : ''}>REST</a></li>
+      <li><a href=/advanced/graphql  class=${params.page.url === '/advanced/graphql/'? 'active' : ''}>GraphQL</a></li>
+      <li><a href=/advanced/ws       class=${params.page.url === '/advanced/ws/'? 'active' : ''}>Web sockets</a></li>
     </ul>
 
     <hr>
@@ -96,9 +96,9 @@ module.exports = function layout(params) {
       <p>Background tasks that scale to zero (1 hour)</p>
     </blockquote>
     <ul>
-      <li><a href="/async/events"><code>@events</code> with SNS and Lambda</a></li>
-      <li><a href="/async/queues"><code>@queues</code> with SQS and Lambda</a></li>
-      <li><a href="/async/scheduled"><code>@scheduled</code> with EventBridge and Lambda</a></li>
+      <li><a href=/async/events    class=${params.page.url === '/async/events/'? 'active' : ''}><code>@events</code> with SNS and Lambda</a></li>
+      <li><a href=/async/queues    class=${params.page.url === '/async/queues/'? 'active' : ''}><code>@queues</code> with SQS and Lambda</a></li>
+      <li><a href=/async/scheduled class=${params.page.url === '/async/scheduled/'? 'active' : ''}><code>@scheduled</code> with EventBridge and Lambda</a></li>
     </ul>
 
     <hr>
@@ -108,12 +108,15 @@ module.exports = function layout(params) {
       <p>Extend into raw CloudFormation to access any AWS service (? hours)</p>
     </blockquote>
     <ul>
-      <li><a href="/final/boss/macros">Macros</a></li>
+      <li><a href=/final/boss/macros class=${params.page.url === '/final/boss/macros/'? 'active' : ''}><code>@macros</code></a></li>
     </ul>
   </section>
 
   <main>${params.content}</main>
 </div>
+<footer>
+  <a href=https://github.com/smallwins/training.begin.com/blob/master/${params.page.inputPath}>Edit this page on GitHub</a>
+</footer>
 </body>
 </html>`
 }

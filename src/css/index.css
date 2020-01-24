@@ -79,4 +79,16 @@ section hr {
 div > main {
   flex-grow: 1;
   width: 100%;
+  padding: 10px 20px;
+}
+
+main p code,
+main li code {
+  background: #f8f8fa;
+  border: 2px dotted lightgrey;
+  border-radius: 5px;
+  padding: 2px;
+}
+footer {
+  text-align: center;
 }
