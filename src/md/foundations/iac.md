@@ -22,7 +22,7 @@ Architect takes the developer defined high level definition and compiles it into
 
 A common hello world `.arc` file:
 
-```arc
+```
 @app
 myapp
 
