@@ -1,9 +1,8 @@
 @app
-tacos-tlh
+trees-j4e
 
 @static
 folder _site
-spa false
 
 @http
 post /notify
