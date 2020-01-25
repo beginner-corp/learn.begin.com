@@ -16,7 +16,12 @@ module.exports = function layout(params) {
   <a href=/signup class=${params.page.url === '/signup/'? 'active' : ''}>sign up</a>
   <a href=/jargon class=${params.page.url === '/jargon/'? 'active' : ''}>jargon</a>
 </nav>
-<main>${params.content}</main>
+<div>
+  <main>${params.content}</main>
+</div>
+<footer>
+  <a href=https://github.com/smallwins/training.begin.com/blob/master/${params.page.inputPath}>Edit this page on GitHub</a>
+</footer>
 </body>
 </html>`
 }

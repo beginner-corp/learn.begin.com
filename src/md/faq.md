@@ -14,19 +14,23 @@ title: FASTstack training
 
 ## Why serverless?
 
-Outsource undifferentiated heavy lifting to the leading provider with a track record of  operational excellence and resiliency and focus on core business value.
-- Scaling to zero to achieve 100% utilization
+The core ethos of serverless is to outsource undifferentiated work to free your business to focus on creating its own unique value. Cloud adopters agree their core business is not running data centers. And through that evolution we are now automating deployment and scaling of our code at a very discreet level. 
 
-- Acheive high quality and rapid delivery with staged delivery of small deterministic artifacts
-- Least privilege security by default
+Modern serverless apps share the following characteristics:
 
-Better iteration speed, lead time to production, bug resolution, happy software developres and even happier customers.
+- **100% utilization** This means the compute scales to zero and we only pay for the usage; there is no provisioning of instances, pods, containers, servers or vms … business logic code and/or configuration is the sole expression of unique business value 
+- **Least priv** When the runtime execution code is locked down to the least privilege security possible at a function level and by default can do nothing at all; compute execution is completely isolated at the function level with fine grained access control 
+- **Infra as Code** Progressive staged delivery of deterministic artifacts; infrastructure resources requirements are expressed alongside the code that depends on them 
+
+Only pay for what you use. Fully isolated runtime security. Shorter, more frequent and faster iterations. 
+
+Faster lead times to production means feature addition and bug resolution is faster. And this means happy software developers and happier customers.
 
 ## Why AWS?
 
-- market pioneer and leader
+- market pioneer and leader with a track record of  operational excellence and resiliency 
 - most services and capabilities
-- most points of presence
+- most points of presence and fastest network
 
 ## What is Infrastructure as Code?
 
