@@ -18,6 +18,15 @@ Defines an S3 bucket configured as a website.
 1. Create a static app
 
 ```bash
-arc 
+npm init @architect --static myapp
 ```
+
+2. Try it out
+
+```bash
+cd myapp
+arc sandbox
+```
+
+3. Deploy it
 

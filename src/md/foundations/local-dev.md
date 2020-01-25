@@ -5,11 +5,11 @@ title: FASTstack training
 
 # Local development
 
-Automated test suites are a requirement for ensuring projects stay high quality while maintaining a rapid delivery cadence. Test suites catch bugs before customers do. Test suites also prevent regressions. When you get good at testing software delivery becomes very fun. Iterations are tighter which means you arrive at solutions faster. The first principle of automated testing is staged delivery. 
+Automated test suites are a requirement for ensuring projects stay high quality while maintaining a rapid delivery cadence. Test suites catch bugs before customers do. Test suites also prevent regressions so bugs do not reappear. When you get good at testing software delivery becomes very fun. Iterations are tighter which means you arrive at solutions faster. The first principle of automated testing is staged delivery. 
 
-By default Architect projects stages are local `testing`, and `staging` or `production` environments on AWS. It is possible to deploy additional stages as independent CloudFormation stacks. 
+By default Architect projects stages are `testing`, and `staging` or `production` environments. It is possible to deploy additional stages as independent CloudFormation stacks. 
 
-Architect ships an extremely fast local development web server. It allows you to work locally, even offline, even without an AWS account and still have confidence deploying to S3, API Gateway, SQS, SNS, EventBridge, and DynamoDB. 
+Architect ships an extremely fast local development web server. It allows you to preview work locally, even offline, even without an AWS account and still have confidence deploying to S3, API Gateway, SQS, SNS, EventBridge, and DynamoDB. 
 
 Run with `arc sandbox` or require the module directly in Node for test suites.
 

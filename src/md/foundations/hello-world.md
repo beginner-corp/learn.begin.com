@@ -3,27 +3,17 @@ layout: sidebar.11ty.js
 title: FASTstack training
 ---
 
-# Exercise 💯: hello world by runtime
+# Hello world 
 
-> Note: any runtime can be supported with Lambda layers
-
-In this exercise build and preview as many of the different runtime starter applications as you can!
-
-- Static
-- Node
-- Deno
-- Ruby
-- Python
+In this exercise build and preview the different runtime starter apps you are interested in!
 
 ## Static
 
-A vanilla static website
+A plain and simple static website
 
 ```bash
-mkdir staticapp
-cd staticapp
-echo -e '@app\nstaticapp\n@static' > .arc
-arc init
+arc init --static ./my-static-app 
+cd my-static-app
 arc sandbox
 ```
 
@@ -34,7 +24,7 @@ An HTTP function with Node
 ```bash
 arc init --runtime node ./my-node-app 
 cd ./my-node-app
-arc sandbox
+npm start
 ```
 
 ## Deno

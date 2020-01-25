@@ -53,29 +53,29 @@ Architect supports many formats. The `arc.json` equivalent:
 
 ## Primitives supported
 
-Architect supports the following web primitives:
+Architect supports the following cloud resource primitives:
 
-Network:
+### Network
 
 - <code>@cdn</code> for the CloudFront CDN
 - <code>@domains</code> to define Route53 DNS
 
-HTTP and web socket functions:
+### HTTP and web socket functions
 
 - `@http` API Gateway
 - `@ws` also API Gateway
 
-Storage:
+### Storage
 
 - `@tables` and `@indexs` to configure DynamoDB
 - `@static` S3
 
-Asynchronous background tasks:
+### Asynchronous compute tasks
 
-- SQS
-- SNS
-- EventBridge
+- `@queues` SQS
+- `@events` SNS
+- `@scheduled` EventBridge
 
-Governance:
+### Governance
 
-- macros
+- `@macros`
