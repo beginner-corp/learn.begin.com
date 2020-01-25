@@ -5,11 +5,11 @@ title: FASTstack training
 
 ## Deploying with Begin.com
 
-Sign up for an account at [Begin.com](https://begin.com) with your Github account. Deploying with Begin requires `node` to work locally in the sandbox and `git` to commit code to Github. 
+Sign up for an account at [Begin.com](https://begin.com) with your GitHub account. Deploying with Begin requires `node` to work locally in the sandbox and `git` to commit code. 
 
 Code magically deploys instantly to AWS whenever you commit.
 
-> We also reccomend installing optional runtimes: Deno, Ruby 2.5 and Python3.7
+> We also recommend installing optional runtimes: Deno, Ruby 2.5 and Python3.7
 
 ## Deploying directly to AWS
 
