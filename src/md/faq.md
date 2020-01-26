@@ -7,6 +7,7 @@ title: FASTstack training
 
 - Why serverless?
 - Why AWS?
+- Why choose DynamoDB?
 - What is Infrastructure as Code (IaC)?
 - Why choose Architect?
 - How does Architect work?
@@ -31,6 +32,12 @@ Faster lead times to production means feature addition and bug resolution is fas
 - market pioneer and leader with a track record of  operational excellence and resiliency 
 - most services and capabilities
 - most points of presence and fastest network
+
+# Why choose DynamoDB?
+
+- Single digit latancy no matter now many rows you have
+- Auto scaling
+- Generous free tier
 
 ## What is Infrastructure as Code?
 

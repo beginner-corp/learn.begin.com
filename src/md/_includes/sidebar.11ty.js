@@ -6,6 +6,7 @@ module.exports = function layout(params) {
 <head>
 <title>${params.title}</title>
 <meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
 <link rel=stylesheet type=text/css href=/css/theme.css>
 <link rel=stylesheet type=text/css href=/css/index.css>
 </head>
@@ -41,10 +42,10 @@ module.exports = function layout(params) {
       <p>Building blocks for web applications (30 min)</p>
     </blockquote>
     <ul>
-      <li><a href=/basic/static class=${params.page.url === '/basic/static/'? 'active' : ''}><code>@static</code> assets with S3</a></li>
-      <li><a href=/basic/cdn class=${params.page.url === '/basic/cdn/'? 'active' : ''}><code>@cdn</code> with CloudFront</a></li>
-      <li><a href=/basic/http class=${params.page.url === '/basic/http/'? 'active' : ''}><code>@http</code> functions with API Gateway</a></li>
-      <li><a href=/basic/dns class=${params.page.url === '/basic/dns/'? 'active' : ''}><code>@domains</code> with Route53 and ACM</a></li>
+      <li><a href=/basic/static class=${params.page.url === '/basic/static/'? 'active' : ''}><code>@static</code></a></li>
+      <li><a href=/basic/http class=${params.page.url === '/basic/http/'? 'active' : ''}><code>@http</code></a></li>
+      <li><a href=/basic/cdn class=${params.page.url === '/basic/cdn/'? 'active' : ''}><code>@cdn</code></a></li>
+      <li><a href=/basic/dns class=${params.page.url === '/basic/dns/'? 'active' : ''}><code>@domains</code></a></li>
     </ul>
 
     <hr>
@@ -67,7 +68,6 @@ module.exports = function layout(params) {
       <p>Reading and writing structured data (1 hour)</p>
     </blockquote>
     <ul>
-      <li><a href=/storage/why-dynamo class=${params.page.url === '/storage/why-dynamo/'? 'active' : ''}>Why choose DynamoDB?</a></li>
       <li><a href=/storage/begin-data class=${params.page.url === '/storage/begin-data/'? 'active' : ''}><code>@begin/data</code> simplified DynamoDB</a></li>
       <li><a href=/storage/tables     class=${params.page.url === '/storage/tables/'? 'active' : ''}><code>@tables</code> and <code>@indexes</code></a></li>
       <li><a href=/storage/streams    class=${params.page.url === '/storage/streams/'? 'active' : ''}>DynamoDB Streams</a></li>

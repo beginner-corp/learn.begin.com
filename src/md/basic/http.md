@@ -5,47 +5,29 @@ title: FASTstack training
 
 # `@http`
 
-Lambda functions listening for HTTP events from API Gateway
+Often we need to run code in a backend trusted runtime process to access secure resources like databases or sensitive APIs. API Gateway lets us add Lambda functions to listening for HTTP events from the same domain as our static website.
 
 HTTP functions are defined very plainly with one route per line. A route in Architect is defined as: an HTTP verb and a path separated by a space (e.g. `get /foo/bar`).
 
-An example blogging app's Architect project manifest:
-```
+An example  project:
+
+```bash
 @app
-testapp
+mysite
 
+@static
 @http
-get /
 get /about
-get /posts/:postID
-post /login
-post /logout
-post /posts
-patch /posts/:postID
-delete /posts/:postID
+post /contact
 ```
-
 > Notice how clear it is what this app does by reviewing the .arc file
 
 This will generate the following Lambda function code:
 
-- `src/http/get-index`
 - `src/http/get-about`
-- `src/http/get-posts-000postID`
-- `src/http/post-login`
-- `src/http/post-logout`
-- `src/http/post-posts`
-- `src/http/patch-posts-000postID`
-- `src/http/delete-posts-000postID`
+- `src/http/post-contact`
 
-Many functions is a powerful feature not a bug. Consider this: a typical monolith also has many functions. The difference is monolith functions they have no isolation between them. Lambda functions can be tuned independently. This means each Lambda can be a different runtime with different disk and memory configuration. Lambdas can be secured discreetly with IAM to the least privilege. And they can also be deployed in parallel. Bug resolution is faster. That means iteration speed is better. 
+Otherwise content in `public` will be served. You can also override `get /` with a Lambda function and access static assets at `/_static`.
 
-## Behaviors
+### Exercise: add an about page and post form
 
-When `get /` is defined it will be 'greedy' and intercept 'not found' invocations. If `get /` is not defined everything is proxied to files in S3 defined by `@static`. When serverless side rendering you can access static assets from `/_static` to avoid brittle, confusing, and often insecure CORS.
-
-### Exercise: post form
-
-### Exercise: greedy web server 
-
-### Exercise: access static assets

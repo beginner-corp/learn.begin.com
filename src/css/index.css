@@ -1,10 +1,23 @@
+@media only screen and (max-width: 600px) {
+  nav {
+    font-size: .8em;
+    justify-content: center;
+  }
+  div {
+    flex-direction: column-reverse;
+  }
+  div > section {
+
+  }
+}
+
 body {
   box-sizing: border-box;
   color: rgb(46, 47, 62);
   font-family: -system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-  font-size: 20px;
+  font-size: 1em;
+  line-height: 2em;
   font-weight: 400;
-  line-height: 32px;
   margin-bottom: 20px;
   margin-left: 0px;
   margin-right: 0px;
@@ -33,7 +46,6 @@ div {
 }
 
 div > section {
-  width: 530px;
   background: #f8f8fa;
   border-right: 20px solid white;
   padding: 20px;

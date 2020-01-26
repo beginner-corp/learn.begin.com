@@ -1,4 +1,12 @@
 CLI
+S3
+SSR
+JSX
+TSX
+CRON
+backend
+Rollup
+clientside
 CDN
 DNS
 s3-bucket

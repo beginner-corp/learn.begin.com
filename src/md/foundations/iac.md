@@ -22,7 +22,7 @@ Architect takes the developer defined high level definition and compiles it into
 
 A common hello world `.arc` file:
 
-```
+```bash
 @app
 myapp
 
@@ -74,8 +74,8 @@ Architect supports the following cloud resource primitives:
 
 - `@queues` SQS
 - `@events` SNS
-- `@scheduled` EventBridge
+- `@scheduled` EventBridge <small>(aka "CRON Lambdas")</small>
 
 ### Governance
 
-- `@macros`
+- `@macros` allow you to modify the generated CloudFormation before deployment to change any default behavior or add additional AWS resources

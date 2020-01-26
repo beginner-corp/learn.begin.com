@@ -5,15 +5,7 @@ title: FASTstack training
 
 # `@static`
 
-Defines an S3 bucket configured as a website. 
-
-## Configuration options
-
-- `folder` change the deployment folder from `/public`
-- `fingerprint` toggle static asset file fingerprinting
-- `ignore` ignore files from fingerprinting
-
-### Exercise: deploy a static website
+ Host static assets with S3. `@static` defines an S3 bucket configured as a website. 
 
 1. Create a static app
 

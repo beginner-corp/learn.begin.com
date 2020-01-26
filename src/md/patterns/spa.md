@@ -5,10 +5,5 @@ title: FASTstack training
 
 # Single page apps
 
-React
+Preact and JSX with Rollup
 
-Preact
-
-Vue
-
-Svelte

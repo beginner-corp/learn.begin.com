@@ -4,16 +4,20 @@ title: FASTstack training
 ---
 
 # For beginners 
-## Become a serverless expert 
+## Become a backend serverless expert 
 
-Learn how to build a fully serverless web application completely from scratch and become a backend developer that deploys highly scalable cloud native applications.
+Learn how to build a fully serverless web application completely from scratch. Clear explanations and step by step instructions for deploying highly scalable cloud native applications on AWS with standard SAM/CloudFormation.
 
-Course highlights
+### Course highlights
 
 - Understand the benefits and drawbacks of serverless architectures
-- Step by step implmeentation of common web patterns and best practices for production software delivery
-- Leveraging the OpenJS Architect project to work locally and deploy to AWS with standard SAM/CloudFormation
-- Deploy static sites, single pages apps and serverless side rendered apps 
+- Contrast a Single Page App vs Serverless Side Rendered app with JSX and Preact
 - Compose AWS Lambda, API Gateway, DynamoDB into dynamic REST and GraphQL APIs
-- Building a realtime evented serverless app with web sockets
+- Build a realtime serverless Web Sockets app
 
+### Join the community
+
+Come to get help, ask questions and provide suggestions for ways we can improve.
+
+- Star [`@architect/architect`](https://github.com/architect/architect) on GitHub
+- [Come chat in Slack](https://join.slack.com/t/architecture-as-text/shared_invite/MjE2MzU4Nzg0NTY1LTE1MDA2NzgyMzYtODE2NzRkOGRmYw) 

@@ -9,6 +9,7 @@ title: FASTstack training
 - artifact (build artifact)
 - Blast radius
 - Coldstart
+- CRON Lambdas
 - declarative
 - determinism
 - FASTstack

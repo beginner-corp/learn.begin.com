@@ -5,3 +5,4 @@ title: FASTstack training
 
 # GraphQL
 
+coming soon

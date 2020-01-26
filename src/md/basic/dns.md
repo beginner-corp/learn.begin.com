@@ -5,4 +5,4 @@ title: FASTstack training
 
 # `@dns`
 
-
+ Setup custom domains Route53 and ACM
