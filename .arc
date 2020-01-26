@@ -6,6 +6,7 @@ folder _site
 
 @http
 post /notify
+get /login
 
 @tables
 data
