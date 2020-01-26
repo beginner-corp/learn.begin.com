@@ -5,7 +5,7 @@ title: FASTstack training
 
 # `@static`
 
- Host static assets with S3. `@static` defines an S3 bucket configured as a website. 
+`@static` defines an S3 bucket configured as a website. 
 
 1. Create a static app
 
