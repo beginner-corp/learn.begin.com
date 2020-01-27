@@ -1,15 +1,22 @@
-// Enable secure sessions, express-style middleware, and more:
-// https://docs.begin.com/en/functions/http/
-//
-// let begin = require('@architect/functions')
+let arc = require('@architect/functions')
+let data = require('@begin/data')
 
-exports.handler = async function http(req) {
-  console.log(req)
-  return {
-    status: 302,
-    headers: {
-      'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
-    },
-    location: '/'
-  }
+async function progress(req) {
+
+  if (!req.session.account)
+    return {status: 403}
+
+  if (!req.body.page)
+    return {status: 401}
+
+  let table = 'progress'
+  let key = req.session.account.id
+
+  let progress = await data.get({table, key})
+  progress[req.body.page] = true
+  await data.set({table, key, progress})
+
+  return {status: 201}
 }
+
+exports.handler = arc.http.async(progress)

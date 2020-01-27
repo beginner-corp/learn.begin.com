@@ -2,7 +2,6 @@
   "name": "begin-app-get-login",
   "dependencies": {
     "@architect/functions": "latest",
-    "@begin/data": "latest",
     "tiny-json-http": "latest"
   }
 }

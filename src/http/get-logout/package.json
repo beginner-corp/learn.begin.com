@@ -1,7 +1,6 @@
 {
   "name": "begin-app-get-logout",
   "dependencies": {
-    "@architect/functions": "latest",
-    "@begin/data": "latest"
+    "@architect/functions": "latest"
   }
 }
