@@ -3,7 +3,9 @@
   "version": "1.0.3",
   "main": "index.js",
   "scripts": {
-    "lint": "spellchecker -q -d test/dictionary.txt -f src/md/**/*.md",
+    "lint:spellcheck": "spellchecker -q -d test/dictionary.txt -f src/md/**/*.md",
+    "lint:js": "eslint src/http --fix",
+    "lint": "npm run lint:spellcheck && npm run lint:js",
     "build": "eleventy",
     "watch": "eleventy --serve",
     "start": "npm run build && ARC_STATIC_SPA=false sandbox"
@@ -15,6 +17,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "eslint": "^6.8.0",
     "spellchecker-cli": "^4.0.2"
   }
 }
