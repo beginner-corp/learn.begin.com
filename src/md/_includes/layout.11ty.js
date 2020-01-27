@@ -13,7 +13,6 @@ module.exports = function layout(params) {
   <a href=/faq class=${params.page.url === '/faq'? 'active' : ''}>faq</a>
   <a href=/instructors class=${params.page.url === '/instructors'? 'active' : ''}>instructors</a>
   <a href=/jargon class=${params.page.url === '/jargon'? 'active' : ''}>jargon</a>
-  <a href=/login class=${params.page.url === '/login'? 'active' : ''}>login</a>
 </nav>
 <div>
   <main>${params.content}</main>

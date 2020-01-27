@@ -1,17 +1,29 @@
+let arc = require('@architect/functions')
 let data = require('@begin/data')
 
-exports.handler = async function http(req) {
-  if (!req.session.loggedIn) {
+async function api(req) {
+  if (!req.session.account) {
+    let client_id = process.env.GITHUB_CLIENT_ID
+    let redirect_uri = process.env.GITHUB_REDIRECT
     return {
       statusCode: 403,
-      body: JSON.stringify({authorized: false})
+      body: JSON.stringify({
+        authorized: false, 
+        href: `https://github.com/login/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}`
+      })
     }
   }
   else {
-    let result = await data.get({table: 'progress-${account.id}'})
+    let table = 'progress'
+    let key = req.session.account.id
+    let result = await data.get({table, key})
     return {
-      statusCode: 200,
-      body: JSON.stringify(result)
+      body: JSON.stringify({
+        authorized: true,
+        progress: result || {}
+      })
     }
   }
 }
+
+exports.handler = arc.http.async(api)

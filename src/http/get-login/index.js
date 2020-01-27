@@ -1,9 +1,17 @@
-exports.handler = async function http(req) {
-  return {
-    headers: {
-      'content-type': 'text/html; charset=utf8',
-      'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
-    },
-    body: `<pre>${JSON.stringify(req, null, 2)}`
+let arc = require('@architect/functions')
+let github = require('./github')
+
+async function login(req) {
+  if (req.query.code) {
+    let account = await github(req)
+    return {
+      session: {account},
+      location: '/'
+    } 
+  }
+  else {
+    return {location: '/?authorized=false'}
   }
 }
+
+exports.handler = arc.http.async(login)
