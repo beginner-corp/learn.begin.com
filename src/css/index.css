@@ -6,9 +6,6 @@
   div {
     flex-direction: column-reverse;
   }
-  div > section {
-
-  }
 }
 
 body {
@@ -32,7 +29,7 @@ nav {
 nav a {
   color: grey;
   text-decoration: none;
-  margin: 10px;
+  margin: 7px;
 }
 
 nav a.active,
@@ -100,6 +97,45 @@ main li code {
   border-radius: 5px;
   padding: 2px;
 }
+
+form {
+  display: flex;
+  border: 2px dotted lightblue;
+  background: azure;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+form label {
+  font-size: 1.3em;
+  color: lightsteelblue;
+  cursor: pointer;
+  width: 100%;
+}
+
 footer {
   text-align: center;
+}
+
+#popup {
+  position: absolute;
+  flex-direction: column;
+  top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 220px;
+  background: white;
+  padding: 50px;
+  box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+#popup img {
+  width: 100px;
+  border-radius: 100px;
+  border: 5px solid lightgrey;
+  margin-left: auto;
+  margin-right: auto;
 }

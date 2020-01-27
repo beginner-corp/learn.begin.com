@@ -5,8 +5,8 @@ module.exports = function layout(params) {
 <title>${params.title}</title>
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
-<link rel=stylesheet type=text/css href=/css/theme.css>
-<link rel=stylesheet type=text/css href=/css/index.css>
+<link rel=stylesheet type=text/css href=/_static/css/theme.css>
+<link rel=stylesheet type=text/css href=/_static/css/index.css>
 </head>
 <body>
 <nav>
@@ -24,8 +24,8 @@ module.exports = function layout(params) {
     </blockquote>
     <ul>
       <li><a href=/foundations/setup class=${params.page.url === '/foundations/setup/'? 'active' : ''}>Setup</a></li>
-       <li><a href=/foundations/hello-world class=${params.page.url === '/foundations/hello-world/'? 'active' : ''}>Hello world</a></li>
-       <li><a href=/foundations/iac class=${params.page.url === '/foundations/iac/'? 'active' : ''}>Infra as Code</a></li>
+      <li><a href=/foundations/hello-world class=${params.page.url === '/foundations/hello-world/'? 'active' : ''}>Hello world</a></li>
+      <li><a href=/foundations/iac class=${params.page.url === '/foundations/iac/'? 'active' : ''}>Infra as Code</a></li>
       <li><a href=/foundations/local-dev class=${params.page.url === '/foundations/local-dev/'? 'active' : ''}>Local development</a></li>
       <li><a href=/foundations/sharing-code class=${params.page.url === '/foundations/sharing-code/'? 'active' : ''}>Sharing code</a></li>
       <li><a href=/foundations/deployment class=${params.page.url === '/foundations/deployment/'? 'active' : ''}>Deployment</a></li>
@@ -114,7 +114,7 @@ module.exports = function layout(params) {
 <footer>
   <a href=https://github.com/smallwins/training.begin.com/blob/master/${params.page.inputPath}>Edit this page on GitHub</a>
 </footer>
-<script type=module src=/js/index.js></script>
+<script type=module src=/_static/js/index.js></script>
 </body>
 </html>`
 }

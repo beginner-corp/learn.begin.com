@@ -19,6 +19,11 @@ async function api(req) {
     let result = await data.get({table, key})
     return {
       body: JSON.stringify({
+        account: {
+          name: req.session.account.name,
+          login: req.session.account.login,
+          avatar: req.session.account.avatar
+        },
         authorized: true,
         progress: result || {}
       })
