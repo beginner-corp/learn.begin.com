@@ -14,7 +14,7 @@
 body {
   box-sizing: border-box;
   color: rgb(46, 47, 62);
-  font-family: -system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-family: -system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   font-size: 1em;
   line-height: 2em;
   font-weight: 400;
@@ -47,7 +47,8 @@ div {
 
 div > section {
   background: #f8f8fa;
-  border-right: 20px solid white;
+  margin-right: 20px solid white;
+  min-width: 25%;
   padding: 20px;
   font-size: 15px;
   font-weight: 400;
@@ -89,7 +90,6 @@ section hr {
 
 div > main {
   flex-grow: 1;
-  width: 100%;
   padding: 10px 20px;
 }
 

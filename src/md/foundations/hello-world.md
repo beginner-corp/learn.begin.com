@@ -5,7 +5,7 @@ title: FASTstack training
 
 # Hello world 
 
-In this exercise build and preview the different runtime starter apps you are interested in!
+Architect supports building static web apps alongside backend runtimes Node, Deno, Ruby and Python. You can even mix all these things in the same app. In this exercise build and preview all the different runtime starter apps you are interested in!
 
 ## Static
 

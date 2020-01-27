@@ -1,6 +1,4 @@
 module.exports = function layout(params) {
-  console.log(Object.keys(params))
-
   return `<!doctype html>
 <html>
 <head>
@@ -15,8 +13,8 @@ module.exports = function layout(params) {
   <a href=/ class=${params.page.url === '/'? 'active' : ''}>home</a>
   <a href=/faq class=${params.page.url === '/faq'? 'active' : ''}>faq</a>
   <a href=/instructors class=${params.page.url === '/instructors'? 'active' : ''}>instructors</a>
-  <a href=/signup class=${params.page.url === '/signup'? 'active' : ''}>sign up</a>
   <a href=/jargon class=${params.page.url === '/jargon'? 'active' : ''}>jargon</a>
+  <a href=/login class=${params.page.url === '/login'? 'active' : ''}>login</a>
 </nav>
 <div>
   <section>
@@ -96,9 +94,9 @@ module.exports = function layout(params) {
       <p>Background tasks that scale to zero (1 hour)</p>
     </blockquote>
     <ul>
-      <li><a href=/async/events    class=${params.page.url === '/async/events/'? 'active' : ''}><code>@events</code> with SNS and Lambda</a></li>
-      <li><a href=/async/queues    class=${params.page.url === '/async/queues/'? 'active' : ''}><code>@queues</code> with SQS and Lambda</a></li>
-      <li><a href=/async/scheduled class=${params.page.url === '/async/scheduled/'? 'active' : ''}><code>@scheduled</code> with EventBridge and Lambda</a></li>
+      <li><a href=/async/events    class=${params.page.url === '/async/events/'? 'active' : ''}><code>@events</code></a></li>
+      <li><a href=/async/queues    class=${params.page.url === '/async/queues/'? 'active' : ''}><code>@queues</code></a></li>
+      <li><a href=/async/scheduled class=${params.page.url === '/async/scheduled/'? 'active' : ''}><code>@scheduled</code></a></li>
     </ul>
 
     <hr>
@@ -117,6 +115,7 @@ module.exports = function layout(params) {
 <footer>
   <a href=https://github.com/smallwins/training.begin.com/blob/master/${params.page.inputPath}>Edit this page on GitHub</a>
 </footer>
+<script type=module src=/js/index.js></script>
 </body>
 </html>`
 }

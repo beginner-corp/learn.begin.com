@@ -1,5 +1,4 @@
 module.exports = function layout(params) {
-  //console.log(params)
   return `<!doctype html>
 <html>
 <head>
@@ -11,10 +10,10 @@ module.exports = function layout(params) {
 <body>
 <nav>
   <a href=/ class=${params.page.url === '/'? 'active' : ''}>home</a>
-  <a href=/faq class=${params.page.url === '/faq/'? 'active' : ''}>faq</a>
-  <a href=/instructors class=${params.page.url === '/instructors/'? 'active' : ''}>instructors</a>
-  <a href=/signup class=${params.page.url === '/signup/'? 'active' : ''}>sign up</a>
-  <a href=/jargon class=${params.page.url === '/jargon/'? 'active' : ''}>jargon</a>
+  <a href=/faq class=${params.page.url === '/faq'? 'active' : ''}>faq</a>
+  <a href=/instructors class=${params.page.url === '/instructors'? 'active' : ''}>instructors</a>
+  <a href=/jargon class=${params.page.url === '/jargon'? 'active' : ''}>jargon</a>
+  <a href=/login class=${params.page.url === '/login'? 'active' : ''}>login</a>
 </nav>
 <div>
   <main>${params.content}</main>
@@ -22,6 +21,7 @@ module.exports = function layout(params) {
 <footer>
   <a href=https://github.com/smallwins/training.begin.com/blob/master/${params.page.inputPath}>Edit this page on GitHub</a>
 </footer>
+<script type=module src=/js/index.js></script>
 </body>
 </html>`
 }
