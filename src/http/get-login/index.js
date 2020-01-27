@@ -7,7 +7,7 @@ async function login(req) {
     return {
       session: {account},
       location: '/'
-    } 
+    }
   }
   else {
     return {location: '/?authorized=false'}

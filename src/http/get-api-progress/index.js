@@ -8,7 +8,7 @@ async function api(req) {
     return {
       statusCode: 403,
       body: JSON.stringify({
-        authorized: false, 
+        authorized: false,
         href: `https://github.com/login/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}`
       })
     }
