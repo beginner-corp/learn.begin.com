@@ -5,7 +5,6 @@ trees-j4e
 folder _site
 
 @http
-post /notify
 get /login
 get /api/progress
 
