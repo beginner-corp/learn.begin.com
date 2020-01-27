@@ -8,6 +8,7 @@ folder _site
 get /login
 get /api/progress
 get /logout
+post /api/progress
 
 @tables
 data
