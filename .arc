@@ -7,6 +7,7 @@ folder _site
 @http
 get /login
 get /api/progress
+get /logout
 
 @tables
 data
