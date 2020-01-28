@@ -120,6 +120,7 @@ footer {
 }
 
 #popup {
+  z-index:9999;
   position: absolute;
   flex-direction: column;
   top: 10%;
