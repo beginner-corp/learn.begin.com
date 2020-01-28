@@ -29,8 +29,8 @@ The core ethos of serverless is to outsource undifferentiated work so you can fo
 
 Modern serverless web apps share the following characteristics:
 
-- **100% utilization** This means the compute scales to zero and we only pay for the usage; there is no provisioning of instances, pods, containers, servers or vms … business logic code and/or configuration is the sole expression of unique business value 
-- **Least priv** When the runtime execution code is locked down to the least privilege security possible at a function level and by default can do nothing at all; compute execution is completely isolated at the function level with fine grained access control 
+- **100% utilization** This means the compute scales to zero and we only pay for the usage; there is no provisioning of instances, pods, containers, servers or virtual machines … business logic code and/or configuration is the sole expression of unique business value 
+- **Least privilege** When the runtime execution code is locked down to the least privilege security possible at a function level and by default can do nothing at all; compute execution is completely isolated at the function level with fine grained access control 
 - **Infra as Code** Progressive staged delivery of deterministic artifacts; infrastructure resources requirements are expressed alongside the code that depends on them 
 
 Said another way: 
@@ -48,7 +48,7 @@ This is important to you because these characteristics in tandem lead to shorter
 
 <h1 id=why-dynamo>Why choose DynamoDB?</h1>
 
-- Single digit latancy no matter now many rows you have
+- Single digit latency no matter now many rows you have
 - Auto scaling
 - Generous free tier
 
@@ -71,7 +71,7 @@ Architect is an Infra as Code (IaC) implementation for building serverless web a
 
 <h1 id=how-architect>How does Architect work?</h1>
 
-Architect implements an Infa as Code  manifest file in the following formats: `.arc`, `arc.json`, `arc.yaml` and `arc.toml`.
+Architect implements an Infrastructure as Code  manifest file in the following formats: `.arc`, `arc.json`, `arc.yaml` and `arc.toml`.
 
 Architect takes the developer defined high level definition and compiles it into CloudFormation for deployment to AWS. While the AWS cloud is vast Architect is a shortcut to using only the most common serverless service primitives you need to build a very scalable application, very rapidly and at a very low cost. 
 

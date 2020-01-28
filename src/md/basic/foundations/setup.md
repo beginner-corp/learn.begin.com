@@ -27,7 +27,7 @@ npm init @architect ./myproject
 
 Sign up for a free account at [Begin.com](https://begin.com) with your GitHub account to deploy with Git.
 
-4. Setup production deploment directly to AWS (Optional)
+4. Setup production development directly to AWS (Optional)
 
 Architect is a completely open source project so you can deploy your projects directly to your own Amazon Web Services account anytime without Begin. In order to deploy to AWS please follow these getting started guides:
 

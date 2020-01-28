@@ -22,13 +22,13 @@ async function progress(req) {
     if (!progress) {
       progress = {table, key}
     }
-    
+
     // mutate the progress record
     progress[req.body.page] = {
       complete: req.body.complete || false,
       title: req.body.title
     }
-    
+
     // save it and respond
     await data.set(progress)
 
