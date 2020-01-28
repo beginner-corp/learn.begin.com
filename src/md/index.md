@@ -1,5 +1,5 @@
 ---
-layout: sidebar.11ty.js
+layout: basic.11ty.js
 title: FASTstack training
 ---
 

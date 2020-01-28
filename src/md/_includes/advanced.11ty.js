@@ -21,8 +21,6 @@ module.exports = function layout(params) {
     <ul>
       <li><a href=/foundations/setup       class=${params.page.url === '/foundations/setup/'?       'active' : ''}>‣ Setup</a></li>
       <li><a href=/foundations/hello-world class=${params.page.url === '/foundations/hello-world/'? 'active' : ''}>‣ Hello world</a></li>
-      <li><a href=/foundations/iac         class=${params.page.url === '/foundations/iac/'?         'active' : ''}>‣ Infra as code</a></li>
-      <li><a href=/foundations/local-dev   class=${params.page.url === '/foundations/local-dev/'?   'active' : ''}>‣ Local dev</a></li>
       <li><a href=/foundations/deployment  class=${params.page.url === '/foundations/deployment/'?  'active' : ''}>‣ Deploy</a></li>
     </ul>
 

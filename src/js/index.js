@@ -1,16 +1,16 @@
-// global state bag
+// global state bag; everything renders from this 
 window.STATE = {}
 
-// init the app
+// init the app by reading state
 document.addEventListener('DOMContentLoaded', async function main() {
   let request = await fetch('/api/progress')
   window.STATE = await request.json()
   return render()
 }, false)
 
-// prog enhance
+// prog enhancement yall
 async function render() {
-  // render the markup and reg event listeners
+  // render the markup 
   await Promise.all([
     Nav(),
     Form(),
@@ -38,6 +38,7 @@ async function Nav() {
   }
 }
 
+// couple of helper strings we reuse a bit 
 let on = 'Page complete. Way to go!'
 let off = '☜ Mark this page as complete'
 
@@ -45,10 +46,10 @@ let off = '☜ Mark this page as complete'
 async function Form() {
   let state = window.STATE
   let depth = window.location.pathname.split('/').filter(Boolean).length
-  if (state.authorized && depth === 2) {
+  if (state.authorized && depth === 3) {
 
     let page = window.location.pathname
-    let complete = !!state.progress[page]
+    let complete = state.progress[page] && state.progress[page].complete
 
     document.querySelector('main').innerHTML += `
       <form id=progress action=/api/progress method=post>
@@ -65,11 +66,29 @@ async function Popup() {
   let state = window.STATE
   if (state.authorized) {
     let popup = document.getElementById('popup')
-    let copy = document.querySelector('div > section').innerHTML
+    
+    let course = {
+      basic: {foundations:0, frontend:0, state:0, backend:0}
+    }
+
+    let keys = Object.keys(state.progress).reduce((a, b) => {
+      let bits = b.split('/').filter(Boolean)
+      let course = bits.shift() // discard for now while there is only one course
+      let section = bits.shift()
+      if (!a[section])
+        a[section] = 0
+      a[section] += 1 
+      return a
+    }, {})
+
+    let html = ''
+    for (let section of Object.keys(course.basic)) {
+      html += `<li><b>${section}</b> ${ keys[section] || 0 } of 3</li>`
+    }
     popup.innerHTML = `
       <img src=${state.account.avatar}>
       <h3>${state.account.name}</h3>
-      ${copy}
+      <ul>${html}</ul>
     `
   }
 }
@@ -78,11 +97,11 @@ async function Popup() {
 async function Checks() {
   let state = window.STATE
   let depth = window.location.pathname.split('/').filter(Boolean).length
-  if (state.authorized && depth <= 2) {
+  if (state.authorized && depth <= 3) {
     let els = document.querySelectorAll('div > section > ul > li > a')
     for (let el of els) {
       let path = (new URL(el.href)).pathname
-      let txt = state.progress[path]? el.innerText.replace('‣', '✔') : el.innerText.replace('✔', '‣')
+      let txt = state.progress[path] && state.progress[path].complete? el.innerText.replace('‣', '✔') : el.innerText.replace('✔', '‣')
       el.innerText = txt
     } 
   }
@@ -104,19 +123,28 @@ async function SaveProgress() {
   let check = form[1]
   let label = form.children[2]
   check.onchange = async function change(e) {
+    // collect the data we need
     let page = window.location.pathname
     let complete = this.checked
+    let title = document.querySelector('h1').innerText
+    // optimistic update the label
     label.innerHTML = complete? on : off
+    // save the data
     let path = (new URL(form.action)).pathname
     let request = await fetch(path, {
       method: 'post',
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify({page, complete})
+      body: JSON.stringify({page, complete, title})
     })
+    // updates state
     let json = await request.json()
     window.STATE.progress = json.progress
-    await Promise.all([Checks(), Popup()])
+    // re-render
+    await Promise.all([
+      Checks(), 
+      Popup()
+    ])
   }
 }
