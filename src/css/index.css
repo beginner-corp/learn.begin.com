@@ -100,6 +100,11 @@ main li code {
   padding: 2px;
 }
 
+main hr {
+  margin: 20px 0;
+  border: 2px solid lightgrey;
+}
+
 form {
   display: flex;
   border: 2px dotted lightblue;

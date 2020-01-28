@@ -5,9 +5,13 @@ title: serverless web dev training with architect
 
 # Hello world 
 
-Begin.com supports building static web apps alongside the popular backend JS runtimes Node and Deno. You can even mix all these things in the same app. In this exercise build and preview all the different runtime starter apps you are interested in!
+Begin.com supports building static web apps alongside the popular backend JS runtimes Node and Deno. You can even mix all these things in the same app. 
 
-## Static
+## Exercise 1: preview in the browser
+
+Build and preview all the different runtime starter apps you are interested in!
+
+### Static
 
 A plain and simple static website
 
@@ -17,7 +21,7 @@ cd my-static-app
 arc sandbox
 ```
 
-## Node
+### Node
 
 An HTTP function with Node
 
@@ -27,7 +31,7 @@ cd ./my-node-app
 npm start
 ```
 
-## Deno
+### Deno
 
 An HTTP function with Deno
 
@@ -37,25 +41,53 @@ cd ./my-deno-app
 arc sandbox
 ```
 
-<!--
-## Ruby
+---
 
-An HTTP function with Ruby
+## Exercise 2: setup testing
 
-```bash
-arc init --runtime ruby ./my-ruby-app 
-cd ./my-ruby-app
-arc sandbox
-```
-
-## Python 
-
-An HTTP function with Python
+1. Generate an app 
 
 ```bash
-arc init --runtime python ./mypy 
-cd ./mypy
-arc sandbox
+arc init --node ./myapp` 
+cd myapp
 ```
 
--->
+2. Install testing tools `npm i tape tap-spec -D`
+
+3. Add to `package.json` 
+
+```javascript
+{
+  "scripts": {
+    "test": "tape test/index-test.js | tap-spec"
+  }
+}
+```
+
+4. Add the test scaffolding
+
+```javascript
+// example sandbox start/stop
+let sandbox = require('@architect/sandbox')
+let tape = require('tape')
+let end
+
+test('sandbox.start', async t=> {
+  t.plan(1)
+  end = await sandbox.start()
+  t.ok(true, 'start the sandbox')
+})
+
+// your tests will go here
+
+test('end', async t=> {
+  t.plan(1)
+  end()
+  t.ok(true, 'shut down sandbox')
+})
+```
+
+5. Run the tests `npm t`
+
+6. Add a test to see that `http://localhost:3333` returns an HTTP statusCode 200 using `tiny-json-http`
+

@@ -37,8 +37,8 @@ module.exports = function layout(params) {
     
     <h2>Handling state</h2>
     <ul>
-      <li><a href=/basic/state/env      class=${params.page.url === '/basic/state/env/'?      'active' : ''}>‣ Environment variables</a></li>
       <li><a href=/basic/state/sessions class=${params.page.url === '/basic/state/sessions/'? 'active' : ''}>‣ Tracking sessions</a></li>
+      <li><a href=/basic/state/env      class=${params.page.url === '/basic/state/env/'?      'active' : ''}>‣ Environment variables</a></li>
       <li><a href=/basic/state/oauth    class=${params.page.url === '/basic/state/oauth/'?    'active' : ''}>‣ oAuth</a></li>
     </ul>
 

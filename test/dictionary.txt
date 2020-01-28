@@ -1,4 +1,6 @@
 dev
+bundlers
+config
 CLI
 JS
 S3
