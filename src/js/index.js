@@ -65,6 +65,18 @@ async function main() {
       })
     }
   }
+
+  // highlight checkmarks
+  if (json.authorized && depth === 2 || depth == 1) {
+    let els = document.querySelectorAll('div > section > ul > li > a')
+    for (let el of els) {
+      let path = (new URL(el.href)).pathname
+      if (json.progress[path]) {
+        let txt = el.innerText.replace('‣', '✔') 
+        el.innerText = txt
+      }
+    } 
+  }
 }
 
 document.addEventListener('DOMContentLoaded', main) 

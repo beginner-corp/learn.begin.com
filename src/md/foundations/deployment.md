@@ -7,31 +7,9 @@ title: FASTstack training
 
 There are currently three ways to deploy an Architect app to AWS:
 
-- AWS SAM or CloudFormation CLI
-- Architect CLI
 - Begin.com
-
-## Deploy with SAM
-
-Running `arc package` generates SAM/CloudFormation `sam.json` which can then be deployed by AWS SAM or AWS CLI tools.
-
-```bash
-arc package
-
-sam package \
-  --template-file sam.json \
-  --output-template-file out.yaml \
-  --s3-bucket [S3 bucket] \
-
-sam deploy 
-  --template-file out.yaml \
-  --stack-name [Stack Name] \ 
-  --s3-bucket [S3 bucket] \
-  --capabilities CAPABILITY_IAM,CAPABILITY_AUTO_EXPAND \
-  --region [AWS_REGION]
-```
-> Note: s3-bucket, stack-name and region parameters are required
-
+- Architect CLI
+- AWS SAM or CloudFormation CLI
 
 ## Deploy with Architect
 
@@ -59,6 +37,27 @@ Git tags deploy to production.
 npm version patch 
 git push origin master
 ```
+
+## Deploy with SAM
+
+Running `arc package` generates SAM/CloudFormation `sam.json` which can then be deployed by AWS SAM or AWS CLI tools.
+
+```bash
+arc package
+
+sam package \
+  --template-file sam.json \
+  --output-template-file out.yaml \
+  --s3-bucket [S3 bucket] \
+
+sam deploy 
+  --template-file out.yaml \
+  --stack-name [Stack Name] \ 
+  --s3-bucket [S3 bucket] \
+  --capabilities CAPABILITY_IAM,CAPABILITY_AUTO_EXPAND \
+  --region [AWS_REGION]
+```
+> Note: s3-bucket, stack-name and region parameters are required
 
 ---
 ### Exercise 103: deploy an app to AWS using one or more of the methods above!

@@ -5,15 +5,20 @@ title: FASTstack training
 
 # Frequently asked questions
 
-- Why serverless?
-- Why AWS?
-- Why choose DynamoDB?
-- What is Infrastructure as Code (IaC)?
-- Why choose Architect?
-- How does Architect work?
-- How does Architect compare to <code>$DEPLOY_TOOL</code>?
+- <a href=#why-serverless>Why serverless?</a>
+- <a href=#why-aws>Why AWS?</a>
+- <a href=#why-dynamo>Why choose DynamoDB?</a>
+- <a href=#what-is-iac>What is Infrastructure as Code (IaC)?</a>
+- <a href=#why-architect>Why choose Architect?</a>
+- <a href=#how-architect>How does Architect work?</a>
+- <a href=#compare>How does Architect compare to <code>$DEPLOY_TOOL</code>?</a>
 
-## Why serverless?
+- <a href=#what-resources>What cloud resources are currently supported by Architect?</a>
+- <a href=#how-to-extend>How do I extend Architect to use AWS resources not directly supported?</a>
+- <a href=#how-to-eject>How do I export `.arc` to raw CloudFormation?</a>
+- <a href=#where-are-examples>Where can I find examples?</a>
+
+<h1 id=why-serverless>Why serverless?</h1>
 
 The core ethos of serverless is to outsource undifferentiated work to free your business to focus on creating its own unique value. Cloud adopters agree their core business is not running data centers. And through that evolution we are now automating deployment and scaling of our code at a very discreet level. 
 
@@ -27,25 +32,25 @@ Only pay for what you use. Fully isolated runtime security. Shorter, more freque
 
 Faster lead times to production means feature addition and bug resolution is faster. And this means happy software developers and happier customers.
 
-## Why AWS?
+<h1 id=why-aws>Why AWS?</h1>
 
 - market pioneer and leader with a track record of  operational excellence and resiliency 
 - most services and capabilities
 - most points of presence and fastest network
 
-# Why choose DynamoDB?
+<h1 id=why-dynamo>Why choose DynamoDB?</h1>
 
 - Single digit latancy no matter now many rows you have
 - Auto scaling
 - Generous free tier
 
-## What is Infrastructure as Code?
+<h1 id=what-is-iac>What is Infrastructure as Code?</h1>
 
 Infra as Code (IaC) is like a lockfile for the cloud resources your code depends on.
 
 IaC is a practice to capture the cloud infrastructure resource requirements alongside the application code that depends on it by saving it, usually in a declarative manifest file, in version control with the code. In the most ideal scenario the code and cloud resources can be provisioned and updated from single deterministic artifact. 
 
-## Why choose Architect?
+<h1 id=why-architect>Why choose Architect?</h1>
 
 Architect is an Infra as Code (IaC) implementation for building serverless web apps. 
 
@@ -56,18 +61,21 @@ Architect is an Infra as Code (IaC) implementation for building serverless web a
 - Solid, helpful and growing community
 - Deployments are standard AWS SAM and CloudFormation (eject and bail to vanilla SAM anytime or stay high level)
 
-## How does Architect work?
+<h1 id=how-architect>How does Architect work?</h1>
 
-Architect implements a manifest file in the following formats:
-
-- `.arc`
-- `arc.json` 
-- `arc.yaml` 
-- `arc.toml`
+Architect implements an Infa as Code  manifest file in the following formats: `.arc`, `arc.json`, `arc.yaml` and `arc.toml`.
 
 Architect takes the developer defined high level definition and compiles it into CloudFormation for deployment to AWS. While the AWS cloud is vast Architect is a shortcut to using only the most common serverless service primitives you need to build a very scalable application, very rapidly and at a very low cost. 
 
-One way to think cloud resources is in the following categories:
+<h1 id=compare>Compared to…?</h1>
+
+- K8s/Docker: containers are not serverless when the smallest unit of compute is running a literal web server
+- Terraform: wide support for older monolithic architectures and, while possible, serverless is not a first class citizen missing things like local development workflows
+- Serverless, mature tool with wide support to many platforms and capabilities but without deep support for web use cases; things like local development are an after thought
+
+<h1 id=what-resources>What cloud resources are currently supported by Architect?</h1>
+
+Architect curates AWS to the minimum essential complexity so you can focus on shipping your app. It selects services that are serverless, scale to zero and have generous free tiers. 
 
 ### Compute resources
 <details>
@@ -115,18 +123,14 @@ One way to think cloud resources is in the following categories:
   <p>Defines Route53 records for <code>@static</code>, <code>@http</code> and <code>@ws</code></p>
 </details>
 
-### Governance resources
+<h1 id=how-to-extend>How do I extend Architect to use AWS resources not directly supported?</h1>
 
+Architect has a capability called `@macros` that allow you to intercept and modify generated CloudFormation prior to deployment. You can change any Architect defaults and extend it into any AWS service supported by CloudFormation.
 
-<details>
-  <summary><code>@macros</code></summary>
-  <p>Modify generated CloudFormation before deployment. This enables adding, removing or changing any Architect defaults.</p>
-  <p>Under the hood applications will need *service discovery* and a *security model*. Architect uses environment variables and SSM parameters to store the human readable resource names (like table names) and map them to the CloudFormation generated resource names at runtime. Architect also automatically generates the neccessary IAM configuration for a least privilege role for the application compute layer. Macros are an escape hatch to change or add to any of this behavior. </p>
-</details>
+<h1 id=how-to-eject>How do I export `.arc` to raw CloudFormation?</h1>
 
-## Compared to…?
+Running `arc package` will export the current `.arc` file as raw AWS CloudFormation.
 
-- K8s/Docker: containers are not serverless when the smallest unit of compute is running a literal web server
-- Terraform: wide support for older monolithic architectures and, while possible, serverless is not a first class citizen missing things like local development workflows
-- Serverless, mature tool with wide support to many platforms and capabilities but without deep support for web use cases; things like local development are an after thought
+<h1 id=where-are-examples>Where can I find examples?</h1>
 
+Check out [examples at GitHub.com/begin-examples](https://github.com/begin-examples).
