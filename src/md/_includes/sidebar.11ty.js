@@ -63,6 +63,7 @@ module.exports = function layout(params) {
 <footer>
   <a href=https://github.com/smallwins/training.begin.com/blob/master/${params.page.inputPath}>Edit this page on GitHub</a>
 </footer>
+<section id=popup style=display:none></section>
 <script type=module src=/_static/js/index.js></script>
 </body>
 </html>`
