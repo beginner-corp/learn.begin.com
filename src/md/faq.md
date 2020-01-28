@@ -5,6 +5,7 @@ title: FASTstack training
 
 # Frequently asked questions
 
+- <a href=#who-is-this-for>Who is this for?</a>
 - <a href=#why-serverless>Why serverless?</a>
 - <a href=#why-aws>Why AWS?</a>
 - <a href=#why-dynamo>Why choose DynamoDB?</a>
@@ -12,25 +13,32 @@ title: FASTstack training
 - <a href=#why-architect>Why choose Architect?</a>
 - <a href=#how-architect>How does Architect work?</a>
 - <a href=#compare>How does Architect compare to <code>$DEPLOY_TOOL</code>?</a>
-
 - <a href=#what-resources>What cloud resources are currently supported by Architect?</a>
 - <a href=#how-to-extend>How do I extend Architect to use AWS resources not directly supported?</a>
 - <a href=#how-to-eject>How do I export `.arc` to raw CloudFormation?</a>
 - <a href=#where-are-examples>Where can I find examples?</a>
 
+
+<h1 id=who-is-this-for>Who is this for?</h1>
+
+This guide is designed for web dev beginners who want to get started with building modern serverless web applications on AWS from scratch. This guide does not assume that you have any prior experience with AWS.
+
 <h1 id=why-serverless>Why serverless?</h1>
 
-The core ethos of serverless is to outsource undifferentiated work to free your business to focus on creating its own unique value. Cloud adopters agree their core business is not running data centers. And through that evolution we are now automating deployment and scaling of our code at a very discreet level. 
+The core ethos of serverless is to outsource undifferentiated work so you can focus on creating unique value. Cloud adopters agree their core business is not running data centers. And through that evolution we are now automating deployment and scaling of our code at an increasingly discreet level of granularity. 
 
-Modern serverless apps share the following characteristics:
+Modern serverless web apps share the following characteristics:
 
 - **100% utilization** This means the compute scales to zero and we only pay for the usage; there is no provisioning of instances, pods, containers, servers or vms … business logic code and/or configuration is the sole expression of unique business value 
 - **Least priv** When the runtime execution code is locked down to the least privilege security possible at a function level and by default can do nothing at all; compute execution is completely isolated at the function level with fine grained access control 
 - **Infra as Code** Progressive staged delivery of deterministic artifacts; infrastructure resources requirements are expressed alongside the code that depends on them 
 
-Only pay for what you use. Fully isolated runtime security. Shorter, more frequent and faster iterations. 
+Said another way: 
+- Only pay for what you use
+- Completely isolated and granular runtime security
+- Fully deterministic deploys
 
-Faster lead times to production means feature addition and bug resolution is faster. And this means happy software developers and happier customers.
+This is important to you because these characteristics in tandem lead to shorter, more frequent and faster iterations. Faster lead times to production means feature addition and bug resolution is faster. And this means happy software developers and happier customers.
 
 <h1 id=why-aws>Why AWS?</h1>
 

@@ -5,15 +5,11 @@ title: FASTstack training
 
 ## Deploying with Begin.com
 
-Sign up for an account at [Begin.com](https://begin.com) with your GitHub account. Deploying with Begin requires `node` to work locally in the sandbox and `git` to commit code. 
-
-Code magically deploys instantly to AWS whenever you commit.
-
-> We also recommend installing optional runtimes: Deno, Ruby 2.5 and Python3.7
+Sign up for a free account at [Begin.com](https://begin.com) with your GitHub account. Deploying with Begin requires `node` and `deno` to work locally in the sandbox and `git` to commit code. Code deploys instantly to AWS for every commit.
 
 ## Deploying directly to AWS
 
-Architect is a completely open source project so you can deploy your projects directly to your own Amazon Web Services account without Begin. Installing Architect will even work locally without an AWS account setup.
+Architect is a completely open source project so you can deploy your projects directly to your own Amazon Web Services account anytime without Begin. Installing Architect will even work locally without an AWS account setup.
 
 ### Global installation
 
@@ -31,5 +27,7 @@ npm init @architect ./myproject
 
 ### AWS Setup
 
-- AWS CLI
-- SAM CLI
+In order to deploy to AWS please follow these getting started guides:
+
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv1.html)
+- [SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)

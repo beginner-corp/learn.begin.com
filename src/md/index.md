@@ -10,7 +10,7 @@ Learn how to build a fully serverless web application completely from scratch wi
 
 ### Course highlights
 
-- Understand the benefits and drawbacks of serverless architectures
+- Understand the benefits and drawbacks of serverless architectures with Node and Deno
 - Build a Single Page App and upgrade it into a Serverless Side Rendered app with JSX and Preact
 - Learn how to compose AWS Lambda, API Gateway, DynamoDB into REST, GraphQL and web socket APIs
 

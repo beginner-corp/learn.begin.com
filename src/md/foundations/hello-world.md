@@ -5,7 +5,7 @@ title: FASTstack training
 
 # Hello world 
 
-Architect supports building static web apps alongside backend runtimes Node, Deno, Ruby and Python. You can even mix all these things in the same app. In this exercise build and preview all the different runtime starter apps you are interested in!
+Begin.com supports building static web apps alongside the popular backend JS runtimes Node and Deno. You can even mix all these things in the same app. In this exercise build and preview all the different runtime starter apps you are interested in!
 
 ## Static
 
@@ -37,6 +37,7 @@ cd ./my-deno-app
 arc sandbox
 ```
 
+<!--
 ## Ruby
 
 An HTTP function with Ruby
@@ -56,3 +57,5 @@ arc init --runtime python ./mypy
 cd ./mypy
 arc sandbox
 ```
+
+-->

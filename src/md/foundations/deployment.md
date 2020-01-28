@@ -7,23 +7,13 @@ title: FASTstack training
 
 There are currently three ways to deploy an Architect app to AWS:
 
-- Begin.com
-- Architect CLI
-- AWS SAM or CloudFormation CLI
+- <a href=#deploy-begin>Begin.com</a>
+- <a href=#deploy-arc>Architect CLI</a>
+- <a href=#deploy-sam>AWS SAM or CloudFormation CLI</a>
 
-## Deploy with Architect
+<hr>
 
-Architect deploys to a `staging` stack by default, will generate and cleanup all the required JSON, YAML and deployment bucket ceremony for you.
-
-```bash
-arc deploy
-```
-
-To manually deploy to a production stack run `arc deploy production`. 
-
-> Protip: there are many other options for Architect deployment…it is a deployment tool!
-
-## Deploy with Begin
+<h2 id=deploy-begin>Deploy with Begin.com</h2>
 
 If you've created an app using [Begin.com](https://begin.com) all you need to do is commit to master!
 
@@ -38,7 +28,24 @@ npm version patch
 git push origin master
 ```
 
-## Deploy with SAM
+That's it!
+
+---
+<h2 id=deploy-arc>Deploy with Architect</h2>
+
+Architect deploys to a `staging` stack by default, will generate and cleanup all the required JSON, YAML and deployment bucket ceremony for you.
+
+```bash
+arc deploy
+```
+
+To manually deploy to a production stack run `arc deploy production`. 
+
+> Protip: there are many other options for Architect deployment…it is a deployment tool!
+
+
+---
+<h2 id=deploy-sam>Deploy with SAM</h2>
 
 Running `arc package` generates SAM/CloudFormation `sam.json` which can then be deployed by AWS SAM or AWS CLI tools.
 

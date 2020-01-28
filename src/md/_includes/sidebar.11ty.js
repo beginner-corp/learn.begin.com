@@ -21,39 +21,36 @@ module.exports = function layout(params) {
     <ul>
       <li><a href=/foundations/setup       class=${params.page.url === '/foundations/setup/'?       'active' : ''}>‣ Setup</a></li>
       <li><a href=/foundations/hello-world class=${params.page.url === '/foundations/hello-world/'? 'active' : ''}>‣ Hello world</a></li>
-      <li><a href=/foundations/iac         class=${params.page.url === '/foundations/iac/'?         'active' : ''}>‣ Infra as Code</a></li>
-      <li><a href=/foundations/local-dev   class=${params.page.url === '/foundations/local-dev/'?   'active' : ''}>‣ Local development</a></li>
-      <li><a href=/foundations/deployment  class=${params.page.url === '/foundations/deployment/'?  'active' : ''}>‣ Deployment</a></li>
-      <li><a href=/foundations/logging     class=${params.page.url === '/foundations/logging/'?     'active' : ''}>‣ Logging</a></li>
+      <li><a href=/foundations/iac         class=${params.page.url === '/foundations/iac/'?         'active' : ''}>‣ Infra as code</a></li>
+      <li><a href=/foundations/local-dev   class=${params.page.url === '/foundations/local-dev/'?   'active' : ''}>‣ Local dev</a></li>
+      <li><a href=/foundations/deployment  class=${params.page.url === '/foundations/deployment/'?  'active' : ''}>‣ Deploy</a></li>
     </ul>
 
     <hr>
 
     <h2>Frontend patterns</h2>
     <ul>
-      <li><a href=/patterns/spa class=${params.page.url === '/patterns/spa/'? 'active' : ''}>‣ Single page apps</a></li>
-      <li><a href=/patterns/ssg class=${params.page.url === '/patterns/ssg/'? 'active' : ''}>‣ Static site generators</a></li>
-      <li><a href=/patterns/ssr class=${params.page.url === '/patterns/ssr/'? 'active' : ''}>‣ Serverless side rendering</a></li>
-      <li><a href=/patterns/esm class=${params.page.url === '/patterns/esm/'? 'active' : ''}>‣ Progressive bundling esmodules</a></li>
+      <li><a href=/frontend/spa class=${params.page.url === '/frontend/spa/'? 'active' : ''}>‣ Single page applications</a></li>
+      <li><a href=/frontend/ssg class=${params.page.url === '/frontend/ssg/'? 'active' : ''}>‣ Static site generators</a></li>
+      <li><a href=/frontend/ssr class=${params.page.url === '/frontend/ssr/'? 'active' : ''}>‣ Server side rendering</a></li>
     </ul>
 
     <hr>
     
     <h2>Handling state</h2>
     <ul>
-      <li><a href=/advanced/forms    class=${params.page.url === '/advanced/forms/'?    'active' : ''}>‣ Forms</a></li>
-      <li><a href=/advanced/sessions class=${params.page.url === '/advanced/sessions/'? 'active' : ''}>‣ Tracking sessions</a></li>
-      <li><a href=/advanced/env      class=${params.page.url === '/advanced/env/'?      'active' : ''}>‣ Environment variables</a></li>
-      <li><a href=/advanced/oauth    class=${params.page.url === '/advanced/oauth/'?    'active' : ''}>‣ oAuth</a></li>
+      <li><a href=/state/env      class=${params.page.url === '/state/env/'?      'active' : ''}>‣ Environment variables</a></li>
+      <li><a href=/state/sessions class=${params.page.url === '/state/sessions/'? 'active' : ''}>‣ Tracking sessions</a></li>
+      <li><a href=/state/oauth    class=${params.page.url === '/state/oauth/'?    'active' : ''}>‣ oAuth</a></li>
     </ul>
 
     <hr>
 
     <h2>Backend patterns</h2>
     <ul>
-      <li><a href=/advanced/rest    class=${params.page.url === '/advanced/rest/'?    'active' : ''}>‣ REST</a></li>
-      <li><a href=/advanced/graphql class=${params.page.url === '/advanced/graphql/'? 'active' : ''}>‣ GraphQL</a></li>
-      <li><a href=/advanced/ws      class=${params.page.url === '/advanced/ws/'?      'active' : ''}>‣ Web sockets</a></li>
+      <li><a href=/backend/rest    class=${params.page.url === '/backend/rest/'?    'active' : ''}>‣ REST</a></li>
+      <li><a href=/backend/graphql class=${params.page.url === '/backend/graphql/'? 'active' : ''}>‣ GraphQL</a></li>
+      <li><a href=/backend/ws      class=${params.page.url === '/backend/ws/'?      'active' : ''}>‣ Web sockets</a></li>
     </ul>
 
   </section>

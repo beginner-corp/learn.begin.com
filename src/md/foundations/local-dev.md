@@ -5,20 +5,13 @@ title: FASTstack training
 
 # Local development
 
-Automated test suites are a requirement for ensuring projects stay high quality while maintaining a rapid delivery cadence. Test suites catch bugs before customers do. Test suites also prevent regressions so bugs do not reappear. Iterations become tighter which means we can arrive at solutions faster. The first principle of automated testing is staged delivery. 
+Automated test suites are a requirement for ensuring projects stay high quality while maintaining a rapid delivery cadence. Test suites catch bugs before customers do. Test suites also prevent regressions so bugs do not reappear. Iterations become tighter which means we can arrive at solutions faster. 
 
-By default Architect project stages are `testing`, and `staging` or `production` environments. It is possible to deploy additional stages as independent CloudFormation stacks. 
-
-Architect ships an extremely fast local development web server. It allows you to preview work locally, even offline, even without an AWS account and still have confidence deploying to S3, API Gateway, SQS, SNS, EventBridge, and DynamoDB will work as expected. 
+The first principle of automated testing is staged delivery to discreet but identical environments. Architect projects have `testing`, `staging` and `production` environments. Architect ships an extremely fast local development web server to preview work locally, even offline, without an AWS account and still have confidence deploying to S3, API Gateway, SQS, SNS, EventBridge, and DynamoDB will work as expected. 
 
 Run with `arc sandbox` or require the module directly in Node for test suites.
 
-## Testing
-
-Currently writing tests is best supported with Node because you can interact with the sandbox directly however tests can be written with other languages by shelling out to `arc sandbox` in a child process. For the exercises we will use Node but you are encouraged to use other languages and we would appreciate contributions to port these exercises to other languages!
-
 ---
-
 ### Exercise 101: setup a basic testing rig
 
 
