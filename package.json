@@ -1,6 +1,6 @@
 {
   "name": "training.begin.com",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "index.js",
   "scripts": {
     "lint:spellcheck": "spellchecker -q -d test/dictionary.txt -f src/md/**/*.md",
