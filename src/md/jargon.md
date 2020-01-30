@@ -12,6 +12,7 @@ title: FASTstack training
 - CRON Lambdas
 - declarative
 - determinism
+- spacklepunched
 - FASTstack
 - Infra as Code
 - imperative
