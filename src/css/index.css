@@ -38,6 +38,20 @@ nav a:hover {
   text-decoration: underline;
 }
 
+blockquote {
+  background: #fff9d8;
+  margin: 20px 0;
+  padding: 0;
+  border-left: 3px solid #ffff33;
+}
+blockquote p {
+  border: none;
+  color: grey;
+  margin: 0 20px;
+  line-height: 1.2em;
+  padding: 20px 0;
+}
+
 div {
   display: flex;
 }
