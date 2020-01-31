@@ -9,7 +9,7 @@ Hyper Text Transfer Protocol (HTTP) is how messages are formatted and transmitte
 
 Developing database backed stateful web applications used to require a web server, a database server, a whole supporting cast of software and frameworks and all the near-constant maintenance those things required. Now anyone with a text editor can handle `POST` requests directly with a Lambda function and API Gateway.
 
-The first primitive to understand for building stateful interactions on the web is session state. 
+The first primitive to understand for building stateful interactions on the web is session state. HTTP is a stateless protocol which is a fancy way of saying every HTTP request is like a completely clean slate. If we want to remember things between HTTP requests you need a session.
 
 1. Create a fresh Architect project
 

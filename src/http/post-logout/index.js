@@ -1,15 +1,10 @@
-// Enable secure sessions, express-style middleware, and more:
-// https://docs.begin.com/en/functions/http/
-//
-// let begin = require('@architect/functions')
+let arc = require('@architect/functions')
 
-exports.handler = async function http(req) {
-  console.log(req)
+async function logout() {
   return {
-    status: 302,
-    headers: {
-      'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
-    },
+    session: {},
     location: '/'
   }
 }
+
+exports.handler = arc.http.async(logout)

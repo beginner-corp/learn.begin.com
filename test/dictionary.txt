@@ -1,4 +1,5 @@
 stateful
+SSG
 spacklepunched
 dev
 bundlers
