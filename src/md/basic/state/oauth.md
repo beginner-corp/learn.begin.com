@@ -46,11 +46,37 @@ exports.handler = arc.http.async(http)
 3. Add `src/http/get-admin/signin.js`
 
 ```javascript
+module.exports = function signin() {
+
+  let client_id = process.env.GITHUB_CLIENT_ID
+  let redirect_uri = process.env.GITHUB_REDIRECT
+  let href = `https://github.com/login/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}`
+
+  return `
+<!doctype html>
+<html>
+<body>
+<a href=${href}>Sign in with GitHub</a>
+</body>
+</html>`
+}
 ```
 
 4. Add `src/http/get-admin/admin.js`
 
 ```javascript
+module.exports = function admin(account) {
+  return `
+<!doctype html>
+<html>
+<body>
+<form method=post action=/logout>
+  <button>Logout</button>
+</form>
+<pre>${JSON.stringify(account, null, 2)}</pre>
+</body>
+</html>`
+}
 ```
 
 5. Modify `src/http/get-login/index.js`
