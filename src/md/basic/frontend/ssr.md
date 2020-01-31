@@ -42,7 +42,7 @@ get /
 ```javascript
 "scripts": {
   "build": "rollup -c .rollup.config.js",
-  "start": "npm run build && sandbox"
+  "start": "npm run build && npx sandbox"
 }
 ```
 
