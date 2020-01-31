@@ -9,6 +9,7 @@ get /login
 get /api/progress
 get /logout
 post /api/progress
+get /admin
 
 @tables
 data
