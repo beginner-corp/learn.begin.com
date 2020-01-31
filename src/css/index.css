@@ -134,6 +134,23 @@ form label {
   width: 100%;
 }
 
+table {
+  width: 100%;
+  border: 1px solid #DEF3FF;
+    background: lightblue;
+}
+table tr th {
+  text-align: left;
+  padding-left: 10px;
+  color: white;
+
+}
+table tr td {
+  padding: 8px;
+  background: #DEF3FF;
+  font-family: monospace;
+}
+
 footer {
   text-align: center;
 }
