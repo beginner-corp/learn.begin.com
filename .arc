@@ -10,6 +10,7 @@ get /api/progress
 get /logout
 post /api/progress
 get /admin
+post /logout
 
 @tables
 data
