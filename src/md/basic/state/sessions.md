@@ -122,10 +122,25 @@ async function reset(req) {
 exports.handler = arc.http.async(reset)
 ```
 
-8. Preview by starting the dev server
+8. Install `@architect/sandbox` local development server
+
+```bash
+npm install @architect/sandbox
+```
+
+9. Add a start command to the scripts section in `package.json`
+```bash
+...
+"scripts": {
+  "start": "npx sandbox"
+}
+...
+```
+
+10. Preview by starting the dev server
 
 ```bash
 npm start
 ```
 
-7. Deploy to [Begin.com](https://begin.com)
+11. Deploy to [Begin.com](https://begin.com)
