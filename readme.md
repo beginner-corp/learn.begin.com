@@ -1,4 +1,4 @@
-training.begin.com
+# learn.begin.com
 
 Future topics:
 
@@ -14,5 +14,3 @@ Future topics:
 
 - macros
   - directly upload to s3
-
-

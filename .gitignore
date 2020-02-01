@@ -1,3 +1,4 @@
 _site
-node_modules
 .arc-env
+.DS_Store
+node_modules/
