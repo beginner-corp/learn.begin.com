@@ -70,7 +70,8 @@ jobs:
           node-version: 10
 
       - name: Install
-        run: npm ci
+        run: npm i
+        # TODO reenable npm ci at some point
 
       - name: Deploy
         run: npm run deploy
