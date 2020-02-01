@@ -10,7 +10,7 @@ Leverage the Deno runtime to render JSX on the backend.
 1. Create a fresh Architect project
 
 ```bash
-npm init @architect --runtime ./mydeno
+npm init @architect --runtime deno ./mydeno
 cd mydeno
 npm init -f
 npm install -D @architect/sandbox 
