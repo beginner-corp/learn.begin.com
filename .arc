@@ -4,6 +4,8 @@ learn-begin
 @aws
 region us-west-1
 
+@cdn
+
 @static
 folder _site
 
