@@ -2,3 +2,5 @@ _site
 .arc-env
 .DS_Store
 node_modules/
+sam.json
+sam.yaml
