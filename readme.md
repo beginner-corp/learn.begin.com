@@ -14,3 +14,14 @@ Future topics:
 
 - macros
   - directly upload to s3
+
+- testing
+  - ava
+  - jest
+  - mocha
+  - tap
+  - tape (reccomended)
+  - eslint
+  - prettier
+  - spellchecker
+  - nyc
