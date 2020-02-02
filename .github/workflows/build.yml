@@ -36,6 +36,9 @@ jobs:
       - name: Install
         run: npm install
 
+      - name: Build
+        run: npm run build
+
       - name: Test
         run: npm test
         env:
@@ -70,8 +73,11 @@ jobs:
           node-version: 10
 
       - name: Install
-        run: npm i
+        run: npm install
         # TODO reenable npm ci at some point
+
+      - name: Build
+        run: npm run build
 
       - name: Deploy
         run: npm run deploy
