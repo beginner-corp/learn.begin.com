@@ -1,8 +1,9 @@
 {
-  "name": "training.begin.com",
-  "version": "1.1.2",
+  "name": "learn.begin.com",
+  "version": "1.1.6",
   "main": "index.js",
   "scripts": {
+    "deploy": "./scripts/deploy",
     "lint:spellcheck": "spellchecker -q -d test/dictionary.txt -f src/md/**/*.md",
     "lint:js": "eslint src/http --fix",
     "lint": "npm run lint:spellcheck && npm run lint:js",
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "@architect/architect": "^6.1.8",
     "eslint": "^6.8.0",
     "spellchecker-cli": "^4.0.2"
   }

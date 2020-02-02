@@ -5,7 +5,7 @@ title: serverless web dev training with architect
 
 # Static site generators
 
-The are _many_ static site generators. In this guide we will use [Eleventy](https://www.11ty.dev/).
+The are _many_ static site generators to help you turn Markdown into HTML. This guide uses [Eleventy](https://www.11ty.dev/). [Literally!](https://github.com/smallwins/training.begin.com)
 
 1. Create a fresh Architect project
 
@@ -68,4 +68,4 @@ module.exports = function(eleventyConfig) {
 npm start
 ```
 
-7. Deploy to [Begin.com](https://begin.com)
+7. Deploy to [Begin.com](https://begin.com) (and do not forget you need to `ARC_STATIC_SPA`!)

@@ -1,4 +1,4 @@
-training.begin.com
+# learn.begin.com
 
 Future topics:
 

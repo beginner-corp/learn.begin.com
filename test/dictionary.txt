@@ -24,7 +24,6 @@ EventBridge
 evented
 FaaS
 FASTstack
-FASTstack
 frontend
 GraphQL
 IaC
@@ -67,7 +66,13 @@ statusCode
 stderr
 stdout
 transpiled
-TSX
+SQS
+SSG
+SSR
+stateful
+statusCode
+stderr
+stdout
 TSX
 vendored
 Vue

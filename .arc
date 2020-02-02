@@ -1,14 +1,19 @@
 @app
-trees-j4e
+learn-begin
+
+@aws
+region us-west-1
 
 @static
 folder _site
 
 @http
-get /login
-get /api/progress
-get /logout
+get  /admin
+get  /api/progress
+get  /login
+get  /logout
 post /api/progress
+post /logout
 
 @tables
 data
