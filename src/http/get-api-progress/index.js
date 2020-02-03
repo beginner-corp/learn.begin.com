@@ -1,28 +1,39 @@
 let arc = require('@architect/functions')
 let data = require('@begin/data')
+let {URIs} = require('@architect/shared/constants')
+let oauthState = require('@architect/shared/oauth-state')
 
 async function api(req) {
-  if (!req.session.account) {
-    let client_id = process.env.GITHUB_CLIENT_ID
-    let redirect_uri = process.env.GITHUB_REDIRECT
+  let stage = 'local'
+  if (process.env.NODE_ENV === 'staging') stage = 'staging'
+  if (process.env.NODE_ENV === 'production') stage = 'production'
+  if (process.env.ARC_LOCAL) stage = 'local'
+
+  let referer = req.headers.referer || req.headers.Referer
+  let learnURL = URIs[stage].learn
+  let state = oauthState({redirect: referer || learnURL})
+  let href = `${URIs[stage].begin}/login?state=${state}`
+
+  let account = req.session && req.session.account
+  if (!account) {
     return {
       statusCode: 403,
       body: JSON.stringify({
         authorized: false,
-        href: `https://github.com/login/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}`
+        href
       })
     }
   }
   else {
     let table = 'progress'
-    let key = req.session.account.id
+    let key = account.accountID
     let result = await data.get({table, key})
     return {
       body: JSON.stringify({
         account: {
-          name: req.session.account.name,
-          login: req.session.account.login,
-          avatar: req.session.account.avatar
+          name: account.name,
+          login: account.login,
+          avatar: account.avatar
         },
         authorized: true,
         progress: result || {}
