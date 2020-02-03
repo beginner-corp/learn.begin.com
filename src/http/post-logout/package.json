@@ -1,7 +1,0 @@
-{
-  "name": "begin-app-post-logout",
-  "dependencies": {
-    "@architect/functions": "latest",
-    "@begin/data": "latest"
-  }
-}

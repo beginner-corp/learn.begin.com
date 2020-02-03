@@ -3,9 +3,7 @@ module.exports = function admin(account) {
 <!doctype html>
 <html>
 <body>
-<form method=post action=/logout>
-  <button>Logout</button>
-</form>
+<a href=/logout>logout</a>
 <pre>${JSON.stringify(account, null, 2)}</pre>
 </body>
 </html>`

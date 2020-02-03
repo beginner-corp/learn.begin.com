@@ -1,4 +1,4 @@
-// global state bag; everything renders from this 
+// global state bag; everything renders from this
 window.STATE = {}
 
 // init the app by reading state
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async function main() {
 
 // prog enhancement yall
 async function render() {
-  // render the markup 
+  // render the markup
   await Promise.all([
     Nav(),
     Form(),
@@ -21,7 +21,7 @@ async function render() {
   await Promise.all([
     SaveProgress(),
     ShowProgress(),
-  ]) 
+  ])
 }
 
 // render login/logout
@@ -29,7 +29,7 @@ async function Nav() {
   let state = window.STATE
   if (state.authorized) {
     document.querySelector('nav').innerHTML += `
-      <a id=show style=cursor:pointer>${state.account.login}</a> 
+      <a id=show style=cursor:pointer>${state.account.login}</a>
       <a href=/logout>logout</a>
     `
   }
@@ -38,7 +38,7 @@ async function Nav() {
   }
 }
 
-// couple of helper strings we reuse a bit 
+// couple of helper strings we reuse a bit
 let on = 'Page complete. Way to go!'
 let off = '☜ Mark this page as complete'
 
@@ -66,7 +66,7 @@ async function Popup() {
   let state = window.STATE
   if (state.authorized) {
     let popup = document.getElementById('popup')
-    
+
     let course = {
       basic: {foundations:0, frontend:0, state:0, backend:0}
     }
@@ -77,7 +77,7 @@ async function Popup() {
       let section = bits.shift()
       if (!a[section])
         a[section] = 0
-      a[section] += 1 
+      a[section] += 1
       return a
     }, {})
 
@@ -103,7 +103,7 @@ async function Checks() {
       let path = (new URL(el.href)).pathname
       let txt = state.progress[path] && state.progress[path].complete? el.innerText.replace('‣', '✔') : el.innerText.replace('✔', '‣')
       el.innerText = txt
-    } 
+    }
   }
 }
 
@@ -143,7 +143,7 @@ async function SaveProgress() {
     window.STATE.progress = json.progress
     // re-render
     await Promise.all([
-      Checks(), 
+      Checks(),
       Popup()
     ])
   }

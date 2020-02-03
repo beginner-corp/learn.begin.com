@@ -2,18 +2,19 @@ let arc = require('@architect/functions')
 let data = require('@begin/data')
 
 async function progress(req) {
+  let {body, session} = req
   try {
     // pls login
-    if (!req.session.account)
+    if (!session.account)
       return {status: 403, json: {}}
 
     // expected params
-    if (!req.body.page || !req.body.complete || !req.body.title)
+    if (!body.page || !body.complete || !body.title)
       return {status: 401, json: {}}
 
     // we'll save the data in a table named 'progress' by the github id
     let table = 'progress'
-    let key = req.session.account.id
+    let key = session.account.accountID
 
     // get their current progress
     let progress = await data.get({table, key})
@@ -24,9 +25,9 @@ async function progress(req) {
     }
 
     // mutate the progress record
-    progress[req.body.page] = {
-      complete: req.body.complete || false,
-      title: req.body.title
+    progress[body.page] = {
+      complete: body.complete || false,
+      title: body.title
     }
 
     // save it and respond
