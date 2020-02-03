@@ -15,7 +15,6 @@ get  /api/progress
 get  /login
 get  /logout
 post /api/progress
-post /logout
 
 @tables
 data
