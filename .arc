@@ -16,6 +16,9 @@ get  /login
 get  /logout
 post /api/progress
 
+@macros
+session-db
+
 @tables
 data
   scopeID *String
