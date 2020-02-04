@@ -103,7 +103,7 @@ section hr {
 
 div > main {
   flex-grow: 1;
-  padding: 20px 50px;
+  padding: 10px 20px;
 }
 
 main p code,
@@ -124,6 +124,9 @@ main ol {
 
 main li {
   font-size: 1.17em;
+}
+
+main ol li {
   font-weight: bold;
 }
 
