@@ -25,6 +25,7 @@ body {
 nav {
   background: black;
   display: flex;
+  padding-left: 22px;
 }
 nav a {
   color: grey;
@@ -35,7 +36,7 @@ nav a {
 nav a.active,
 nav a:hover {
   color: white;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 blockquote {
@@ -114,6 +115,12 @@ main li code {
   padding: 2px;
 }
 
+main a {
+  font-weight: normal;
+  text-decoration: none;
+  color: green;
+}
+
 main ol {
   display: block;
   margin-block-start: 2em;
@@ -122,21 +129,14 @@ main ol {
   margin-inline-end: 0em;
 }
 
-main li {
-  font-size: 1.17em;
+main ol li {
   font-weight: bold;
 }
 
-main ul li a {
-  font-size: 1em;
-  font-weight: normal;
-  text-decoration: none;
-  color: green;
-}
-
 main hr {
-  margin: 20px 0;
-  border: 2px solid lightgrey;
+  border: 1px dotted lightgray;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 form {
