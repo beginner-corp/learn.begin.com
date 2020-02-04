@@ -80,9 +80,9 @@ section ul li {
 }
 section ul li {
   list-style:none;
-  margin: 0;  
+  margin: 0;
   padding: 0;
-}  
+}
 section ul li a {
   padding-left: 20px;
   color: green;
@@ -90,7 +90,7 @@ section ul li a {
   display: block;
 }
 
-section ul li a.active, 
+section ul li a.active,
 section ul li a:hover {
   background: green;
   text-decoration: none;
@@ -103,7 +103,7 @@ section hr {
 
 div > main {
   flex-grow: 1;
-  padding: 10px 20px;
+  padding: 20px 50px;
 }
 
 main p code,
@@ -112,6 +112,26 @@ main li code {
   border: 2px dotted lightgrey;
   border-radius: 5px;
   padding: 2px;
+}
+
+main ol {
+  display: block;
+  margin-block-start: 2em;
+  margin-block-end: 1em;
+  margin-inline-start: -1em;
+  margin-inline-end: 0em;
+}
+
+main li {
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
+main ul li a {
+  font-size: 1em;
+  font-weight: normal;
+  text-decoration: none;
+  color: green;
 }
 
 main hr {
