@@ -1,3 +1,8 @@
+Middleware
+middleware
+schemas
+frontend
+Frontend
 REST-ish
 11ty
 XMLHTTPRequest

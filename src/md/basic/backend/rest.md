@@ -61,25 +61,24 @@ Strict REST adherence is not necessarily an appropriate trade-off for all web ap
 
 2. Setup a test rig
 3. Create `src/shared/drafts.js`
-4. Create `src/views`
-  1. Create `src/views/admin.js` 
-  2. Create `src/views/form.js` 
-  3. Create `src/views/layout.js` 
-  4. Create `src/views/signin.js` 
-5. Update `src/http/get-admin`
+4. Create `src/views/admin.js` 
+5. Create `src/views/form.js` 
+6. Create `src/views/layout.js` 
+7. Create `src/views/signin.js` 
+8. Update `src/http/get-admin`
 
 ```javascript
 ```
 
-6. Update `src/http/post-api-drafts/index.js` with create draft logic
-7. Update `src/http/get-api-drafts-000key/index.js` with logic to display the edit form
-8. Update `src/http/post-api-drafts-000key/index.js` with logic to update draft
-9. Update `src/http/post-api-drafts-000key-destroy/index.js` with logic for destroying drafts
-10. Update `src/http/post-api-drafts-000key-publish/index.js` with publish to GitHub logic
-11. Preview by starting the dev server
+9. Update `src/http/post-api-drafts/index.js` with create draft logic
+10. Update `src/http/get-api-drafts-000key/index.js` with logic to display the edit form
+11. Update `src/http/post-api-drafts-000key/index.js` with logic to update draft
+12. Update `src/http/post-api-drafts-000key-destroy/index.js` with logic for destroying drafts
+13. Update `src/http/post-api-drafts-000key-publish/index.js` with publish to GitHub logic
+14. Preview by starting the dev server
 
 ```bash
 npm start
 ```
 
-12. Deploy to [Begin.com](https://begin.com)
+15. Deploy to [Begin.com](https://begin.com)
