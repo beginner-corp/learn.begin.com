@@ -160,4 +160,8 @@ export class App extends React.Component {
 }
 ```
 
-9. Deploy to [Begin.com](https://begin.com)
+9. Clone the example source: 
+
+[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-ssr)
+
+

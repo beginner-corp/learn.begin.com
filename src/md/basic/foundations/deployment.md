@@ -15,13 +15,17 @@ There are currently three ways to deploy an Architect app to AWS:
 
 <h2 id=deploy-begin>Deploy with Begin.com</h2>
 
-If you've created an app using [Begin.com](https://begin.com) all you need to do is commit to master!
+Create an app on Begin:
+
+[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/node-minimal)
+
+To deploy to staging all you need to do is commit to master:
 
 ```bash
 git push origin master
 ```
 
-Git tags deploy to production.
+Git tags deploy to production:
 
 ```bash
 npm version patch 

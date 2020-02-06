@@ -70,4 +70,6 @@ ReactDOM.render(<HelloMessage name="Jane" />, mountNode);
 npm start
 ```
 
-7. Deploy to [Begin.com](https://begin.com)
+7. Clone the example source:
+
+[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-spa)

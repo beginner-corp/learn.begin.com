@@ -46,9 +46,9 @@ module.exports = function layout(params) {
 
     <h2>Backend patterns</h2>
     <ul>
+      <li><a href=/basic/backend/forms   class=${params.page.url === '/basic/backend/forms/'?   'active' : ''}>‣ HTML forms</a></li>
       <li><a href=/basic/backend/rest    class=${params.page.url === '/basic/backend/rest/'?    'active' : ''}>‣ REST</a></li>
       <li><a href=/basic/backend/graphql class=${params.page.url === '/basic/backend/graphql/'? 'active' : ''}>‣ GraphQL</a></li>
-      <li><a href=/basic/backend/ws      class=${params.page.url === '/basic/backend/ws/'?      'active' : ''}>‣ Web sockets</a></li>
     </ul>
 
   </section>

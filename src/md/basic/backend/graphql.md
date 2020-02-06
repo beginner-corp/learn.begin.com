@@ -7,9 +7,9 @@ title: serverless web dev training with architect
 
 GraphQL is a software architectural style that defines a set of constraints for creating web services. Defined by Facebook in parallel with React the principles of GraphQL are extremely useful building blocks for web applications.
 
-GraphQL defines a query language with a complementary schema definition language. Frontend developers author queries with a great deal more flexibility and predictability without needing to implement modifications to the backend data layer. Uncoupling the data layer has always been a good practice but GraphQL formalizes the practice with a strong schemas that confer inherent validation. There is a very vibrant ecosystem of tools and language support. GraphQL also has concepts for writing data (called mutations) and real time (called subscriptions). 
+GraphQL defines a query language with a complementary schema definition language. Frontend developers author queries with a great deal more flexibility and predictability without needing to implement modifications to the backend data layer. Uncoupling the data layer has always been a good practice but GraphQL formalizes the practice with a strong schemas that confer inherent validation. GraphQL also has concepts for writing data (called mutations) and real time (called subscriptions). 
 
-In this guide we will implement GraphQL API using Lambda, API Gateway and DynamoDB from scratch. 
+In this guide we will implement a GraphQL API using Lambda, API Gateway and DynamoDB from scratch. 
 
 1. Create a brand new `.arc` application
 
@@ -32,7 +32,7 @@ data
   ttl TTL
 ```
 
-We will skip implementing `get /login` and `get /logout` and focus on implementing `post /graphql` endpoint.
+We will skip implementing `get /login` and `get /logout` (covered by [oAuth](/basic/state/oauth)) and focus on implementing `post /graphql` endpoint.
 
 2. Create `public/index.html` 
 

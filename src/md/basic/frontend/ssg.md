@@ -68,4 +68,8 @@ module.exports = function(eleventyConfig) {
 npm start
 ```
 
-7. Deploy to [Begin.com](https://begin.com) (and do not forget you need to `ARC_STATIC_SPA`!)
+7. Clone the example source: 
+
+[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-ssg)
+
+> ⚠️ Do not forget to set the environment variable `ARC_STATIC_SPA`
