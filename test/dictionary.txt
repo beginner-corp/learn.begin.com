@@ -1,4 +1,6 @@
 npm
+templating
+ok
 Middleware
 middleware
 schemas

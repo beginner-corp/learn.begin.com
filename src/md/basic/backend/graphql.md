@@ -15,7 +15,7 @@ Clone the complete project on Begin
 
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-forms)
 
-1. To start from scrach create a brand new `.arc` application
+1. To start from scratch create a brand new `.arc` application
 
 ```bash
 @app

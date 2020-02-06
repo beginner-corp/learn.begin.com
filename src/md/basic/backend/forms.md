@@ -184,7 +184,7 @@ module.exports = function signin() {
 
 ### Controller layer
 
-You can consider Lambda functions as controllers. HTTP functions marshall user input, talk to the database and either render a webpage or redirect the user elsewhere. 
+You can consider Lambda functions as controllers. HTTP functions marshal user input, talk to the database and either render a web page or redirect the user elsewhere. 
 
 ```javascript
 ```
