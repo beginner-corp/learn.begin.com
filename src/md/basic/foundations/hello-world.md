@@ -3,68 +3,153 @@ layout: basic.11ty.js
 title: serverless web dev training with architect
 ---
 
-# Hello world 
+# Hello world
 
-Begin.com supports building static web apps alongside the popular backend JS runtimes Node and Deno. You can even mix all these things in the same app. 
+[Begin.com](https://begin.com/) supports building static web applications alongside the popular backend JavaScript runtimes Node and Deno. You can even use both Node and Deno in the same app. Or other programming languages like Ruby and Python.
 
 ## Exercise 1: preview in the browser
 
 Build and preview all the different runtime starter apps you are interested in!
 
-### Static
+### Static website
 
-A plain and simple static website
+To create a directory for a basic Architect static website, open a terminal window and run the following command:
 
 ```bash
-arc init --static ./my-static-app 
+arc init --static ./my-static-app
+```
+
+>To test that this was successful, run `ls` in the terminal. One of the directories should be `my-static-app`, or the name of your choice.
+
+Change directories so you're now in your `my-static-app` directory:
+
+```bash
 cd my-static-app
+```
+
+To start a server running on your computer, run the following command:
+
+```bash
 arc sandbox
 ```
+
+Copy `http://localhost:3333` from the terminal output into a web browser window to preview your static website.
+
+>You should see `Hello world from public/index.html` in your browser window.
+
+To stop the server, go back to your terminal window and hold down the `control` + `C` keys.
 
 ### Node
 
-An HTTP function with Node
+To create an HTTP function with Node, open a terminal window and run the following command:
 
 ```bash
-arc init --runtime node ./my-node-app 
-cd ./my-node-app
+arc init --runtime node ./my-node-app
+```
+
+You should see terminal output somewhat like this:
+
+```bash
+⚬ Create Bootstrapping new Architect project
+  | Project name .. my-node-app
+  | Creating in ... /my-node-app
+✓ Create Created Architect project manifest (.arc)
+✓ Create Created new project files in src/http
+✓ Create Done!
+```
+
+Change directories so you're now in your new `my-node-app` directory:
+
+```bash
+cd my-node-app
+```
+
+To create a default `package.json` file inside your project using npm, run the following command:
+
+```bash
+npm init --yes
+```
+[need to add installing npm packages and a start script here for package.json]
+
+To start the server using npm, run the following command:
+```bash
 npm start
 ```
 
+Copy `http://localhost:3333` from the terminal output into a web browser window to preview your Node application.
+
+To stop the server, go back to your terminal window and hold down the `control` + `C` keys.
+
 ### Deno
 
-An HTTP function with Deno
+To create an HTTP function with Deno, open a terminal window and run the following command:
 
 ```bash
-arc init --runtime deno ./my-deno-app 
-cd ./my-deno-app
+arc init --runtime deno ./my-deno-app
+```
+
+You should see output like this, as with your Node app:
+
+```bash
+⚬ Create Bootstrapping new Architect project
+  | Project name .. my-deno-app
+  | Creating in ... /my-deno-app
+✓ Create Created Architect project manifest (.arc)
+✓ Create Created new project files in src/http
+✓ Create Done!
+```
+
+Change directories so you're now in your new `my-deno-app` directory:
+
+```bash
+cd my-deno-app
+```
+
+Start the server:
+
+```bash
 arc sandbox
 ```
 
+Copy `http://localhost:3333` from the terminal output into a web browser window to preview your Deno application.
+
 ---
 
-## Exercise 2: setup testing
+## Exercise 2: set up testing
 
-1. Generate an app 
+1. Generate a new app with `arc init`
 
 ```bash
-arc init --node ./myapp` 
-cd myapp
+arc init --node ./my-app
+cd my-app
 ```
 
-2. Install testing tools `npm i tape tap-spec -D`
+You should now have a source tree that looks like this:
+```bash
+my-app
+  └── src
+      └── http
+          └── get-index
+              └── index.js
+```
 
-3. Add to `package.json` 
+2. Install tape and tap-sec
+Create a default `package.json` then install `tape` and `tap-sec` packages as development dependencies  
+
+```bash
+npm init --yes
+npm i tape tap-spec -D
+```
+
+3. Replace the test script line in `package.json` to  
 
 ```javascript
-{
-  "scripts": {
     "test": "tape test/index-test.js | tap-spec"
-  }
-}
 ```
 
 4. Add the test scaffolding
+
+Add the following to your `index.js` file
 
 ```javascript
 // example sandbox start/stop
@@ -90,4 +175,3 @@ test('end', async t=> {
 5. Run the tests `npm t`
 
 6. Add a test to see that `http://localhost:3333` returns an HTTP statusCode 200 using `tiny-json-http`
-
