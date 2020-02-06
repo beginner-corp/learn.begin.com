@@ -7,47 +7,46 @@ title: serverless web dev training with architect
 
 [Begin.com](https://begin.com/) supports building static web applications alongside the popular backend JavaScript runtimes Node and Deno. You can even use both Node and Deno in the same app. Or other programming languages like Ruby and Python.
 
-## Exercise 1: preview in the browser
+## Exercise 1: Static website
 
-Build and preview all the different runtime starter apps you are interested in!
+1. Create a project with Architect
 
-### Static website
-
-1. To create a directory for a basic Architect static website, open a terminal window and run the following command:
+To create a directory for a basic Architect static website, open a terminal window and run the following command:
 
 ```bash
 arc init --static ./my-static-app
 ```
 
->To test that this was successful, run `ls` in the terminal. One of the directories should be `my-static-app`, or the name of your choice.
+2. Spin up the server
 
-2. Change directories so you're now in your `my-static-app` directory:
+Change directories to `my-static-app` and start the server:
 
 ```bash
 cd my-static-app
-```
-
-3. To start a server running on your computer, run the following command:
-
-```bash
 arc sandbox
 ```
 
-4. Copy `http://localhost:3333` from the terminal output into a web browser window to preview your static website.
+3. Preview in browser
 
->You should see `Hello world from public/index.html` in your browser window.
+Copy `http://localhost:3333` from the terminal output into a web browser to preview your static website.
 
-5. To stop the server, go back to your terminal window and hold down the `control` + `C` keys.
+You should now see `Hello world` from `public/index.html`.
 
-### Node
+To stop the server, hold down the `control` + `C` keys in terminal.
 
-1. To create an HTTP function with Node, open a terminal window and run the following command:
+---
+
+## Exercise 2: HTTP function using Node
+
+1. Initialize with node
+
+To create an HTTP function with Node, open a terminal window and run the following command:
 
 ```bash
 arc init --runtime node ./my-node-app
 ```
 
-2. You should see terminal output somewhat like this:
+You should see the terminal output:
 
 ```bash
 ⚬ Create Bootstrapping new Architect project
@@ -58,29 +57,42 @@ arc init --runtime node ./my-node-app
 ✓ Create Done!
 ```
 
-3. Change directories so you're now in your new `my-node-app` directory:
+2. Create a `package.json`
+
+Change directories to the new `my-node-app` directory and run the following commands. The `--yes` flag will automatically populate `package.json` with information from the directory.
 
 ```bash
 cd my-node-app
-```
-
-4. To create a default `package.json` file inside your project using npm, run the following command:
-
-```bash
 npm init --yes
 ```
-## [need to add installing npm packages and a start script here for package.json]
 
-5. To start the server using npm, run the following command:
+3. Install the dependencies
+
+```bash
+npm install react react-dom parcel-bundler @architect/sandbox
+```
+
+4. Add a start script to `package.json`
+
+```bash
+    "start": "parcel public/index.html & sandbox"
+```
+
+4. Start the server
+
+To start the server using npm, run the following command:
+
 ```bash
 npm start
 ```
 
-6. Copy `http://localhost:3333` from the terminal output into a web browser window to preview your Node application.
+5. Preview in browser
 
-7. To stop the server, go back to your terminal window and hold down the `control` + `C` keys.
+Visit [http://localhost:3333](http://localhost:3333) in your web browser to preview your Node application.
 
-### Deno
+---
+
+## Exercise 1: HTTP function using Deno
 
 1. To create an HTTP function with Deno, open a terminal window and run the following command:
 
@@ -99,7 +111,7 @@ You should see output like this, as with your Node app:
 ✓ Create Done!
 ```
 
-2. Change directories so you're now in your new `my-deno-app` directory:
+2. Go to your new `my-deno-app` directory:
 
 ```bash
 cd my-deno-app
@@ -111,9 +123,8 @@ cd my-deno-app
 arc sandbox
 ```
 
-4. Copy `http://localhost:3333` from the terminal output into a web browser window to preview your Deno application.
+4. Visit [http://localhost:3333](http://localhost:3333) in your web browser to preview your Deno application.
 
-5. To stop the server, go back to your terminal window and hold down the `control` + `C` keys.
 
 ---
 
@@ -125,7 +136,7 @@ arc sandbox
 arc init --node ./my-app
 ```
 
-2. Change directories to go to your project directory:
+2. Go to your project directory:
 
 ```bash
 cd my-app
@@ -184,7 +195,7 @@ test('end', async t=> {
 
 5. Run the tests using npm:
 
- ``bash
+ ```bash
  npm t
  ```
 
