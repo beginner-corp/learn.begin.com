@@ -13,7 +13,7 @@ Build and preview all the different runtime starter apps you are interested in!
 
 ### Static website
 
-To create a directory for a basic Architect static website, open a terminal window and run the following command:
+1. To create a directory for a basic Architect static website, open a terminal window and run the following command:
 
 ```bash
 arc init --static ./my-static-app
@@ -21,33 +21,33 @@ arc init --static ./my-static-app
 
 >To test that this was successful, run `ls` in the terminal. One of the directories should be `my-static-app`, or the name of your choice.
 
-Change directories so you're now in your `my-static-app` directory:
+2. Change directories so you're now in your `my-static-app` directory:
 
 ```bash
 cd my-static-app
 ```
 
-To start a server running on your computer, run the following command:
+3. To start a server running on your computer, run the following command:
 
 ```bash
 arc sandbox
 ```
 
-Copy `http://localhost:3333` from the terminal output into a web browser window to preview your static website.
+4. Copy `http://localhost:3333` from the terminal output into a web browser window to preview your static website.
 
 >You should see `Hello world from public/index.html` in your browser window.
 
-To stop the server, go back to your terminal window and hold down the `control` + `C` keys.
+5. To stop the server, go back to your terminal window and hold down the `control` + `C` keys.
 
 ### Node
 
-To create an HTTP function with Node, open a terminal window and run the following command:
+1. To create an HTTP function with Node, open a terminal window and run the following command:
 
 ```bash
 arc init --runtime node ./my-node-app
 ```
 
-You should see terminal output somewhat like this:
+2. You should see terminal output somewhat like this:
 
 ```bash
 ⚬ Create Bootstrapping new Architect project
@@ -58,31 +58,31 @@ You should see terminal output somewhat like this:
 ✓ Create Done!
 ```
 
-Change directories so you're now in your new `my-node-app` directory:
+3. Change directories so you're now in your new `my-node-app` directory:
 
 ```bash
 cd my-node-app
 ```
 
-To create a default `package.json` file inside your project using npm, run the following command:
+4. To create a default `package.json` file inside your project using npm, run the following command:
 
 ```bash
 npm init --yes
 ```
-[need to add installing npm packages and a start script here for package.json]
+## [need to add installing npm packages and a start script here for package.json]
 
-To start the server using npm, run the following command:
+5. To start the server using npm, run the following command:
 ```bash
 npm start
 ```
 
-Copy `http://localhost:3333` from the terminal output into a web browser window to preview your Node application.
+6. Copy `http://localhost:3333` from the terminal output into a web browser window to preview your Node application.
 
-To stop the server, go back to your terminal window and hold down the `control` + `C` keys.
+7. To stop the server, go back to your terminal window and hold down the `control` + `C` keys.
 
 ### Deno
 
-To create an HTTP function with Deno, open a terminal window and run the following command:
+1. To create an HTTP function with Deno, open a terminal window and run the following command:
 
 ```bash
 arc init --runtime deno ./my-deno-app
@@ -99,32 +99,40 @@ You should see output like this, as with your Node app:
 ✓ Create Done!
 ```
 
-Change directories so you're now in your new `my-deno-app` directory:
+2. Change directories so you're now in your new `my-deno-app` directory:
 
 ```bash
 cd my-deno-app
 ```
 
-Start the server:
+3. Start the server:
 
 ```bash
 arc sandbox
 ```
 
-Copy `http://localhost:3333` from the terminal output into a web browser window to preview your Deno application.
+4. Copy `http://localhost:3333` from the terminal output into a web browser window to preview your Deno application.
+
+5. To stop the server, go back to your terminal window and hold down the `control` + `C` keys.
 
 ---
 
 ## Exercise 2: set up testing
 
-1. Generate a new app with `arc init`
+1. To create another new app with `arc init`, run the following command:
 
 ```bash
 arc init --node ./my-app
+```
+
+2. Change directories to go to your project directory:
+
+```bash
 cd my-app
 ```
 
 You should now have a source tree that looks like this:
+
 ```bash
 my-app
   └── src
@@ -133,23 +141,25 @@ my-app
               └── index.js
 ```
 
-2. Install tape and tap-sec
-Create a default `package.json` then install `tape` and `tap-sec` packages as development dependencies  
+3. To create a default `package.json` file using npm, run the following command:
 
 ```bash
 npm init --yes
+```
+
+4. To install testing tools `tape` and `tap-sec` as development dependencies, run the following command:
+
+```bash
 npm i tape tap-spec -D
 ```
 
-3. Replace the test script line in `package.json` to  
+3. To add tests to your app, open your `package.json` file in a text editor and replicate the test script line with:  
 
 ```javascript
     "test": "tape test/index-test.js | tap-spec"
 ```
 
-4. Add the test scaffolding
-
-Add the following to your `index.js` file
+4. To add the test scaffolding, add the following to your `index.js` file inside your project directory:
 
 ```javascript
 // example sandbox start/stop
@@ -172,6 +182,10 @@ test('end', async t=> {
 })
 ```
 
-5. Run the tests `npm t`
+5. Run the tests using npm:
+
+ ``bash
+ npm t
+ ```
 
 6. Add a test to see that `http://localhost:3333` returns an HTTP statusCode 200 using `tiny-json-http`
