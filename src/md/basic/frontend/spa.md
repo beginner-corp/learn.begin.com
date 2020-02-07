@@ -7,7 +7,7 @@ title: serverless web dev training with architect
 
 The are many ways to build a single page application. Larger applications can benefit from using a frontend library and bundler. Various libraries help us organize code and the bundler helps us package it for optimal production delivery. 
 
-In this guide using the frontend library React with the [Parcel bundler](https://parceljs.org/recipes.html). React is probably the most popular framework and works with many bundlers but we like Parcel because of its speed and simplicity. 
+In this guide we will be using the frontend library React with the [Parcel bundler](https://parceljs.org/recipes.html). React is probably the most popular framework and works with many bundlers but we like Parcel because of its speed and simplicity. 
 
 1. Create a fresh Architect project
 
