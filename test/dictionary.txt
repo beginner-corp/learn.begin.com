@@ -87,4 +87,5 @@ stdout
 TSX
 vendored
 Vue
+Websocket
 YAML
