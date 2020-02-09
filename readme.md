@@ -20,7 +20,7 @@ Future topics:
   - jest
   - mocha
   - tap
-  - tape (reccomended)
+  - tape (recommended)
   - eslint
   - prettier
   - spellchecker
