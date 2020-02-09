@@ -39,7 +39,13 @@ This is a file, or set of files, produced by a build step in your work flow. A b
 
 <h3 id=blast-radius>Blast radius</h3>
 
-Modern web applications are made up of many small components and our target architecture pattern will reduce the amount of components that are affected by one particular piece. Reducing a functions "blast radius" refers to encapsulating errors and bugs to a minimum so it doesn't interfere with the system as a whole. There will be bugs in your code, using good serverless patterns, we can limit the amount of cascading damage to other parts of the application. 
+Modern web applications are made up of many small components and our target architecture pattern will reduce the amount of components that are affected by one particular piece. Reducing a functions "blast radius" refers to encapsulating errors and bugs to a minimum so it doesn't interfere with the system as a whole. There will be bugs in your code, using good serverless patterns, we can limit the amount of cascading damage to other parts of the application. In this case, using good serverless patters could mean choosing to write mostly pure functions. 
+
+Pure functions follow these two patterns:
+
+- Its return value is the same for the same arguments (no variation with local static variables, non-local variables, mutable reference arguments or input streams from I/O devices).
+
+- Its evaluation has no side effects (no mutation of local static variables, non-local variables, mutable reference arguments or I/O streams).
 
 <h3 id=cold-start>Cold start</h3>
 

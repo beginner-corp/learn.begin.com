@@ -48,7 +48,7 @@ arc sandbox
 1. Generate an app 
 
 ```bash
-arc init --node ./myapp` 
+arc init --node ./myapp
 cd myapp
 ```
 
