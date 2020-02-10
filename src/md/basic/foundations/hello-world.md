@@ -88,7 +88,7 @@ npm start
 
 5. Preview in browser
 
-Visit [http://localhost:3333](http://localhost:3333) in your web browser to preview your Node application.
+Visit [`http://localhost:3333`](http://localhost:3333) in your web browser to preview your Node application.
 
 ---
 
@@ -123,7 +123,7 @@ cd my-deno-app
 arc sandbox
 ```
 
-4. Visit [http://localhost:3333](http://localhost:3333) in your web browser to preview your Deno application.
+4. Visit [`http://localhost:3333`](http://localhost:3333) in your web browser to preview your Deno application.
 
 
 ---

@@ -178,12 +178,20 @@ catch(err) {
 
 5. Read todos
 
+Add dependencies to `src/shared`
+
+```bash
+cd src/shared
+npm init --yes
+npm i @begin/data
+```
+
+Create a new middleware in `src/shared/read.js`
+
 ```javascript
-let arc = require('@architect/functions')
-let auth = require('@architect/shared/auth')
 let data = require('@begin/data')
 
-async function read(req) {
+module.exports = async function read(req) {
   let table = `todos-${req.session.account.id}`
   let todos = await data.get({table})
   let account = req.session.account
@@ -195,6 +203,14 @@ async function read(req) {
     }
   }
 }
+```
+
+And then modify `src/http/get-todos/index.js`
+
+```javascript
+let arc = require('@architect/functions')
+let auth = require('@architect/shared/auth')
+let read = require('@architect/shared/read')
 
 exports.handler = arc.http.async(auth, read)
 ```
@@ -204,25 +220,15 @@ exports.handler = arc.http.async(auth, read)
 ```javascript
 let arc = require('@architect/functions')
 let auth = require('@architect/shared/auth')
+let read = require('@architect/shared/read')
 let data = require('@begin/data')
 
 async function create(req) {
-
-  // write the record
   let table = `todos-${req.session.account.id}`
   await data.set({table, ...req.body})
-
-  // render a response
-  let todos = await data.get({table})
-  let account = req.session.account
-  delete account.token
-
-  return {
-    json: {account, todos}
-  }
 }
 
-exports.handler = arc.http.async(auth, create)
+exports.handler = arc.http.async(auth, create, read)
 ```
 
 7. Update a todo `src/http/put-todo-000key`
@@ -230,6 +236,7 @@ exports.handler = arc.http.async(auth, create)
 ```javascript
 let arc = require('@architect/functions')
 let auth = require('@architect/shared/auth')
+let read = require('@architect/shared/read')
 let data = require('@begin/data')
 
 async function write(req) {
@@ -240,18 +247,7 @@ async function write(req) {
   await data.set(copy)
 }
 
-async function render(req) {
-  let todos = await data.get({
-    table: `todos-${req.session.account.id}`
-  })
-  let account = req.session.account
-  delete account.token
-  return {
-    json: {account, todos}
-  }
-}
-
-exports.handler = arc.http.async(auth, write, render)
+exports.handler = arc.http.async(auth, write, read)
 ```
 
 8. Delete a todo
@@ -259,25 +255,16 @@ exports.handler = arc.http.async(auth, write, render)
 ```javascript
 let arc = require('@architect/functions')
 let auth = require('@architect/shared/auth')
+let read = require('@architect/shared/read')
 let data = require('@begin/data')
 
 async function destroy(req) {
-
-  // destroy the item
   let table = `todos-${req.session.account.id}`
   let key = req.params.key
   await data.destroy({table, key})
-
-  // render response
-  let todos = await data.get({table})
-  let account = req.session.account
-  delete account.token
-  return {
-    json: {account, todos}
-  }
 }
 
-exports.handler = arc.http.async(auth, destroy)
+exports.handler = arc.http.async(auth, destroy, read)
 ```
 
-
+And because all network requests return the same payload rendering on the client can be one pure function.
