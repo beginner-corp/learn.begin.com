@@ -22,10 +22,16 @@ body {
   overflow-wrap: break-word;
 }
 
+main {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
 nav {
   background: black;
   display: flex;
 }
+
 nav a {
   color: grey;
   text-decoration: none;
@@ -175,8 +181,16 @@ table tr td {
 }
 
 footer {
+  margin: 0 auto;
+  max-width: 900px;
   text-align: center;
 }
+
+
+#copyright {
+  padding: 0 .3rem;
+}
+
 
 #popup {
   z-index:9999;

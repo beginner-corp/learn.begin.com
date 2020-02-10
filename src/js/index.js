@@ -148,3 +148,6 @@ async function SaveProgress() {
     ])
   }
 }
+
+// Footer
+// let copyright =  `Copyright © ${new Date().getFullYear()}`
