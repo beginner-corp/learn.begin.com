@@ -3,9 +3,11 @@ layout: basic.11ty.js
 title: serverless web dev training with architect
 ---
 
-# oAuth
+# OAuth
 
-The open standard for authorization on the web is oAuth and it is implemented via HTTP. In this guide we will implement oAuth for GitHub using Lambda and API Gateway.
+The open standard for authorization on the web is OAuth and it is implemented via HTTP. In this guide we will implement OAuth for GitHub with a Static Website using Lambda and API Gateway.
+
+[View the completed app here →](https://link-to-oauth-github-example)
 
 1. Add dependencies 
 
@@ -14,7 +16,7 @@ cd src/http/get-login
 npm init -f
 npm i @architect/functions tiny-json-http
 
-cd ../get-admin
+cd ../get-auth
 npm init -f
 npm i @architect/functions
 
@@ -23,79 +25,77 @@ npm init -f
 npm i @architect/functions
 ```
 
-2. Modify `src/http/get-admin/index.js`
+2. Modify `src/http/get-auth/index.js`
+
+This `get-auth` function is used to retrieve a login link for authentication. It will also return account data if it is available on the session.
+
+- First we attempt to read the account from the session.
+
+- Then we construct a GitHub login URL with the secret client ID and redirect URL from the GitHub OAuth app we set up [previously](link to env).
+
+- Finally we return the login URL and account data if available.
+
 
 ```javascript
-let arc = require('@architect/functions')
-let admin = require('./admin')
-let signin = require('./signin')
+const arc = require('@architect/functions')
 
-async function http(req) {
-
-  let account = req.session.account
-  let render = account? admin : signin
+async function auth(req) {
+  let account = req.session &&
+    req.session.account
+  let clientID = process.env.GITHUB_CLIENT_ID
+  let redirectURL = process.env.GITHUB_REDIRECT
+  let href = `https://github.com/login/oauth/authorize?client_id=${clientID}&redirect_url=${redirectURL}`
+  let payload = {
+    account,
+    href
+  }
 
   return {
-    html: render(account)
+    body: JSON.stringify(payload)
   }
 }
 
-exports.handler = arc.http.async(http)
-```
-
-3. Add `src/http/get-admin/signin.js`
-
-```javascript
-module.exports = function signin() {
-
-  let client_id = process.env.GITHUB_CLIENT_ID
-  let redirect_uri = process.env.GITHUB_REDIRECT
-  let href = `https://github.com/login/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}`
-
-  return `
-<!doctype html>
-<html>
-<body>
-<a href=${href}>Sign in with GitHub</a>
-</body>
-</html>`
-}
-```
-
-4. Add `src/http/get-admin/admin.js`
-
-```javascript
-module.exports = function admin(account) {
-  return `
-<!doctype html>
-<html>
-<body>
-<form method=post action=/logout>
-  <button>Logout</button>
-</form>
-<pre>${JSON.stringify(account, null, 2)}</pre>
-</body>
-</html>`
-}
+exports.handler = arc.http.async(auth)
 ```
 
 5. Modify `src/http/get-login/index.js`
 
+This `get-login` function has two use cases. 
+
+The first use case is to show the un-authenticated page with a login link. 
+
+The second is as the place our GitHub app redirects to after successfully authenticating. 
+
+If we have successfully authenticated we can then use the returned code to retrieve the account data from the GitHub API.
+
+- We check for `req.query.code`
+
+- Then use the code to retrieve the user account from the GitHub API
+
+- Finally we return the account if present or show the un-authenticated page.
+
 ```javascript
-let arc = require('@architect/functions')
-let github = require('./github')
+const arc = require('@architect/functions')
+const github = require('./github')
 
 async function login(req) {
+  let account
   if (req.query.code) {
-    let account = await github(req)
+    try {
+      account = await github(req)
+    } catch (err) {
+      return {
+        statusCode: err.code,
+        body: err.message
+      }
+    }
     return {
       session: {account},
-      location: '/admin'
+      location: '/'
     }
-  }
-  else {
+  } else {
     return {
-      location: '/admin/?authorized=false'
+      location: '/'
     }
   }
 }
@@ -105,42 +105,47 @@ exports.handler = arc.http.async(login)
 
 6. Create `src/http/get-login/github.js`
 
+This `github.js` is used to retrieve the account data from GitHub.
+
+- First we POST to the GitHub OAuth service with the authentication code to retrieve an access token
+- Then we retrive the account data with the access token set as an `Authentication` `Header`.
+- Finally we return the account data or any error we receive.
+
 ```javascript
-let tiny = require('tiny-json-http')
+const tiny = require('tiny-json-http')
 
 module.exports = async function github(req) {
-
-  // trade the code for an access token
-  let result = await tiny.post({
-    url: 'https://github.com/login/oauth/access_token',
-    headers: {Accept: 'application/json'},
-    data: {
-      code: req.query.code,
-      client_id: process.env.GITHUB_CLIENT_ID,
-      client_secret: process.env.GITHUB_CLIENT_SECRET,
-      redirect_uri: process.env.GITHUB_REDIRECT,
+  try {
+    let result = await tiny.post({
+      url: 'https://github.com/login/oauth/access_token',
+      headers: {Accept: 'application/json'},
+      data: {
+        code: req.query.code,
+        client_id: process.env.GITHUB_CLIENT_ID,
+        client_secret: process.env.GITHUB_CLIENT_SECRET,
+        redirect_url: process.env.GITHUB_REDIRECT
+      }
+    })
+    let token = result.body.access_token
+    let user = await tiny.get({
+      url: `https://api.github.com/user`,
+      headers: {
+        Authorization: `token ${token}`,
+        Accept: 'application/json'
+      }
+    })
+    return {
+      token,
+      name: user.body.name,
+      login: user.body.login,
+      id: user.body.id,
+      url: user.body.url,
+      avatar: user.body.avatar_url
     }
-  })
-
-  let token = result.body.access_token
-
-  // use the access token to get the user account
-  let user = await tiny.get({
-    url: 'https://api.github.com/user',
-    headers: {
-      Authorization: `token ${token}`,
-      Accept: 'application/json'
-    },
-  })
-
-  // create a clean acccount obj
-  return {
-    token,
-    name: user.body.name,
-    login: user.body.login,
-    id: user.body.id,
-    url: user.body.url,
-    avatar: user.body.avatar_url
+  } catch (err) {
+    return {
+      error: err.message
+    }
   }
 }
 ```
