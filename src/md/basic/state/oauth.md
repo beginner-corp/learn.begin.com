@@ -8,13 +8,14 @@ title: serverless web dev training with architect
 The open standard for authorization on the web is OAuth and it is implemented via HTTP.  In this guide we will implement OAuth for GitHub with a Static Website using Lambda and API Gateway.
 
 
-[View the completed app here →](https://link-to-oauth-github-example)
+[View the completed app here →](https://fly-ogy.begin.app/)
 
 
 ### 1. Start by deploying this app to Begin
 
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-static-oauth)
 
+Follow the onboarding steps in the activity list then proceed once you finish the working locally card.
 
 ### 2. Add dependencies 
 
@@ -39,7 +40,7 @@ This `get-auth` function is used to retrieve a login link for authentication. It
 
 - First we attempt to read the account from the session.
 
-- Then we construct a GitHub login URL with the secret client ID and redirect URL from the GitHub OAuth app we set up [previously](link to env)
+- Then we construct a GitHub login URL with the secret client ID and redirect URL from the GitHub OAuth app we set up [previously](https://learn.begin.com/basic/state/env)
 
 - Finally we return the login URL and account data if available.
 
