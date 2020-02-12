@@ -5,11 +5,18 @@ title: serverless web dev training with architect
 
 # OAuth
 
-The open standard for authorization on the web is OAuth and it is implemented via HTTP. In this guide we will implement OAuth for GitHub with a Static Website using Lambda and API Gateway.
+The open standard for authorization on the web is OAuth and it is implemented via HTTP.  In this guide we will implement OAuth for GitHub with a Static Website using Lambda and API Gateway.
+
 
 [View the completed app here →](https://link-to-oauth-github-example)
 
-1. Add dependencies 
+
+1. Start by deploying this app to Begin
+
+[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-static-oauth)
+
+
+2. Add dependencies 
 
 ```bash
 cd src/http/get-login
