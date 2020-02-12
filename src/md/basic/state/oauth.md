@@ -11,12 +11,12 @@ The open standard for authorization on the web is OAuth and it is implemented vi
 [View the completed app here →](https://link-to-oauth-github-example)
 
 
-1. Start by deploying this app to Begin
+### 1. Start by deploying this app to Begin
 
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-static-oauth)
 
 
-2. Add dependencies 
+### 2. Add dependencies 
 
 ```bash
 cd src/http/get-login
@@ -32,16 +32,16 @@ npm init -f
 npm i @architect/functions
 ```
 
-2. Modify `src/http/get-auth/index.js`
+
+### 3. Modify `src/http/get-auth/index.js`
 
 This `get-auth` function is used to retrieve a login link for authentication. It will also return account data if it is available on the session.
 
 - First we attempt to read the account from the session.
 
-- Then we construct a GitHub login URL with the secret client ID and redirect URL from the GitHub OAuth app we set up [previously](link to env).
+- Then we construct a GitHub login URL with the secret client ID and redirect URL from the GitHub OAuth app we set up [previously](link to env)
 
 - Finally we return the login URL and account data if available.
-
 
 ```javascript
 const arc = require('@architect/functions')
@@ -65,15 +65,16 @@ async function auth(req) {
 exports.handler = arc.http.async(auth)
 ```
 
-5. Modify `src/http/get-login/index.js`
+
+### 5. Modify `src/http/get-login/index.js`
 
 This `get-login` function has two use cases. 
 
 The first use case is to show the un-authenticated page with a login link. 
 
-The second is as the place our GitHub app redirects to after successfully authenticating. 
+The second is the url where our GitHub app redirects to after successfully authenticating. 
 
-If we have successfully authenticated we can then use the returned code to retrieve the account data from the GitHub API.
+If we have successfully authenticated we can then use the returned code to retrieve the account data from GitHub's API.
 
 - We check for `req.query.code`
 
@@ -110,7 +111,8 @@ async function login(req) {
 exports.handler = arc.http.async(login)
 ```
 
-6. Create `src/http/get-login/github.js`
+
+### 6. Create `src/http/get-login/github.js`
 
 This `github.js` is used to retrieve the account data from GitHub.
 
@@ -158,10 +160,10 @@ module.exports = async function github(req) {
 ```
 
 
-7. Preview by starting the dev server
+### 7. Preview by starting the dev server
 
 ```bash
 npm start
 ```
 
-8. Deploy to [Begin.com](https://begin.com)
+### 8. Deploy to [Begin.com](https://begin.com)
