@@ -11,11 +11,9 @@ The open standard for authorization on the web is OAuth and it is implemented vi
 [View the completed app here →](https://fly-ogy.begin.app/)
 
 
-### 1. Start by deploying this app to Begin
+### 1. Get setup working locally
 
-[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-static-oauth)
-
-Follow the onboarding steps in the activity list then proceed once you've finished the "working locally" card.
+For instructions on how to get started working locally follow the "working locally" card in the activity list of the app you created in the [previous env section](https://learn.begin.com/basic/state/env) on [Begin](https://begin.com)
 
 ### 2. Add dependencies 
 
@@ -187,4 +185,4 @@ exports.handler = arc.http.async(logout)
 npm start
 ```
 
-### 9. Deploy to [Begin.com](https://begin.com)
+### 9. Deploy your changes with [Begin.com](https://begin.com)

@@ -9,7 +9,7 @@ Environment variables allow us to parameterize sensitive state like third party 
 
 1. Create a new app on Begin
 
-[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-oauth)
+[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-static-oauth)
 
 > Make note of the `staging` and `production` URLs you will need them later
 
