@@ -15,7 +15,7 @@ The open standard for authorization on the web is OAuth and it is implemented vi
 
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-static-oauth)
 
-Follow the onboarding steps in the activity list then proceed once you finish the working locally card.
+Follow the onboarding steps in the activity list then proceed once you've finished the "working locally" card.
 
 ### 2. Add dependencies 
 
