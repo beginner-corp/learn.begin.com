@@ -68,11 +68,7 @@ exports.handler = arc.http.async(auth)
 
 ### 5. Modify `src/http/get-login/index.js`
 
-This `get-login` function has two use cases. 
-
-The first use case is to show the un-authenticated page with a login link. 
-
-The second is the url where our GitHub app redirects to after successfully authenticating. 
+This `get-login` function is where our GitHub app redirects to after successfully authenticating. 
 
 If we have successfully authenticated we can then use the returned code to retrieve the account data from GitHub's API.
 
@@ -80,7 +76,7 @@ If we have successfully authenticated we can then use the returned code to retri
 
 - Then use the code to retrieve the user account from the GitHub API
 
-- Finally we return the account if present or show the un-authenticated page.
+- Finally we return the account if present.
 
 ```javascript
 const arc = require('@architect/functions')
