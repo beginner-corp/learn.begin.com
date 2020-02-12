@@ -113,7 +113,9 @@ exports.handler = arc.http.async(login)
 This `github.js` is used to retrieve the account data from GitHub.
 
 - First we POST to the GitHub OAuth service with the authentication code to retrieve an access token
-- Then we retrive the account data with the access token set as an `Authentication` `Header`.
+
+- Then we retrive the account data with the access token set as an `Authorization` `Header`.
+
 - Finally we return the account data or any error we receive.
 
 ```javascript
@@ -155,11 +157,33 @@ module.exports = async function github(req) {
 }
 ```
 
+### 7. Modify `src/http/post-logout/index.js`
 
-### 7. Preview by starting the dev server
+This `post-logout` function is used to logout the user by clearing the session.
+
+ - We clear the session by returning an empty object as the value for `session`
+
+ - Then we redirect back to the index page
+
+```javascript
+let arc = require('@architect/functions')
+
+async function logout(req) {
+  return {
+    session: {},
+    location: '/'
+  }
+}
+
+exports.handler = arc.http.async(logout)
+
+```
+
+
+### 8. Preview by starting the dev server
 
 ```bash
 npm start
 ```
 
-### 8. Deploy to [Begin.com](https://begin.com)
+### 9. Deploy to [Begin.com](https://begin.com)
