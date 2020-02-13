@@ -5,8 +5,7 @@ module.exports = function layout(params) {
 <title>${params.title}</title>
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
-<link rel=stylesheet type=text/css href=/_static/css/theme.css>
-<link rel=stylesheet type=text/css href=/_static/css/index.css>
+<link rel=stylesheet type=text/css href=https://docs.begin.com/css/app.css>
 </head>
 <body>
 <nav>
@@ -34,7 +33,7 @@ module.exports = function layout(params) {
     </ul>
 
     <hr>
-    
+
     <h2>Handling state</h2>
     <ul>
       <li><a href=/basic/state/sessions class=${params.page.url === '/basic/state/sessions/'? 'active' : ''}>‣ Tracking sessions</a></li>
@@ -53,7 +52,7 @@ module.exports = function layout(params) {
 
   </section>
 
-  <main>${params.content}</main>
+  <main id="doc">${params.content}</main>
 </div>
 <footer>
   <a href=https://github.com/smallwins/training.begin.com/blob/master/${params.page.inputPath}>Edit this page on GitHub</a>

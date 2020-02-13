@@ -3,11 +3,11 @@ layout: basic.11ty.js
 title: serverless web dev training with architect
 ---
 
-# oAuth
+# OAuth
 
-The open standard for authorization on the web is oAuth and it is implemented via HTTP. In this guide we will implement oAuth for GitHub using Lambda and API Gateway.
+The open standard for authorization on the web is OAuth and it is implemented via HTTP. In this guide we will implement OAuth for GitHub using Lambda and API Gateway.
 
-1. Add dependencies 
+1. Add dependencies
 
 ```bash
 cd src/http/get-login
