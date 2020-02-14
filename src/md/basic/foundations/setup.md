@@ -42,7 +42,7 @@ Or, if you prefer, you can install Architect into a local project:
 npm init @architect ./myproject
 ```
 
-3. Set up production deployment with Begin.com
+3. Set up production deployment with Begin
 
 Sign up for a free account at [Begin.com](https://begin.com) with your GitHub account to deploy with Git.
 

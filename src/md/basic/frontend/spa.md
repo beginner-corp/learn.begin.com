@@ -3,13 +3,15 @@ layout: basic.11ty.js
 title: serverless web dev training with architect
 ---
 
-# Single page apps
+# Single-page applications
 
-The are many ways to build a single page application. Larger applications can benefit from using a frontend library and bundler. Various libraries help us organize code and the bundler helps us package it for optimal production delivery. 
+The are many ways to build a single-page application. Larger applications can benefit from using a frontend library and bundler. Various libraries help us organize code, and the bundler helps us package it for optimal production delivery.
 
-In this guide we will be using the frontend library React with the [Parcel bundler](https://parceljs.org/recipes.html). React is probably the most popular framework and works with many bundlers but we like Parcel because of its speed and simplicity. 
+In this guide, we'll be using the frontend library <a href=https://reactjs.org/ target=blank>React</a> with the <a href=https://parceljs.org/recipes.html target=blank>Parcel bundler</a>. React is probably the most popular framework and works with many bundlers, but we like Parcel because of its speed and simplicity.
 
 1. Create a fresh Architect project
+
+Initialize an Architect project, change directories into the project folder, create a `package.json` file, and install npm packages:
 
 ```bash
 npm init @architect --static ./my-spa
@@ -20,6 +22,8 @@ npm install react react-dom parcel-bundler @architect/sandbox
 
 2. Update the build folder configuration in `.arc`
 
+Edit the `.arc` file in the root of your project directory so it shows the following:
+
 ```bash
 @app
 my-spa
@@ -28,7 +32,9 @@ my-spa
 folder dist
 ```
 
-3. Update the build script in `package.json`:
+3. Update the build script
+
+Add the following start script to your `package.json` file:
 
 ```javascript
 "scripts": {
@@ -37,6 +43,8 @@ folder dist
 ```
 
 4. Update `public/index.html`
+
+Replace the contents of your `index.html` file with the following:
 
 ```html
 <!doctype html>
@@ -49,6 +57,8 @@ folder dist
 ```
 
 5. Add `public/index.js`
+
+Create an `index.js` file and add the following to it:
 
 ```javascript
 import React from "react";
@@ -64,12 +74,12 @@ var mountNode = document.getElementById("app");
 ReactDOM.render(<HelloMessage name="Jane" />, mountNode);
 ```
 
-6. Preview by starting the dev server
+6. Preview your app by starting the dev server
 
 ```bash
 npm start
 ```
 
-7. Clone the example source:
+7. Clone the example source
 
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-spa)

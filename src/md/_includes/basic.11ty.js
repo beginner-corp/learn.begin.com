@@ -28,13 +28,13 @@ module.exports = function layout(params) {
 
     <h2>Frontend patterns</h2>
     <ul>
-      <li><a href=/basic/frontend/spa class=${params.page.url === '/basic/frontend/spa/'? 'active' : ''}>‣ Single page applications</a></li>
+      <li><a href=/basic/frontend/spa class=${params.page.url === '/basic/frontend/spa/'? 'active' : ''}>‣ Single-page applications</a></li>
       <li><a href=/basic/frontend/ssg class=${params.page.url === '/basic/frontend/ssg/'? 'active' : ''}>‣ Static site generators</a></li>
       <li><a href=/basic/frontend/ssr class=${params.page.url === '/basic/frontend/ssr/'? 'active' : ''}>‣ Server side rendering</a></li>
     </ul>
 
     <hr>
-    
+
     <h2>Handling state</h2>
     <ul>
       <li><a href=/basic/state/sessions class=${params.page.url === '/basic/state/sessions/'? 'active' : ''}>‣ Tracking sessions</a></li>
