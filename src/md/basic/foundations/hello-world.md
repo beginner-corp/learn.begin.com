@@ -66,19 +66,13 @@ cd my-node-app
 npm init --yes
 ```
 
-3. Install the npm package dependencies
+5. Add a start script to `package.json`
 
 ```bash
-npm install react react-dom parcel-bundler @architect/sandbox
+    "start": "arc sandbox"
 ```
 
-4. Add a start script to `package.json`
-
-```bash
-    "start": "parcel public/index.html & sandbox"
-```
-
-5. Start the server
+6. Start the server
 
 To start the server using npm, run the following command:
 
@@ -86,7 +80,7 @@ To start the server using npm, run the following command:
 npm start
 ```
 
-6. Preview in browser
+7. Preview in browser
 
 Visit [`http://localhost:3333`](http://localhost:3333) in your web browser to preview your Node application.
 
