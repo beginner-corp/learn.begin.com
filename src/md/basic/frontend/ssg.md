@@ -35,7 +35,7 @@ folder _site
   "start": "npm run watch & ARC_STATIC_SPA=false sandbox"
 }
 ```
-> Note we opt out of loading `index.html` by setting `ARC_SPA_FALSE` in the sandbox
+> Note we opt out of loading `index.html` by setting `ARC_STATIC_SPA=false` in the sandbox
 
 4. Add a `.eleventy.js` config file to enable syntax highlighting and to set the source directory to `src/md`
 
@@ -72,4 +72,4 @@ npm start
 
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-ssg)
 
-> ⚠️ Do not forget to set the environment variable `ARC_STATIC_SPA`
+> ⚠️ Do not forget to set the environment variable `ARC_STATIC_SPA` to `false`, otherwise your application will try to load index.html by default
