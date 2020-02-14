@@ -9,11 +9,11 @@ Environment variables allow us to parameterize sensitive state like third party 
 
 1. Create a new app on Begin
 
-[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-oauth)
+[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-static-oauth)
 
 > Make note of the `staging` and `production` URLs you will need them later
 
-2. Create *three* oAuth applications on GitHub [following these instructions](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/) …this ensures totally isolated systems for `testing`, `staging` and `production` environments
+2. Create *three* OAuth applications on GitHub [following these instructions](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/) …this ensures totally isolated systems for `testing`, `staging` and `production` environments
 
 | Application name  | Homepage URL                      | Authorization callback URL               |
 |------------------ |---------------------------------- |----------------------------------------- |
@@ -22,7 +22,7 @@ Environment variables allow us to parameterize sensitive state like third party 
 | My App Production | https://foo-123.begin.app         | https://foo-123.begin.app/login          |
 
 
-3. To dev oAuth locally create a file in the root of the project directory called `.arc-env` and add the GitHub Client ID, Secret Key and redirect values to it for your local testing environment:
+3. To dev OAuth locally create a file in the root of the project directory called `.arc-env` and add the GitHub Client ID, Secret Key and redirect values to it for your local testing environment:
 
 ```bash
 @testing
@@ -35,4 +35,4 @@ GITHUB_REDIRECT http://localhost:3333/login
 
 4. Update the app on Begin.com with environment variables for `staging` and `production` so our deployed app has keys
 
-5. Proceed to [implement oAuth](/basic/state/oauth)
+5. Proceed to [implement OAuth](/basic/state/oauth)
