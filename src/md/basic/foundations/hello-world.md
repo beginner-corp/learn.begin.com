@@ -158,10 +158,10 @@ my-app
 npm init --yes
 ```
 
-4. To install testing tools `tape` and `tap-sec` as development dependencies, run the following command:
+4. To install testing tools `tape` and `tap-sec`, along with `@architect/sandbox` as development dependencies, run the following command:
 
 ```bash
-npm i tape tap-spec -D
+npm i tape tap-spec @architect/sandbox -D
 ```
 
 5. To add tests to your app, open your `package.json` file in a text editor and replicate the test script line with:  
@@ -170,7 +170,7 @@ npm i tape tap-spec -D
     "test": "tape test/index-test.js | tap-spec"
 ```
 
-6. To add the test scaffolding, add the following to your `index.js` file inside your project directory:
+6. To add the test scaffolding, create a `test` folder with `index-test.js` file in it, and add the following to your `test/index-test.js` file inside your project directory:
 
 ```javascript
 // example sandbox start/stop
