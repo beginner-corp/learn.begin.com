@@ -14,14 +14,14 @@ npm init @architect --runtime deno ./mydeno
 cd mydeno
 npm init -f
 npm install -D @architect/sandbox 
-npm install -D @rollup/plugin-typescript
-npm install -D @types/react
-npm install -D @types/react-dom
+npm install -D rollup
+npm install -D typescript
+npm install -D tslib
 npm install react
 npm install react-dom
-npm install -D rollup
-npm install -D tslib
-npm install -D typescript
+npm install -D @rollup/plugin-typescript@2.0
+npm install -D @types/react
+npm install -D @types/react-dom
 ```
 
 2. Update the build folder configuration in `.arc`

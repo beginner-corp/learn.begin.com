@@ -158,7 +158,7 @@ npm init --yes
 npm i tape tap-spec @architect/sandbox -D
 ```
 
-5. To add tests to your app, open your `package.json` file in a text editor and replicate the test script line with:  
+5. To add tests to your app, open your `package.json` file in a text editor and replace the test script line with:  
 
 ```javascript
     "test": "tape test/index-test.js | tap-spec"
@@ -169,7 +169,7 @@ npm i tape tap-spec @architect/sandbox -D
 ```javascript
 // example sandbox start/stop
 let sandbox = require('@architect/sandbox')
-let tape = require('tape')
+let test = require('tape')
 let end
 
 test('sandbox.start', async t=> {
@@ -187,7 +187,7 @@ test('end', async t=> {
 })
 ```
 
-7. Run the tests using npm:
+7. Run the tests using `npm`:
 
  ```bash
  npm t
