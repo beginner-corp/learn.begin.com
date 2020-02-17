@@ -1,3 +1,4 @@
+/* global window document fetch */
 // global state bag; everything renders from this
 window.STATE = {}
 
@@ -29,8 +30,62 @@ async function Nav() {
   let state = window.STATE
   if (state.authorized) {
     document.querySelector('nav').innerHTML += `
-      <a id=show style=cursor:pointer>${state.account.login}</a>
-      <a href=/logout>logout</a>
+    <div
+      class="
+        d-flex-lg
+      "
+    >
+      <a
+        id=show
+        class="
+          d-flex
+          ai-c
+          fs-off-scale
+          fw-medium
+          upper
+          lh2
+          pr0
+          pl-1
+          c-p26
+          c-h3
+          c-a5
+          bg-a7
+          br-pill
+          transition-all
+          mb-2
+          mb-none-lg
+          mr1-lg
+          cursor-pointer
+        "
+      >
+        ${state.account.login}
+      </a>
+      <a
+        class="
+          d-flex
+          ai-c
+          fs-off-scale
+          fw-medium
+          upper
+          lh2
+          pr0
+          pl-1
+          c-p26
+          c-h3
+          c-a5
+          bg-a7
+          br-pill
+          transition-all
+          mb-2
+          mb-none-lg
+          mr1-lg
+          cursor-pointer
+        "
+        href=/logout
+      >
+        logout
+      </a>
+    </div>
     `
   }
   else {
@@ -73,7 +128,7 @@ async function Popup() {
 
     let keys = Object.keys(state.progress).reduce((a, b) => {
       let bits = b.split('/').filter(Boolean)
-      let course = bits.shift() // discard for now while there is only one course
+      // let course = bits.shift() // discard for now while there is only one course
       let section = bits.shift()
       if (!a[section])
         a[section] = 0
@@ -120,32 +175,34 @@ async function ShowProgress() {
 // save the progress, update the state and re-render
 async function SaveProgress() {
   let form = document.getElementById('progress')
-  let check = form[1]
-  let label = form.children[2]
-  check.onchange = async function change(e) {
-    // collect the data we need
-    let page = window.location.pathname
-    let complete = this.checked
-    let title = document.querySelector('h1').innerText
-    // optimistic update the label
-    label.innerHTML = complete? on : off
-    // save the data
-    let path = (new URL(form.action)).pathname
-    let request = await fetch(path, {
-      method: 'post',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify({page, complete, title})
-    })
-    // updates state
-    let json = await request.json()
-    window.STATE.progress = json.progress
-    // re-render
-    await Promise.all([
-      Checks(),
-      Popup()
-    ])
+  if (form) {
+    let check = form[1]
+    let label = form.children[2]
+    check.onchange = async function change() {
+      // collect the data we need
+      let page = window.location.pathname
+      let complete = this.checked
+      let title = document.querySelector('h1').innerText
+      // optimistic update the label
+      label.innerHTML = complete? on : off
+      // save the data
+      let path = (new URL(form.action)).pathname
+      let request = await fetch(path, {
+        method: 'post',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({page, complete, title})
+      })
+      // updates state
+      let json = await request.json()
+      window.STATE.progress = json.progress
+      // re-render
+      await Promise.all([
+        Checks(),
+        Popup()
+      ])
+    }
   }
 }
 

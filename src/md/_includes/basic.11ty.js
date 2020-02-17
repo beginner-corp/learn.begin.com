@@ -8,13 +8,140 @@ module.exports = function layout(params) {
 <link rel=stylesheet type=text/css href=https://docs.begin.com/css/app.css>
 </head>
 <body>
-<nav>
-  <a href=/ class=${params.page.url === '/'? 'active' : ''}>home</a>
-  <a href=/faq class=${params.page.url === '/faq'? 'active' : ''}>faq</a>
-  <a href=/jargon class=${params.page.url === '/jargon'? 'active' : ''}>jargon</a>
-</nav>
-<div>
-  <section>
+<header
+  class="
+    p-relative d-flex ai-c jc-b p-1 bg-p25
+  "
+  style="min-height: 3.333rem;"
+>
+  <nav
+    class="
+      w-100
+      max-h-infinity-lg
+      max-h-0
+      p-absolute
+      p-static-lg
+      d-flex-lg
+      jc-b
+      pr-4
+      pl-4
+      bg-p25
+      o-hidden
+      menu-transition
+      z1
+      z0-lg
+    "
+    style="
+      top:2.8rem;
+      right:0;
+      left:0;
+      border-bottom-right-radius:6px;
+      border-bottom-left-radius:6px;
+    "
+    >
+    <div
+      class="
+        d-flex-lg
+      "
+    >
+      <a class="mr4" href="https://begin.com/">
+        <div class="logo d-flex ai-c">
+          <img
+            src="/assets/begin-logo.svg"
+            alt="begin logo"
+            style="min-width:4.777rem;min-height:1.333rem;"
+            width="86"
+            height="24"
+          >
+        </div>
+      </a>
+      <a
+        href=/
+        class="
+          d-flex
+          ai-c
+          fs-off-scale
+          fw-medium
+          upper
+          lh2
+          pr0
+          pl-1
+          c-p26
+          c-h3
+          c-a5
+          bg-a7
+          br-pill
+          transition-all
+          mb-2
+          mb-none-lg
+          mr1-lg
+          cursor-pointer
+          ${params.page.url === '/'? 'active' : ''}
+        "
+      >
+        home
+      </a>
+      <a
+        href=/faq
+        class="
+          d-flex
+          ai-c
+          fs-off-scale
+          fw-medium
+          upper
+          lh2
+          pr0
+          pl-1
+          c-p26
+          c-h3
+          c-a5
+          bg-a7
+          br-pill
+          transition-all
+          mb-2
+          mb-none-lg
+          mr1-l
+          cursor-pointer
+          ${params.page.url === '/faq'? 'active' : ''}
+        "
+      >
+        faq
+      </a>
+      <a
+        href=/jargon
+        class="
+          d-flex
+          ai-c
+          fs-off-scale
+          fw-medium
+          upper
+          lh2
+          pr0
+          pl-1
+          c-p26
+          c-h3
+          c-a5
+          bg-a7
+          br-pill
+          transition-all
+          mb-2
+          mb-none-lg
+          mr1-l
+          cursor-pointer
+          ${params.page.url === '/jargon'? 'active' : ''}
+        "
+      >
+        jargon
+      </a>
+    </div>
+  </nav>
+</header>
+<div
+  class="
+    d-flex-lg
+  "
+>
+  <aside>
 
     <h2>Foundations</h2>
     <ul>
@@ -50,7 +177,7 @@ module.exports = function layout(params) {
       <li><a href=/basic/backend/graphql class=${params.page.url === '/basic/backend/graphql/'? 'active' : ''}>‣ GraphQL</a></li>
     </ul>
 
-  </section>
+  </aside>
 
   <main id="doc">${params.content}</main>
 </div>

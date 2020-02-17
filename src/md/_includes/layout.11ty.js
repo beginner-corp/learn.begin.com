@@ -8,11 +8,18 @@ module.exports = function layout(params) {
 <link rel=stylesheet type=text/css href=https://docs.begin.com/css/app.css>
 </head>
 <body>
-<nav>
-  <a href=/ class=${params.page.url === '/'? 'active' : ''}>home</a>
-  <a href=/faq class=${params.page.url === '/faq/'? 'active' : ''}>faq</a>
-  <a href=/jargon class=${params.page.url === '/jargon/'? 'active' : ''}>jargon</a>
-</nav>
+<header
+  class="
+    p-relative d-flex ai-c jc-b p-1 bg-p25
+  "
+  style="min-height: 3.333rem;"
+>
+  <nav>
+    <a href=/ class=${params.page.url === '/'? 'active' : ''}>home</a>
+    <a href=/faq class=${params.page.url === '/faq/'? 'active' : ''}>faq</a>
+    <a href=/jargon class=${params.page.url === '/jargon/'? 'active' : ''}>jargon</a>
+  </nav>
+</header>
 <div>
   <main id="doc">${params.content}</main>
 </div>
