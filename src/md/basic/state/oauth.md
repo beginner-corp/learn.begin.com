@@ -13,9 +13,9 @@ The open standard for authorization on the web is OAuth and it is implemented vi
 
 ### 1. Get setup working locally
 
-For instructions on how to get started working locally follow the "working locally" card in the activity list of the app you created in the [previous env section](https://learn.begin.com/basic/state/env) on [Begin](https://begin.com)
+For instructions on how to get started working locally follow the "working locally" card in the activity list of the app you created in the [previous environment section](https://learn.begin.com/basic/state/env) on [Begin](https://begin.com)
 
-### 2. Add dependencies 
+### 2. Add dependencies
 
 ```bash
 cd src/http/get-login
@@ -67,7 +67,7 @@ exports.handler = arc.http.async(auth)
 
 ### 5. Modify `src/http/get-login/index.js`
 
-This `get-login` function is where our GitHub app redirects to after successfully authenticating. 
+This `get-login` function is where our GitHub app redirects to after successfully authenticating.
 
 If we have successfully authenticated we can then use the returned code to retrieve the account data from GitHub's API.
 
@@ -113,7 +113,7 @@ This `github.js` is used to retrieve the account data from GitHub.
 
 - First we POST to the GitHub OAuth service with the authentication code to retrieve an access token
 
-- Then we retrive the account data with the access token set as an `Authorization` `Header`.
+- Then we retrieve the account data with the access token set as an `Authorization` `Header`.
 
 - Finally we return the account data or any error we receive.
 

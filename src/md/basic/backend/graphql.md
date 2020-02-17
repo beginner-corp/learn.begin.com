@@ -7,9 +7,9 @@ title: serverless web dev training with architect
 
 GraphQL is a software architectural style that defines a set of constraints for creating web services. Defined by Facebook in parallel with React the principles of GraphQL are extremely useful building blocks for web applications.
 
-GraphQL defines a query language with a complementary schema definition language. Frontend developers author queries with a great deal more flexibility and predictability without needing to implement modifications to the backend data layer. Uncoupling the data layer has always been a good practice but GraphQL formalizes the practice with a strong schemas that confer inherent validation. GraphQL also has concepts for writing data (called mutations) and real time (called subscriptions). 
+GraphQL defines a query language with a complementary schema definition language. Frontend developers author queries with a great deal more flexibility and predictability without needing to implement modifications to the backend data layer. Uncoupling the data layer has always been a good practice but GraphQL formalizes the practice with a strong schemas that confer inherent validation. GraphQL also has concepts for writing data (called mutations) and real time (called subscriptions).
 
-In this guide we will implement a GraphQL API using Lambda, API Gateway and DynamoDB from scratch. 
+In this guide we will implement a GraphQL API using Lambda, API Gateway and DynamoDB from scratch.
 
 Clone the complete project on Begin
 
@@ -36,19 +36,19 @@ data
   ttl TTL
 ```
 
-We will skip implementing `get /login` and `get /logout` (covered by [oAuth](/basic/state/oauth)) and focus on implementing `post /graphql` endpoint.
+We will skip implementing `get /login` and `get /logout` (covered by [OAuth](/basic/state/oauth)) and focus on implementing `post /graphql` endpoint.
 
-2. Create `public/index.html` 
+2. Create `public/index.html`
 
 ```html
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset=utf-8>
-  <meta name=viewport 
+  <meta name=viewport
     content=user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui>
   <title>GraphQL Playground</title>
-  <link rel=stylesheet 
+  <link rel=stylesheet
     href=//cdn.jsdelivr.net/npm/graphql-playground-react/build/static/css/index.css>
   <link rel="shortcut icon"
     href=//cdn.jsdelivr.net/npm/graphql-playground-react/build/favicon.png>
@@ -118,7 +118,7 @@ let query = require('./middleware/query')
 exports.handler = arc.http.async(auth, query)
 ```
 
-4. Create `src/http/post-graphql/middleware/auth.js` 
+4. Create `src/http/post-graphql/middleware/auth.js`
 
 This middleware ensures the current session is authenticated if they want to run a GraphQL mutation.
 
@@ -144,9 +144,9 @@ module.exports = async function auth(req) {
 }
 ```
 
-5. Create `src/http/post-graphql/middleware/query.js` 
+5. Create `src/http/post-graphql/middleware/query.js`
 
-This is the GraphQL query boilerplate. 
+This is the GraphQL query boilerplate.
 
 ```javascript
 let { graphql } = require('graphql')
