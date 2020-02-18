@@ -28,6 +28,21 @@ async function render() {
 // render login/logout
 async function Nav() {
   let state = window.STATE
+  let disclose = document.getElementById('js-disclose')
+  let nav = document.getElementById('js-nav')
+  let doc = document.getElementById('doc')
+  let menu = document.getElementById('js-menu')
+  menu.onclick = e => {
+    e.preventDefault()
+    doc.classList.toggle('slide-menu')
+    disclose.classList.remove('rotate180')
+    nav.classList.remove('max-h-infinity')
+  }
+  disclose.onclick = e => {
+    e.preventDefault()
+    disclose.classList.toggle('rotate180')
+    nav.classList.toggle('max-h-infinity')
+  }
   if (state.authorized) {
     document.querySelector('nav').innerHTML += `
     <div
@@ -83,13 +98,49 @@ async function Nav() {
         "
         href=/logout
       >
-        logout
+        Logout
       </a>
     </div>
     `
   }
   else {
-    document.querySelector('nav').innerHTML += `<a href=${state.href}>login</a>`
+    document.querySelector('nav').innerHTML += `
+    <span class="mb0 mb-none-lg d-flex fd-c fd-r-lg">
+      <a
+        href=${state.href}
+        class="
+          pt-4
+          pr-1
+          pb-4
+          pl-1
+          mt-3
+          mt-none-lg
+          mr0
+          mb-2
+          mb-none-lg
+          ml-3
+          ml-none-lg
+          order1
+          order-initial-lg
+          fw-medium
+          fs-off-scale
+          ta-c
+          upper
+          br-pill
+          bg-p26
+          c-p25
+          c-h3
+          c-a5
+          bg-a7
+          transition-all
+          cursor-pointer
+        "
+        style="max-width: 6rem;"
+      >
+        Login
+      </a>
+    </span>
+    `
   }
 }
 
