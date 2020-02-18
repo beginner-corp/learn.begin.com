@@ -5,7 +5,7 @@ title: serverless web dev training with architect
 
 # Static site generators
 
-The are _many_ static site generators to help you turn Markdown into HTML. This guide uses [Eleventy](https://www.11ty.dev/). [Literally!](https://github.com/smallwins/training.begin.com)
+There are many static site generators to help you turn Markdown into HTML. This guide uses [Eleventy](https://www.11ty.dev/). [Literally!](https://github.com/smallwins/training.begin.com)
 
 1. Create a fresh Architect project
 
@@ -35,7 +35,7 @@ folder _site
   "start": "npm run watch & ARC_STATIC_SPA=false sandbox"
 }
 ```
-> Note we opt out of loading `index.html` by setting `ARC_SPA_FALSE` in the sandbox
+> We opt out of loading `index.html` by setting `ARC_SPA_FALSE` in the sandbox
 
 4. Add a `.eleventy.js` config file to enable syntax highlighting and to set the source directory to `src/md`
 
@@ -57,7 +57,7 @@ module.exports = function(eleventyConfig) {
 ```md
 # hi from markdown
 
-- cool 
+- cool
 - bullet
 - list
 ```
@@ -68,7 +68,7 @@ module.exports = function(eleventyConfig) {
 npm start
 ```
 
-7. Clone the example source: 
+7. Clone the example source:
 
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-ssg)
 
