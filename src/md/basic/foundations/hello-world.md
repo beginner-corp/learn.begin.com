@@ -66,19 +66,13 @@ cd my-node-app
 npm init --yes
 ```
 
-3. Install the npm package dependencies
+5. Add a start script to `package.json`
 
 ```bash
-npm install react react-dom parcel-bundler @architect/sandbox
+    "start": "arc sandbox"
 ```
 
-4. Add a start script to `package.json`
-
-```bash
-    "start": "parcel public/index.html & sandbox"
-```
-
-5. Start the server
+6. Start the server
 
 To start the server using npm, run the following command:
 
@@ -86,7 +80,7 @@ To start the server using npm, run the following command:
 npm start
 ```
 
-6. Preview in browser
+7. Preview in browser
 
 Visit [`http://localhost:3333`](http://localhost:3333) in your web browser to preview your Node application.
 
@@ -158,24 +152,24 @@ my-app
 npm init --yes
 ```
 
-4. To install testing tools `tape` and `tap-sec` as development dependencies, run the following command:
+4. To install testing tools `tape` and `tap-sec`, along with `@architect/sandbox` as development dependencies, run the following command:
 
 ```bash
-npm i tape tap-spec -D
+npm i tape tap-spec @architect/sandbox -D
 ```
 
-5. To add tests to your app, open your `package.json` file in a text editor and replicate the test script line with:  
+5. To add tests to your app, open your `package.json` file in a text editor and replace the test script line with:  
 
 ```javascript
     "test": "tape test/index-test.js | tap-spec"
 ```
 
-6. To add the test scaffolding, add the following to your `index.js` file inside your project directory:
+6. To add the test scaffolding, create a `test` folder with `index-test.js` file in it, and add the following to your `test/index-test.js` file inside your project directory:
 
 ```javascript
 // example sandbox start/stop
 let sandbox = require('@architect/sandbox')
-let tape = require('tape')
+let test = require('tape')
 let end
 
 test('sandbox.start', async t=> {
@@ -193,7 +187,7 @@ test('end', async t=> {
 })
 ```
 
-7. Run the tests using npm:
+7. Run the tests using `npm`:
 
  ```bash
  npm t

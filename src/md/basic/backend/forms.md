@@ -7,7 +7,7 @@ title: serverless web dev training with architect
 
 Before implementing complete REST and GraphQL backend APIs it is usually a good idea to quickly prove things out using plain HTML forms. Often they suffice and in many cases a basic HTML form is the best option for writing data in a web application. This is essentially following the same sort of CRUD web app patterns as Rails, Sinatra, Django or Flask except serverless.
 
-In this guide we implement a prototype CRUD app using Lambda, API Gateway and DynamoDB. Combining on the previous lessons we will deploy the 11ty static site generator with an oAuth login to an admin interface for saving drafts of articles. Drafts can be created, updated, destroyed and published _back to GitHub_ as markdown documents. 
+In this guide we implement a prototype CRUD app using Lambda, API Gateway and DynamoDB. Combining on the previous lessons we will deploy the 11ty static site generator with an OAuth login to an admin interface for saving drafts of articles. Drafts can be created, updated, destroyed and published _back to GitHub_ as markdown documents.
 
 1. Create the app on Begin
 
@@ -135,7 +135,7 @@ ${body}
 Plain HTML forms create easy to follow logic when you know every route is a Lambda function.
 
 ```javascript
-// `src/views/form.js` 
+// `src/views/form.js`
 module.exports = function form(draft) {
   if (!draft) {
     return `
@@ -163,7 +163,7 @@ module.exports = function form(draft) {
 ```
 
 ```javascript
-// `src/views/signin.js` 
+// `src/views/signin.js`
 module.exports = function signin() {
 
   let client_id = process.env.GITHUB_CLIENT_ID
@@ -207,7 +207,7 @@ async function http(req) {
 exports.handler = arc.http.async(http)
 ```
 
-The `get /admin` route handler checks for `req.session.account` and renders the admin view (or prompts sign in if the user has not authenticated). All other controller logic in this app is form posts which is great because form posts always redirect back to a view. (So they have no view logic.) It is possible to render HTML from a form post…but you never want that behavior because it often results in double form submissions. 
+The `get /admin` route handler checks for `req.session.account` and renders the admin view (or prompts sign in if the user has not authenticated). All other controller logic in this app is form posts which is great because form posts always redirect back to a view. (So they have no view logic.) It is possible to render HTML from a form post…but you never want that behavior because it often results in double form submissions.
 
 The 'create' Lambda at `post /drafts` code:
 
@@ -264,7 +264,7 @@ async function destroy(req) {
 exports.handler = arc.http.async(destroy)
 ```
 
-Again we check for a legit session and if it exists we destroy the record and redirect back to `/admin`. 
+Again we check for a legit session and if it exists we destroy the record and redirect back to `/admin`.
 
 The final method worth noticing is `post /drafts/:key/publish`:
 
@@ -339,7 +339,7 @@ GitHub has an amazing API. This method write a new markdown document into our `s
 
 ---
 
-REST is often likened to CRUD for HTTP. The verbs map well and it provides a framework for thinking about how to structure our apps. 
+REST is often likened to CRUD for HTTP. The verbs map well and it provides a framework for thinking about how to structure our apps.
 
 
 <table>

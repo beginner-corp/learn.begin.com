@@ -53,13 +53,14 @@ LeRoux
 lockfile
 minified
 namespace
-oAuth
+OAuth
 OpenJS
 performant
 pre-rendered
 Preact
 proxied
 realtime
+repo
 Rollup
 Route53
 runtime
