@@ -816,6 +816,8 @@ module.exports = function layout(params) {
         bg-p1
         transition-transform
         transition-none-lg
+        o-auto
+        o-hidden-lg
       "
     >
       <div
