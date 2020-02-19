@@ -67,9 +67,6 @@ async function Nav() {
           bg-a7
           br-pill
           transition-all
-          mb-2
-          mb-none-lg
-          mr1-lg
           cursor-pointer
         "
       >
@@ -91,9 +88,6 @@ async function Nav() {
           bg-a7
           br-pill
           transition-all
-          mb-2
-          mb-none-lg
-          mr1-lg
           cursor-pointer
         "
         href=/logout
@@ -113,13 +107,6 @@ async function Nav() {
           pr-1
           pb-4
           pl-1
-          mt-3
-          mt-none-lg
-          mr0
-          mb-2
-          mb-none-lg
-          ml-3
-          ml-none-lg
           order1
           order-initial-lg
           fw-medium

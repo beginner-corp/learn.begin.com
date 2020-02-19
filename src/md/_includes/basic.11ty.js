@@ -25,7 +25,15 @@ module.exports = function layout(params) {
 <div class="vh-100 d-flex fd-c o-hidden">
 <header
   class="
-    p-relative d-flex ai-c jc-b p-1 bg-p25
+    p-relative
+    d-flex
+    ai-c
+    jc-b
+    pt-1
+    pr1
+    pb-1
+    pl1
+    bg-p25
   "
   style="min-height: 3.333rem;"
 >
