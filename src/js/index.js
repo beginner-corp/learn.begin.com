@@ -32,11 +32,13 @@ async function Nav() {
   let nav = document.getElementById('js-nav')
   let doc = document.getElementById('doc')
   let menu = document.getElementById('js-menu')
-  menu.onclick = e => {
-    e.preventDefault()
-    doc.classList.toggle('slide-menu')
-    disclose.classList.remove('rotate180')
-    nav.classList.remove('max-h-infinity')
+  if (menu) {
+    menu.onclick = e => {
+      e.preventDefault()
+      doc.classList.toggle('slide-menu')
+      disclose.classList.remove('rotate180')
+      nav.classList.remove('max-h-infinity')
+    }
   }
   disclose.onclick = e => {
     e.preventDefault()
@@ -204,10 +206,12 @@ async function Checks() {
 async function ShowProgress() {
   let popup = document.getElementById('popup')
   let show = document.getElementById('show')
-  show.addEventListener('click', function click(e) {
-    popup.style.display =  popup.style.display === 'none' ? 'flex' : 'none'
-    e.preventDefault()
-  }, false)
+  if (show) {
+    show.addEventListener('click', function click(e) {
+      popup.style.display =  popup.style.display === 'none' ? 'flex' : 'none'
+      e.preventDefault()
+    }, false)
+  }
 }
 
 // save the progress, update the state and re-render
