@@ -13,13 +13,13 @@ There are currently three ways to deploy an Architect app to AWS:
 
 ---
 
-<h2 id=deploy-begin>Deploy with Begin.com</h2>
+<h2 id=deploy-begin>Deploy with [Begin.com](https://begin.com/)</h2>
 
 Create an app on Begin:
 
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/node-minimal)
 
-To deploy to staging all you need to do is commit to master:
+To deploy to your staging environment, all you need to do is make a change in your GitHub repo and push it to master:
 
 ```bash
 git push origin master
@@ -28,15 +28,15 @@ git push origin master
 Git tags deploy to production:
 
 ```bash
-npm version patch 
+npm version patch
 git push origin master
 ```
 
-That's it!
+Congrats, you've deployed to your production environment!
 
 <h2 id=deploy-arc>Deploy with Architect</h2>
 
-Architect deploys to a `staging` stack by default, will generate and cleanup all the required JSON, YAML and deployment bucket ceremony for you.
+Architect deploys to a `staging` stack by default, and will generate and clean up the required JSON, YAML and deployment bucket for you.
 
 ```bash
 arc deploy
@@ -52,7 +52,7 @@ arc deploy production
 
 <h2 id=deploy-sam>Deploy with SAM</h2>
 
-Running `arc package` generates SAM/CloudFormation `sam.json` which can then be deployed by AWS SAM or AWS CLI tools.
+Running `arc package` generates SAM/CloudFormation `sam.json` which can then be deployed by [AWS SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) or [AWS CLI](https://aws.amazon.com/cli/) tools.
 
 ```bash
 arc package
@@ -62,14 +62,14 @@ sam package \
   --output-template-file out.yaml \
   --s3-bucket [S3 bucket] \
 
-sam deploy 
+sam deploy
   --template-file out.yaml \
-  --stack-name [Stack Name] \ 
+  --stack-name [Stack Name] \
   --s3-bucket [S3 bucket] \
   --capabilities CAPABILITY_IAM,CAPABILITY_AUTO_EXPAND \
   --region [AWS_REGION]
 ```
-> Note: s3-bucket, stack-name and region parameters are required
+> Note: `s3-bucket`, `stack-name` and `region parameters` are required
 
 ---
 

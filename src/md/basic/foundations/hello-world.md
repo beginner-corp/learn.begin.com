@@ -5,7 +5,7 @@ title: serverless web dev training with architect
 
 # Hello world
 
-[Begin.com](https://begin.com/) supports building static web applications alongside the popular backend JavaScript runtimes Node and Deno. You can even use both Node and Deno in the same app. Or other programming languages like Ruby and Python.
+[Begin.com](https://begin.com/) supports building static web applications alongside the popular backend JavaScript runtimes Node and Deno. You can even use both Node and Deno in the same app.
 
 ## Exercise 1: Static website
 
@@ -26,7 +26,7 @@ cd my-static-app
 arc sandbox
 ```
 
-3. Preview in browser
+3. Preview the site in your browser
 
 Copy `http://localhost:3333` from the terminal output into a web browser to preview your static website.
 
@@ -57,7 +57,7 @@ You should see the terminal output:
 ✓ Create Done!
 ```
 
-2. Create a `package.json`
+2. Create a `package.json` file
 
 Change directories to the new `my-node-app` directory and run the following commands. The `--yes` flag will automatically populate `package.json` with information from the directory.
 
@@ -66,19 +66,13 @@ cd my-node-app
 npm init --yes
 ```
 
-3. Install the dependencies
+5. Add a start script to `package.json`
 
 ```bash
-npm install react react-dom parcel-bundler @architect/sandbox
+    "start": "arc sandbox"
 ```
 
-4. Add a start script to `package.json`
-
-```bash
-    "start": "parcel public/index.html & sandbox"
-```
-
-4. Start the server
+6. Start the server
 
 To start the server using npm, run the following command:
 
@@ -86,13 +80,13 @@ To start the server using npm, run the following command:
 npm start
 ```
 
-5. Preview in browser
+7. Preview in browser
 
 Visit [`http://localhost:3333`](http://localhost:3333) in your web browser to preview your Node application.
 
 ---
 
-## Exercise 1: HTTP function using Deno
+## Exercise 3: HTTP function using Deno
 
 1. To create an HTTP function with Deno, open a terminal window and run the following command:
 
@@ -128,7 +122,7 @@ arc sandbox
 
 ---
 
-## Exercise 2: set up testing
+## Exercise 4: set up testing
 
 1. To create another new app with `arc init`, run the following command:
 
@@ -158,24 +152,24 @@ my-app
 npm init --yes
 ```
 
-4. To install testing tools `tape` and `tap-sec` as development dependencies, run the following command:
+4. To install testing tools `tape` and `tap-sec`, along with `@architect/sandbox` as development dependencies, run the following command:
 
 ```bash
-npm i tape tap-spec -D
+npm i tape tap-spec @architect/sandbox -D
 ```
 
-3. To add tests to your app, open your `package.json` file in a text editor and replicate the test script line with:  
+5. To add tests to your app, open your `package.json` file in a text editor and replace the test script line with:  
 
 ```javascript
     "test": "tape test/index-test.js | tap-spec"
 ```
 
-4. To add the test scaffolding, add the following to your `index.js` file inside your project directory:
+6. To add the test scaffolding, create a `test` folder with `index-test.js` file in it, and add the following to your `test/index-test.js` file inside your project directory:
 
 ```javascript
 // example sandbox start/stop
 let sandbox = require('@architect/sandbox')
-let tape = require('tape')
+let test = require('tape')
 let end
 
 test('sandbox.start', async t=> {
@@ -193,10 +187,10 @@ test('end', async t=> {
 })
 ```
 
-5. Run the tests using npm:
+7. Run the tests using `npm`:
 
  ```bash
  npm t
  ```
 
-6. Add a test to see that `http://localhost:3333` returns an HTTP statusCode 200 using `tiny-json-http`
+8. Add a test to see that `http://localhost:3333` returns an HTTP statusCode 200 using `tiny-json-http`
