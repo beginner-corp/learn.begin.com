@@ -20,6 +20,7 @@ module.exports = function layout(params) {
 <symbol id="icon-dictionary" viewBox="0 0 32 32"><path d="M18.909 7.273q0.602 0 1.028 0.426t0.426 1.028v13.091q0 1.205-0.852 2.057t-2.057 0.852h-10.909q-1.205 0-2.057-0.852t-0.852-2.057v-16q0-1.795 1.284-3.080t3.080-1.284h10.909q0.602 0 1.028 0.426t0.426 1.028-0.426 1.028-1.028 0.426h-10.909q-0.602 0-1.028 0.426t-0.426 1.028 0.426 1.028 1.028 0.426h10.909z"></path></symbol>
 <symbol viewBox="0 0 18 12" id="icon-menu"><g fill-rule="evenodd"><rect width="18" height="2" rx="1"></rect><rect y="5" width="18" height="2" rx="1"></rect><rect y="10" width="18" height="2" rx="1"></rect></g></symbol>
 <symbol viewBox="0 0 16 10" id="icon-disclose"><path d="M5.762 8L.475 2.725C.158 2.4 0 2.025 0 1.6 0 1.175.158.804.475.487.8.162 1.175 0 1.6 0c.425 0 .8.158 1.125.475L8 5.762 13.275.475C13.6.158 13.975 0 14.4 0c.425 0 .796.162 1.112.487.326.317.488.688.488 1.113 0 .425-.158.8-.475 1.125L10.238 8l-1.44 1.44c-.262.272-.528.407-.798.405-.27-.002-.54-.141-.81-.417L5.762 8z" fill-rule="evenodd"></path></symbol>
+<symbol viewBox="0 0 11 11" id="icon-left-arrow"><path d="M5.385 0l5.518 5.517-5.518 5.518-.751-.745 4.245-4.245H0V4.99h8.88L4.633.745z" fill-rule="nonzero"></path></symbol>
 </svg>
 <div class="vh-100 d-flex fd-c o-hidden">
 <header
@@ -231,7 +232,7 @@ module.exports = function layout(params) {
 <div
   class="
     d-flex-lg
-    vh-100
+    fg-1
   "
 >
  <aside
@@ -240,238 +241,588 @@ module.exports = function layout(params) {
       p-absolute
       p-static-lg
       trbl
+      d-flex
+      fd-c
+      jc-b
       fg-0
-      pt1
-      pl0
-      pr0
-      pb0
+      p1
       o-auto
     "
   >
-
-    <h2
-      class="
-        pt-3
-        pb-3
-        fs-1
-        fw-medium
-        c-p8
-        uppercase
-        nowrap
-        cu-pointer
-      "
-    >
-      Foundations
-    </h2>
-    <ul>
-      <li><a href=/basic/foundations/setup       class=${params.page.url === '/basic/foundations/setup/'?       'active' : ''}>‣ Setup</a></li>
-      <li><a href=/basic/foundations/hello-world class=${params.page.url === '/basic/foundations/hello-world/'? 'active' : ''}>‣ Hello world</a></li>
-      <li><a href=/basic/foundations/deployment  class=${params.page.url === '/basic/foundations/deployment/'?  'active' : ''}>‣ Deploy</a></li>
-    </ul>
-
-    <hr>
-
-    <h2
-      class="
-        pt-3
-        pb-3
-        fs-1
-        fw-medium
-        c-p8
-        uppercase
-        nowrap
-        cu-pointer
-      "
-    >
-      Frontend patterns
-    </h2>
-    <ul>
-      <li><a href=/basic/frontend/spa class=${params.page.url === '/basic/frontend/spa/'? 'active' : ''}>‣ Single page applications</a></li>
-      <li><a href=/basic/frontend/ssg class=${params.page.url === '/basic/frontend/ssg/'? 'active' : ''}>‣ Static site generators</a></li>
-      <li><a href=/basic/frontend/ssr class=${params.page.url === '/basic/frontend/ssr/'? 'active' : ''}>‣ Server side rendering</a></li>
-    </ul>
-
-    <hr>
-
-    <h2
-      class="
-        pt-3
-        pb-3
-        fs-1
-        fw-medium
-        c-p8
-        uppercase
-        nowrap
-        cu-pointer
-      "
-    >
-      Handling state
-    </h2>
-    <ul>
-      <li><a href=/basic/state/sessions class=${params.page.url === '/basic/state/sessions/'? 'active' : ''}>‣ Tracking sessions</a></li>
-      <li><a href=/basic/state/env      class=${params.page.url === '/basic/state/env/'?      'active' : ''}>‣ Environment variables</a></li>
-      <li><a href=/basic/state/oauth    class=${params.page.url === '/basic/state/oauth/'?    'active' : ''}>‣ Authentication</a></li>
-    </ul>
-
-    <hr>
-    <h2
-      class="
-        pt-3
-        pb-3
-        fs-1
-        fw-medium
-        c-p8
-        uppercase
-        nowrap
-        cu-pointer
-      "
-    >
-      Backend patterns
-    </h2>
-    <ul
-      class="
-        pt2
-        pr0
-        pr3-lg
-        pb2
-        pl0
-        pl3-lg
-        o-auto
-      "
-    >
-      <li
+    <div class="fg-1">
+      <h2
         class="
-          mb0
+          pt-3
+          pb-3
+          fs-1
+          fw-medium
+          c-p8
+          uppercase
+          nowrap
+          cu-pointer
+        "
+      >
+        Foundations
+      </h2>
+      <ul
+        class="
+          mb-1
+          pl0
+        "
+      >
+        <li
+          class="
+            c-p3
+            c-h0
+            c-a0
+            fw-book
+          "
+        >
+          <a
+            href=/basic/foundations/setup
+            class="
+              d-block
+              fw-book
+              c-p8
+              c-h0
+              c-a6
+              ${params.page.url === '/basic/foundations/setup/'
+                ? 'active'
+                : ''
+               }
+              "
+            >
+              ${params.page.url === '/basic/foundations/setup/'
+                ? `
+                <span class="d-inline-flex ai-c mr-4 f-p3"
+                  style="width:0.6111rem;height:0.666rem;"
+                >
+                  <svg>
+                    <use xlink:href="#icon-left-arrow"></use>
+                  </svg>
+                </span>`
+                : ''
+              }
+              Setup
+            </a>
+        </li>
+        <li
+          class="
+            c-p3
+            c-h0
+            c-a0
+            fw-book
+          "
+        >
+          <a
+            href=/basic/foundations/hello-world
+            class="
+              d-block
+              fw-book
+              c-p8
+              c-h0
+              c-a6
+              ${params.page.url === '/basic/foundations/hello-world/'
+                ? 'active'
+                : ''
+              }
+            "
+            >
+              ${params.page.url === '/basic/foundations/hello-world/'
+                ? `
+                <span class="d-inline-flex ai-c mr-4 f-p3"
+                  style="width:0.6111rem;height:0.666rem;"
+                >
+                  <svg>
+                    <use xlink:href="#icon-left-arrow"></use>
+                  </svg>
+                </span>`
+                : ''
+              }
+              Hello world
+          </a>
+        </li>
+        <li
+          class="
+            c-p3
+            c-h0
+            c-a0
+            fw-book
+          "
+        >
+          <a
+            href=/basic/foundations/deployment
+            class="
+              d-block
+              fw-book
+              c-p8
+              c-h0
+              c-a6
+              ${params.page.url === '/basic/foundations/deployment/'
+                ? 'active'
+                : ''
+               }
+            "
+          >
+              ${params.page.url === '/basic/foundations/deployment/'
+                ? `
+                <span class="d-inline-flex ai-c mr-4 f-p3"
+                  style="width:0.6111rem;height:0.666rem;"
+                >
+                  <svg>
+                    <use xlink:href="#icon-left-arrow"></use>
+                  </svg>
+                </span>`
+                : ''
+               }
+            Deploy
+          </a>
+        </li>
+      </ul>
+
+      <h2
+        class="
+          pt-3
+          pb-3
+          fs-1
+          fw-medium
+          c-p8
+          uppercase
+          nowrap
+          cu-pointer
+        "
+      >
+        Frontend patterns
+      </h2>
+      <ul
+        class="
+          mb-1
+          pl0
+        "
+      >
+        <li
+          class="
+            c-p3
+            c-h0
+            c-a0
+            fw-book
+          "
+        >
+          <a
+            href=/basic/frontend/spa
+            class="
+              d-block
+              fw-book
+              c-p8
+              c-h0
+              c-a6
+              ${params.page.url === '/basic/frontend/spa/'
+                ? 'active'
+                : ''
+              }
+            "
+            >
+              ${params.page.url === '/basic/frontend/spa/'
+                ? `
+                <span class="d-inline-flex ai-c mr-4 f-p3"
+                  style="width:0.6111rem;height:0.666rem;"
+                >
+                  <svg>
+                    <use xlink:href="#icon-left-arrow"></use>
+                  </svg>
+                </span>`
+                : ''
+               }
+              Single page applications
+          </a>
+        </li>
+        <li
+          class="
+            c-p3
+            c-h0
+            c-a0
+            fw-book
+          "
+        >
+          <a
+            href=/basic/frontend/ssg
+            class="
+              d-block
+              fw-book
+              c-p8
+              c-h0
+              c-a6
+              ${params.page.url === '/basic/frontend/ssg/'
+                ? 'active'
+                : ''
+              }
+            "
+            >
+            ${params.page.url === '/basic/frontend/ssg/'
+                ? `
+                <span class="d-inline-flex ai-c mr-4 f-p3"
+                  style="width:0.6111rem;height:0.666rem;"
+                >
+                  <svg>
+                    <use xlink:href="#icon-left-arrow"></use>
+                  </svg>
+                </span>`
+                : ''
+              }
+              Static site generators
+          </a>
+        </li>
+
+        <li
+          class="
+            c-p3
+            c-h0
+            c-a0
+            fw-book
+          "
+        >
+          <a
+            href=/basic/frontend/ssr
+            class="
+              d-block
+              fw-book
+              c-p8
+              c-h0
+              c-a6
+              ${params.page.url === '/basic/frontend/ssr/'
+                ? 'active'
+                : ''
+              }
+            "
+          >
+              ${params.page.url === '/basic/frontend/ssr/'
+                ? `
+                <span class="d-inline-flex ai-c mr-4 f-p3"
+                  style="width:0.6111rem;height:0.666rem;"
+                >
+                  <svg>
+                    <use xlink:href="#icon-left-arrow"></use>
+                  </svg>
+                </span>`
+                : ''
+              }
+            Server side rendering
+          </a>
+        </li>
+      </ul>
+
+      <h2
+        class="
+          pt-3
+          pb-3
+          fs-1
+          fw-medium
+          c-p8
+          uppercase
+          nowrap
+          cu-pointer
+        "
+      >
+        Handling state
+      </h2>
+      <ul
+        class="
+          mb-1
+          pl0
+        "
+      >
+        <li
+          class="
+            c-p3
+            c-h0
+            c-a0
+            fw-book
+          "
+        >
+          <a
+            href=/basic/state/sessions
+            class="
+              d-block
+              fw-book
+              c-p8
+              c-h0
+              c-a6
+              ${params.page.url === '/basic/state/sessions/'
+                ? 'active'
+                : ''
+              }
+            "
+          >
+            ${params.page.url === '/basic/state/sessions/'
+              ? `
+              <span class="d-inline-flex ai-c mr-4 f-p3"
+                style="width:0.6111rem;height:0.666rem;"
+              >
+                <svg>
+                  <use xlink:href="#icon-left-arrow"></use>
+                </svg>
+              </span>`
+              : ''
+            }
+            Tracking sessions
+          </a>
+        </li>
+        <li
+          class="
+            c-p3
+            c-h0
+            c-a0
+            fw-book
+          "
+        >
+          <a
+            href=/basic/state/env
+            class="
+              d-block
+              fw-book
+              c-p8
+              c-h0
+              c-a6
+              ${params.page.url === '/basic/state/env/'
+                ? 'active'
+                : ''
+              }
+            "
+          >
+            ${params.page.url === '/basic/state/env/'
+              ? `
+              <span class="d-inline-flex ai-c mr-4 f-p3"
+                style="width:0.6111rem;height:0.666rem;"
+              >
+                <svg>
+                  <use xlink:href="#icon-left-arrow"></use>
+                </svg>
+              </span>`
+              : ''
+            }
+            Environment variables
+          </a>
+        </li>
+        <li
+          class="
+            c-p3
+            c-h0
+            c-a0
+            fw-book
+          "
+        >
+          <a
+            href=/basic/state/oauth
+            class="
+              d-block
+              fw-book
+              c-p8
+              c-h0
+              c-a6
+              ${params.page.url === '/basic/state/oauth/'
+                ? 'active'
+                : ''
+               }
+            "
+          >
+            ${params.page.url === '/basic/state/oauth/'
+              ? `
+              <span class="d-inline-flex ai-c mr-4 f-p3"
+                style="width:0.6111rem;height:0.666rem;"
+              >
+                <svg>
+                  <use xlink:href="#icon-left-arrow"></use>
+                </svg>
+              </span>`
+              : ''
+            }
+            Authentication
+          </a>
+        </li>
+      </ul>
+
+      <h2
+        class="
+          pt-3
+          pb-3
+          fs-1
+          fw-medium
+          c-p8
+          uppercase
+          nowrap
+          cu-pointer
+        "
+      >
+        Backend patterns
+      </h2>
+      <ul
+        class="
+          mb-1
+          pl0
+        "
+      >
+        <li
+          class="
+            c-p3
+            c-h0
+            c-a0
+            fw-book
+          "
+        >
+          <a
+            href=/basic/backend/forms
+            class="
+              d-block
+              fw-book
+              c-p8
+              c-h0
+              c-a6
+              ${params.page.url === '/basic/backend/forms/'
+                ? 'active'
+                : ''
+              }
+            "
+          >
+            ${params.page.url === '/basic/backend/forms/'
+              ? `
+              <span class="d-inline-flex ai-c mr-4 f-p3"
+                style="width:0.6111rem;height:0.666rem;"
+              >
+                <svg>
+                  <use xlink:href="#icon-left-arrow"></use>
+                </svg>
+              </span>`
+              : ''
+            }
+            HTML forms
+          </a>
+        </li>
+       <li
+        class="
           c-p3
           c-h0
           c-a0
           fw-book
         "
-      >
+       >
         <a
-          href=/basic/backend/forms
+          href=/basic/backend/rest
           class="
             d-block
             fw-book
             c-p8
             c-h0
-            c-a4
-            ${params.page.url === '/basic/backend/forms/'?   'active' : ''}
+            c-a6
+            ${params.page.url === '/basic/backend/rest/'
+              ? 'active'
+              : ''
+            }
           "
         >
-          <span
-            class="
-              d-inline-flex
-              ai-c
-              pt-3
-              pr0
-              pb-3
-              pl0
-            "
-          >
-            HTML forms
-          </span>
+          ${params.page.url === '/basic/backend/rest/'
+            ? `
+            <span class="d-inline-flex ai-c mr-4 f-p3"
+              style="width:0.6111rem;height:0.666rem;"
+            >
+              <svg>
+                <use xlink:href="#icon-left-arrow"></use>
+              </svg>
+            </span>`
+            : ''
+          }
+          REST
         </a>
       </li>
-     <li
-      class="
-        mb0
-        c-p3
-        c-h0
-        c-a0
-        fw-book
-      "
-     >
+        <li
+          class="mb0 c-p3 c-h0 c-a0 fw-book"
+        >
+          <a
+            href=/basic/backend/graphql
+            class="
+              d-block
+              fw-book
+              c-p8
+              c-h0
+              c-a6
+              ${params.page.url === '/basic/backend/graphql/'
+                ? 'active'
+                : ''
+              }
+            "
+          >
+            ${params.page.url === '/basic/backend/graphql/'
+              ? `
+              <span class="d-inline-flex ai-c mr-4 f-p3"
+                style="width:0.6111rem;height:0.666rem;"
+              >
+                <svg>
+                  <use xlink:href="#icon-left-arrow"></use>
+                </svg>
+              </span>`
+              : ''
+            }
+            GraphQL
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <footer>
       <a
-        href=/basic/backend/rest
+        href=https://github.com/smallwins/training.begin.com/blob/master/${params.page.inputPath}
         class="
-          d-block
-          fw-book
-          c-p8
+          c-p3
           c-h0
-          c-a4
-          ${params.page.url === '/basic/backend/rest/'?    'active' : ''}
+          c-a0
+          f-p3
+          f-h0
+          f-a0
         "
       >
+        Edit this page on GitHub
         <span
-          class="
-            d-inline-flex
-            ai-c
-            pt-3
-            pr0
-            pb-3
-            pl0
-          "
+          class="d-inline-flex ai-c ml-4"
+          style="width:0.6111rem;height:0.666rem;"
         >
-          REST
+          <svg>
+            <use xlink:href="#icon-left-arrow"></use>
+          </svg>
         </span>
       </a>
-    </li>
-      <li
-        class="mb0 c-p3 c-h0 c-a0 fw-book"
-      >
-        <a
-          href=/basic/backend/graphql
-          class="
-            d-block
-            fw-book
-            c-p8
-            c-h0
-            c-a4
-            ${params.page.url === '/basic/backend/graphql/'? 'active' : ''}
-          "
-        >
-          <span
-            class="
-              d-inline-flex
-              ai-c
-              pt-3
-              pr0
-              pb-3
-              pl0
-            "
-          >
-            GraphQL
-          </span>
-        </a>
-      </li>
-    </ul>
-
+    </footer>
   </aside>
 
-  <main
-    id="doc"
-    class="
-      p-absolute
-      p-static-lg
-      trbl
-      min-w0
-      fg-1
-      pt1
-      pl0
-      pr0
-      pb0
-      bg-p1
-      transition-transform
-      transition-none-lg
-      o-auto
-    "
-  >
-    <div
+  <div class="fg-1 o-auto">
+    <main
+      id="doc"
       class="
+        p-absolute
+        p-static-lg
+        trbl
+        min-w0
         fg-1
-        max-w-60
-        pb2
+        pt1
+        pl0
+        pr0
+        pb3
+        bg-p1
+        transition-transform
+        transition-none-lg
       "
     >
-      ${params.content}
-    </div>
-  </main>
+      <div
+        class="
+          fg-1
+          max-w-60
+          pb2
+        "
+      >
+        ${params.content}
+      </div>
+    </main>
+  </div>
 </div>
 </div>
-<footer>
-  <a href=https://github.com/smallwins/training.begin.com/blob/master/${params.page.inputPath}>Edit this page on GitHub</a>
-</footer>
 <section id=popup style=display:none></section>
 <script type=module src=/_static/js/index.js></script>
 </div>
