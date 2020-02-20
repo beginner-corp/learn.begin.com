@@ -1,3 +1,4 @@
+/* global window document fetch */
 // global state bag; everything renders from this
 window.STATE = {}
 
@@ -27,14 +28,108 @@ async function render() {
 // render login/logout
 async function Nav() {
   let state = window.STATE
+  let disclose = document.getElementById('js-disclose')
+  let nav = document.getElementById('js-nav')
+  let doc = document.getElementById('doc')
+  let menu = document.getElementById('js-menu')
+  if (menu) {
+    menu.onclick = e => {
+      e.preventDefault()
+      doc.classList.toggle('slide-menu')
+      disclose.classList.remove('rotate180')
+      nav.classList.remove('max-h-infinity')
+    }
+  }
+  disclose.onclick = e => {
+    e.preventDefault()
+    disclose.classList.toggle('rotate180')
+    nav.classList.toggle('max-h-infinity')
+  }
   if (state.authorized) {
     document.querySelector('nav').innerHTML += `
-      <a id=show style=cursor:pointer>${state.account.login}</a>
-      <a href=/logout>logout</a>
+    <div
+      class="
+        d-flex-lg
+      "
+    >
+      <a
+        id=show
+        class="
+          d-flex
+          ai-c
+          fs-off-scale
+          fw-medium
+          upper
+          lh2
+          pr0
+          pl-1
+          c-p26
+          c-h3
+          c-a5
+          bg-a7
+          br-pill
+          transition-all
+          cursor-pointer
+        "
+      >
+        ${state.account.login}
+      </a>
+      <a
+        class="
+          d-flex
+          ai-c
+          fs-off-scale
+          fw-medium
+          upper
+          lh2
+          pr0
+          pl-1
+          c-p26
+          c-h3
+          c-a5
+          bg-a7
+          br-pill
+          transition-all
+          cursor-pointer
+        "
+        href=/logout
+      >
+        Logout
+      </a>
+    </div>
     `
   }
   else {
-    document.querySelector('nav').innerHTML += `<a href=${state.href}>login</a>`
+    document.querySelector('nav').innerHTML += `
+    <span class="mb0 mb-none-lg d-flex fd-c fd-r-lg">
+      <a
+        href=${state.href}
+        class="
+          pt-4
+          pr-1
+          pb-4
+          pl-1
+          order1
+          order-initial-lg
+          fw-medium
+          fs-off-scale
+          ta-c
+          upper
+          br-pill
+          bg-p26
+          c-p25
+          c-h3
+          c-a5
+          bg-a7
+          transition-all
+          cursor-pointer
+        "
+        style="max-width: 6rem;"
+      >
+        Login
+      </a>
+    </span>
+    `
   }
 }
 
@@ -73,7 +168,7 @@ async function Popup() {
 
     let keys = Object.keys(state.progress).reduce((a, b) => {
       let bits = b.split('/').filter(Boolean)
-      let course = bits.shift() // discard for now while there is only one course
+      // let course = bits.shift() // discard for now while there is only one course
       let section = bits.shift()
       if (!a[section])
         a[section] = 0
@@ -111,41 +206,45 @@ async function Checks() {
 async function ShowProgress() {
   let popup = document.getElementById('popup')
   let show = document.getElementById('show')
-  show.addEventListener('click', function click(e) {
-    popup.style.display =  popup.style.display === 'none' ? 'flex' : 'none'
-    e.preventDefault()
-  }, false)
+  if (show) {
+    show.addEventListener('click', function click(e) {
+      popup.style.display =  popup.style.display === 'none' ? 'flex' : 'none'
+      e.preventDefault()
+    }, false)
+  }
 }
 
 // save the progress, update the state and re-render
 async function SaveProgress() {
   let form = document.getElementById('progress')
-  let check = form[1]
-  let label = form.children[2]
-  check.onchange = async function change(e) {
-    // collect the data we need
-    let page = window.location.pathname
-    let complete = this.checked
-    let title = document.querySelector('h1').innerText
-    // optimistic update the label
-    label.innerHTML = complete? on : off
-    // save the data
-    let path = (new URL(form.action)).pathname
-    let request = await fetch(path, {
-      method: 'post',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify({page, complete, title})
-    })
-    // updates state
-    let json = await request.json()
-    window.STATE.progress = json.progress
-    // re-render
-    await Promise.all([
-      Checks(),
-      Popup()
-    ])
+  if (form) {
+    let check = form[1]
+    let label = form.children[2]
+    check.onchange = async function change() {
+      // collect the data we need
+      let page = window.location.pathname
+      let complete = this.checked
+      let title = document.querySelector('h1').innerText
+      // optimistic update the label
+      label.innerHTML = complete? on : off
+      // save the data
+      let path = (new URL(form.action)).pathname
+      let request = await fetch(path, {
+        method: 'post',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({page, complete, title})
+      })
+      // updates state
+      let json = await request.json()
+      window.STATE.progress = json.progress
+      // re-render
+      await Promise.all([
+        Checks(),
+        Popup()
+      ])
+    }
   }
 }
 
