@@ -5,13 +5,8 @@ module.exports = function layout(params) {
 <title>${params.title}</title>
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
-<link rel=stylesheet type=text/css href=https://docs.begin.com/css/app.css>
+<link rel=stylesheet type=text/css href=/_static/css/app.css>
 <link rel=stylesheet href=https://fonts.begin.com/fonts.css>
-<style>
-  html {
-    font-size: 18px;
-  }
-</style>
 </head>
 <body style="opacity:0;">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="display:none;">
