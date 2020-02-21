@@ -267,7 +267,7 @@ async function Checks() {
 // toggle the popup visability
 async function ShowProgress() {
   let popup = document.getElementById('popup')
-  let show = document.getElementById('show')
+  let show = false // Comment out for now. document.getElementById('show')
   if (show) {
     show.addEventListener('click', function click(e) {
       e.preventDefault()
