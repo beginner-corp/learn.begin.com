@@ -46,7 +46,8 @@ async function Nav() {
     nav.classList.toggle('max-h-infinity')
   }
   if (state.authorized) {
-    document.querySelector('nav').innerHTML += `
+    document.querySelector('nav')
+      .innerHTML += `
     <div
       class="
         d-flex-lg
@@ -62,35 +63,60 @@ async function Nav() {
           upper
           lh2
           pr0
-          pl-1
+          pl-3
+          pr-none-lg
+          pl-none-lg
           c-p26
           c-h3
           c-a5
           bg-a7
           br-pill
           transition-all
-          cursor-pointer
+          mb-2
+          mb-none-lg
         "
       >
-        ${state.account.login}
+        <div
+          class="
+            avatar
+            mr-3
+            mr-none-lg
+          "
+        >
+          <img
+            src="${state.account.avatar}"
+            alt="Profile avatar"
+            class="
+              br-100
+              o-hidden
+            "
+            style="object-fit: cover;"
+          >
+        </div>
+        <span class="d-none-lg">
+          Your profile
+        </span>
       </a>
       <a
         class="
-          d-flex
-          ai-c
-          fs-off-scale
-          fw-medium
-          upper
-          lh2
-          pr0
+          pt-4
+          pr-1
+          pb-4
           pl-1
-          c-p26
+          order1
+          order-initial-lg
+          fw-medium
+          fs-off-scale
+          ta-c
+          upper
+          br-pill
+          bg-p26
+          c-p25
           c-h3
           c-a5
           bg-a7
-          br-pill
           transition-all
-          cursor-pointer
+          cu-pointer
         "
         href=/logout
       >
@@ -122,7 +148,7 @@ async function Nav() {
           c-a5
           bg-a7
           transition-all
-          cursor-pointer
+          cu-pointer
         "
         style="max-width: 6rem;"
       >
@@ -178,12 +204,48 @@ async function Popup() {
 
     let html = ''
     for (let section of Object.keys(course.basic)) {
-      html += `<li><b>${section}</b> ${ keys[section] || 0 } of 3</li>`
+      html += `
+     <li class="d-flex">
+      <b>${section}</b> ${ keys[section] || 0 } of 3
+     </li>
+      `
     }
     popup.innerHTML = `
-      <img src=${state.account.avatar}>
+  <div
+    class="
+      bg-p1
+      br1
+      pt0
+      pr2
+      pb2
+      pl2
+    "
+    style="max-width:20rem"
+  >
+    <div
+      class="
+        d-flex
+        br-100
+        b
+        b-p1
+        of-contain
+      "
+      style="
+        margin-top: -5rem;
+        border-width: 1rem;
+        width: 9rem;
+      "
+    >
+      <img
+        src=${state.account.avatar}
+        class="
+s
+        "
+      >
       <h3>${state.account.name}</h3>
       <ul>${html}</ul>
+    </div>
+  </div>
     `
   }
 }
@@ -208,8 +270,9 @@ async function ShowProgress() {
   let show = document.getElementById('show')
   if (show) {
     show.addEventListener('click', function click(e) {
-      popup.style.display =  popup.style.display === 'none' ? 'flex' : 'none'
       e.preventDefault()
+      popup.classList.toggle('d-none')
+      popup.classList.toggle('d-flex')
     }, false)
   }
 }
