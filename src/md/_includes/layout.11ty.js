@@ -291,7 +291,19 @@ module.exports = function layout(params) {
     </footer>
   </main>
 </div>
-<section id=popup style=display:none></section>
+<section
+  id=popup
+  class="
+    d-none
+    p-absolute
+    trbl
+    jc-c
+    ai-c
+  "
+  style="
+    background-color: rgba(0,0,0,0.6)
+  "
+></section>
 <script type=module src=/_static/js/index.js></script>
 </body>
 </html>`
