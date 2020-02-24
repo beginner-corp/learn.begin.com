@@ -17,7 +17,6 @@ async function api(req) {
   let account = req.session && req.session.account
   if (!account) {
     return {
-      statusCode: 403,
       body: JSON.stringify({
         authorized: false,
         href
