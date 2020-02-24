@@ -6,8 +6,8 @@ const URIs = {
   },
   staging: {
     begin:  'https://staging.begin.com',
-    docs:   'https://staging.docs.begin.com',
-    learn:  'https://staging.learn.begin.com'
+    docs:   'https://docs.staging.begin.com',
+    learn:  'https://learn.staging.begin.com'
   },
   production: {
     begin:  'https://begin.com',
