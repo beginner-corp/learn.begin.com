@@ -7,7 +7,6 @@ title: serverless web dev training with architect
 
 The open standard for authorization on the web is OAuth and it is implemented via HTTP.  In this guide we will implement OAuth for GitHub with a Static Website using Lambda and API Gateway.
 
-
 [View the completed app here →](https://fly-ogy.begin.app/)
 
 
