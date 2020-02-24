@@ -36,7 +36,7 @@ And generate the boilerplate code by running:
 arc init
 ```
 
-3. Add the `@architect/functions` runtime helper library to make reading/writing to the session clean
+3. Add the `@architect/functions` runtime helper library to your functions. This gives the request object a method to read and write sessions.
 
 ```bash
 cd src/http/get-index
@@ -122,17 +122,20 @@ async function reset(req) {
 exports.handler = arc.http.async(reset)
 ```
 
-8. Install `@architect/sandbox` local development server
+> For more information about `arc.http.async` helper, [check out the documentation](https://arc.codes/reference/functions/http/node/async)
+
+8. Initialize a `package.json` in the root of your project, and install `@architect/sandbox` for a local development server
 
 ```bash
+npm init -f
 npm install @architect/sandbox
 ```
 
-9. Add a start command to the scripts section in `package.json`
+9. Add a start command to the scripts section in `package.json` found at the root of your project
 ```bash
 ...
 "scripts": {
-  "start": "npx sandbox"
+  "start": "sandbox"
 }
 ...
 ```
