@@ -253,12 +253,18 @@ s
 // render check marks
 async function Checks() {
   let state = window.STATE
-  let depth = window.location.pathname.split('/').filter(Boolean).length
+  let depth = window.location.pathname
+    .split('/')
+    .filter(Boolean)
+    .length
   if (state.authorized && depth <= 3) {
     let els = document.querySelectorAll('div > section > ul > li > a')
     for (let el of els) {
       let path = (new URL(el.href)).pathname
-      let txt = state.progress[path] && state.progress[path].complete? el.innerText.replace('‣', '✔') : el.innerText.replace('✔', '‣')
+      let txt = state.progress[path]
+        && state.progress[path].complete
+          ? el.innerText.replace('‣', '✔')
+          : el.innerText.replace('✔', '‣')
       el.innerText = txt
     }
   }

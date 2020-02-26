@@ -174,7 +174,6 @@ module.exports = function layout(params) {
             mb-none-lg
             mr1-l
             cursor-pointer
-
           "
         >
           <div
@@ -788,30 +787,130 @@ module.exports = function layout(params) {
           </a>
         </li>
       </ul>
+
+      <hr
+        class="mb0 b-b b-p18"
+        style="border-width:0.5px"
+      />
+
+      <h2
+        class="
+          pt-3
+          pb-3
+          fs-1
+          fw-medium
+          c-p8
+          uppercase
+          nowrap
+          cu-pointer
+        "
+      >
+        Information
+      </h2>
+
+      <ul
+        class="
+          mb-1
+          pl0
+        "
+      >
+        <li
+          class="
+            c-p3
+            c-h0
+            c-a0
+            fw-medium
+          "
+        >
+          <a
+            href=/faq
+            class="
+              d-block
+              fw-book
+              c-p8
+              c-h0
+              c-a6
+              ${params.page.url === '/faq'
+                ? 'active'
+                : ''
+              }
+            "
+          >
+            ${params.page.url === '/faq'
+              ? `
+              <span class="d-inline-flex ai-c mr-4 f-p3"
+                style="width:0.6111rem;height:0.666rem;"
+              >
+                <svg>
+                  <use xlink:href="#icon-left-arrow"></use>
+                </svg>
+              </span>`
+              : ''
+            }
+            Frequently Asked Questions
+          </a>
+        </li>
+        <li
+          class="
+            c-p3
+            c-h0
+            c-a0
+            fw-medium
+          "
+        >
+          <a
+            href=/jargon
+            class="
+              d-block
+              fw-book
+              c-p8
+              c-h0
+              c-a6
+              ${params.page.url === '/jargon'
+                ? 'active'
+                : ''
+              }
+            "
+          >
+            ${params.page.url === '/jargon'
+              ? `
+              <span class="d-inline-flex ai-c mr-4 f-p3"
+                style="width:0.6111rem;height:0.666rem;"
+              >
+                <svg>
+                  <use xlink:href="#icon-left-arrow"></use>
+                </svg>
+              </span>`
+              : ''
+            }
+            Jargon
+          </a>
+        </li>
+      <ul>
     </div>
 
     <footer>
-      <a
-        href=https://github.com/smallwins/training.begin.com/blob/master/${params.page.inputPath}
-        class="
-          c-p3
-          c-h0
-          c-a0
-          f-p3
-          f-h0
-          f-a0
-        "
-      >
-        Edit this page on GitHub
-        <span
-          class="d-inline-flex ai-c ml-4"
-          style="width:0.6111rem;height:0.666rem;"
+        <a
+          href=https://github.com/smallwins/training.begin.com/blob/master/${params.page.inputPath}
+          class="
+            c-p3
+            c-h0
+            c-a0
+            f-p3
+            f-h0
+            f-a0
+          "
         >
-          <svg>
-            <use xlink:href="#icon-left-arrow"></use>
-          </svg>
-        </span>
-      </a>
+          Edit this page on GitHub
+          <span
+            class="d-inline-flex ai-c ml-4"
+            style="width:0.6111rem;height:0.666rem;"
+          >
+            <svg>
+              <use xlink:href="#icon-left-arrow"></use>
+            </svg>
+          </span>
+        </a>
     </footer>
   </aside>
 
