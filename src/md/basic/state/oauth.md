@@ -5,16 +5,12 @@ title: serverless web dev training with architect
 
 # OAuth
 
-The open standard for authorization on the web is OAuth and it is implemented via HTTP.  In this guide we will implement OAuth for GitHub with a Static Website using Lambda and API Gateway.
+The open standard for authorization on the web is OAuth and it is implemented via HTTP.  In this guide we will implement OAuth for GitHub with a Static Website using Lambda and API Gateway. We will continue to work on the app from the previous section on [environment variables](https://learn.begin.com/basic/state/env)
 
 [View the completed app here →](https://fly-ogy.begin.app/)
 
-
-### 1. Get setup working locally
-
-For instructions on how to get started working locally follow the "working locally" card in the activity list of the app you created in the [previous environment section](https://learn.begin.com/basic/state/env) on [Begin](https://begin.com)
-
-### 2. Add dependencies
+### 1. Add the following dependencies to your http functions.
+By now, you should have a local copy of the source code. Each function has its own `package.json` to keep them isolated and performant.
 
 ```bash
 cd src/http/get-login
@@ -31,7 +27,7 @@ npm i @architect/functions
 ```
 
 
-### 3. Modify `src/http/get-auth/index.js`
+### 2. Modify `src/http/get-auth/index.js`
 
 This `get-auth` function is used to retrieve a login link for authentication. It will also return account data if it is available on the session.
 
@@ -64,7 +60,7 @@ exports.handler = arc.http.async(auth)
 ```
 
 
-### 5. Modify `src/http/get-login/index.js`
+### 3. Modify `src/http/get-login/index.js`
 
 This `get-login` function is where our GitHub app redirects to after successfully authenticating.
 
@@ -106,7 +102,7 @@ exports.handler = arc.http.async(login)
 ```
 
 
-### 6. Create `src/http/get-login/github.js`
+### 4. Create `src/http/get-login/github.js`
 
 This `github.js` is used to retrieve the account data from GitHub.
 
@@ -155,7 +151,7 @@ module.exports = async function github(req) {
 }
 ```
 
-### 7. Modify `src/http/post-logout/index.js`
+### 5. Modify `src/http/post-logout/index.js`
 
 This `post-logout` function is used to logout the user by clearing the session.
 
@@ -178,10 +174,10 @@ exports.handler = arc.http.async(logout)
 ```
 
 
-### 8. Preview by starting the dev server
+### 6. Preview by starting the dev server
 
 ```bash
 npm start
 ```
 
-### 9. Deploy your changes with [Begin.com](https://begin.com)
+### 7. Deploy your changes with [Begin.com](https://begin.com) by committing your code to the `master` branch on Github. Check out your shiny new OAuth app! 
