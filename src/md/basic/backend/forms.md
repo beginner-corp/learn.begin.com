@@ -19,7 +19,7 @@ Implementing a *Model* *View* *Controller* (MVC) structure with Architect is str
 
 ### Data access layer
 
-Every backend has a data access layer. This code is responsible for interacting with the database which in our case is DynamoDB. In this example the CRUD logic is all in `src/shared/drafts.js` and wee utilize the `@begin/data` client library for DynamoDB. Everything in `src/shared` gets copied into all Lambdas `node_modules/@architect/shared` at runtime so any Lambda function can `require('@architect/shared/drafts')`.
+Every backend has a data access layer. This code is responsible for interacting with the database which in our case is DynamoDB. In this example the CRUD logic is all in `src/shared/drafts.js` and we utilize the `@begin/data` client library for DynamoDB. Everything in `src/shared` gets copied into all Lambdas `node_modules/@architect/shared` at runtime so any Lambda function can `require('@architect/shared/drafts')`.
 
 ```javascript
 let data = require('@begin/data')
