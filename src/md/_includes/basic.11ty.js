@@ -793,24 +793,9 @@ module.exports = function layout(params) {
         style="border-width:0.5px"
       />
 
-      <h2
-        class="
-          pt-3
-          pb-3
-          fs-1
-          fw-medium
-          c-p8
-          uppercase
-          nowrap
-          cu-pointer
-        "
-      >
-        Information
-      </h2>
-
       <ul
         class="
-          mb-1
+          mb2
           pl0
         "
       >
@@ -827,26 +812,18 @@ module.exports = function layout(params) {
             class="
               d-block
               fw-book
-              c-p8
+              c-p3
               c-h0
-              c-a6
+              c-a0
+              f-p3
+              f-h0
+              f-a0
               ${params.page.url === '/faq'
                 ? 'active'
                 : ''
               }
             "
           >
-            ${params.page.url === '/faq'
-              ? `
-              <span class="d-inline-flex ai-c mr-4 f-p3"
-                style="width:0.6111rem;height:0.666rem;"
-              >
-                <svg>
-                  <use xlink:href="#icon-left-arrow"></use>
-                </svg>
-              </span>`
-              : ''
-            }
             Frequently Asked Questions
           </a>
         </li>
@@ -855,7 +832,6 @@ module.exports = function layout(params) {
             c-p3
             c-h0
             c-a0
-            fw-medium
           "
         >
           <a
@@ -863,30 +839,43 @@ module.exports = function layout(params) {
             class="
               d-block
               fw-book
-              c-p8
+              c-p3
               c-h0
-              c-a6
+              c-a0
+              f-p3
+              f-h0
+              f-a0
               ${params.page.url === '/jargon'
                 ? 'active'
                 : ''
               }
             "
           >
-            ${params.page.url === '/jargon'
-              ? `
-              <span class="d-inline-flex ai-c mr-4 f-p3"
-                style="width:0.6111rem;height:0.666rem;"
-              >
-                <svg>
-                  <use xlink:href="#icon-left-arrow"></use>
-                </svg>
-              </span>`
-              : ''
-            }
-            Jargon
+            Jargon Dictionary
           </a>
         </li>
-      <ul>
+      </ul>
+      <button
+        id=js-show-progress
+        class="
+          d-none
+          ml0
+          pt-1
+          pr0
+          pb-1
+          pl0
+          fs0
+          fw-book
+          c-p1
+          br0
+          cu-pointer
+        "
+        style="
+          background-image: linear-gradient(45deg, #007ACC, #9C24FF);"
+        "
+      >
+        Check your progress
+      </button>
     </div>
 
     <footer>
@@ -947,8 +936,24 @@ module.exports = function layout(params) {
   </div>
 </div>
 </div>
-<section id=popup style=display:none></section>
-<script type=module src=/_static/js/index.js></script>
+<section
+  id=popup
+  class="
+    d-none
+    p-absolute
+    trbl
+    jc-c
+    ai-c
+  "
+  style="
+    background-color: rgba(0,0,0,0.6)
+  "
+></section>
+
+<script
+  type=module
+  src=/_static/js/index.js
+></script>
 </div>
 </body>
 </html>`
