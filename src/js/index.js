@@ -54,7 +54,6 @@ async function Nav() {
       "
     >
       <a
-        id=show
         class="
           d-flex
           ai-c
@@ -220,7 +219,11 @@ async function Popup() {
       pb2
       pl2
     "
-    style="max-width:20rem"
+    style="
+      margin-top: -13vh;
+      max-width:20rem;
+      box-shadow: 0 1px 2px var(--p4);
+    "
   >
     <div
       class="
@@ -229,11 +232,13 @@ async function Popup() {
         b
         b-p1
         of-contain
+        o-hidden
       "
       style="
         margin-top: -5rem;
         border-width: 1rem;
         width: 9rem;
+        box-shadow: 0 -1px 2px var(--p4);
       "
     >
       <img
@@ -242,9 +247,9 @@ async function Popup() {
 s
         "
       >
-      <h3>${state.account.name}</h3>
-      <ul>${html}</ul>
     </div>
+    <h3>${state.account.name}</h3>
+    <ul>${html}</ul>
   </div>
     `
   }
@@ -272,14 +277,18 @@ async function Checks() {
 
 // toggle the popup visability
 async function ShowProgress() {
+  let state = window.STATE || {}
   let popup = document.getElementById('popup')
-  let show = false // Comment out for now. document.getElementById('show')
-  if (show) {
-    show.addEventListener('click', function click(e) {
+  let show = document.getElementById('js-show-progress')
+  if (show && state.authorized) {
+    show.classList.remove('d-none')
+    popup.addEventListener('click', togglePopup, false)
+    show.addEventListener('click', togglePopup, false)
+    function togglePopup(e) {
       e.preventDefault()
       popup.classList.toggle('d-none')
       popup.classList.toggle('d-flex')
-    }, false)
+    }
   }
 }
 
