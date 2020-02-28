@@ -836,6 +836,8 @@ body {
 .fs-3{font-size:0.422rem;}
 .fs-4{font-size:0.317rem;}
 .fs-5{font-size:0.238rem;}
+.fs-off-scale,
+.fs-code {font-size: 0.888rem;}
 
 /* LINE HEIGHT */
 .lh5{line-height:4.209rem;}
