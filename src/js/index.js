@@ -204,8 +204,8 @@ async function Popup() {
     let html = ''
     for (let section of Object.keys(course.basic)) {
       html += `
-     <li class="d-flex">
-      <b>${section}</b> ${ keys[section] || 0 } of 3
+     <li class="d-flex fw-book">
+      <b class="fw-medium">${section}</b> ${ keys[section] || 0 } of 3
      </li>
       `
     }
