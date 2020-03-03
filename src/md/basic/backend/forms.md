@@ -215,6 +215,14 @@ module.exports = function signin() {
 ```
 > You can add full Github OAuth functionality by following the method in the previous sections on [Environment Variables and Authentication](/basic/state/env). You will need to create environment variables for `GITHUB_CLIENT_ID`, `GITHUB_REDIRECT`, and `GITHUB_REPO`
 
+```bash
+# .arc-env
+@testing
+GITHUB_CLIENT_ID xxx
+GITHUB_REDIRECT http://localhost:3333/admin
+GITHUB_REPO github-user/project-repo
+```
+
 
 ### Controller layer
 
