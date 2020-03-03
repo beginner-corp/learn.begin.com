@@ -5,23 +5,57 @@ title: serverless web dev training with architect
 
 # HTML forms
 
-Before implementing complete REST and GraphQL backend APIs it is usually a good idea to quickly prove things out using plain HTML forms. Often they suffice and in many cases a basic HTML form is the best option for writing data in a web application. This is essentially following the same sort of CRUD web app patterns as Rails, Sinatra, Django or Flask except serverless.
+Before implementing complete REST and GraphQL backend APIs, we can prove things out using HTML forms. Often they suffice and in many cases a basic HTML form is the best option for writing data in a web application. Our example follows a similar Create, Read, Update, and Delete (CRUD) pattern that you may see in Rails, Sinatra, Django or Flask except now the operations will be backed by AWS Lambda functions. 
 
-In this guide we implement a prototype CRUD app using Lambda, API Gateway and DynamoDB. Combining on the previous lessons we will deploy the 11ty static site generator with an OAuth login to an admin interface for saving drafts of articles. Drafts can be created, updated, destroyed and published _back to GitHub_ as markdown documents.
+For more on HTML Forms, [check out this article](https://developer.mozilla.org/en-US/docs/Learn/Forms).
 
-1. Create the app on Begin
+In this guide we will walk through a prototype CRUD app that combines concepts from the previous lessons. We will use [Eleventy](https://www.11ty.dev/), with an authenticated `/admin` route using Github OAuth. Users will be able to login with their Github account to create and save drafts of markdown files. When the user is ready to publish the file, the application will publish the markdown file directly to Github.
+
+1. Start with deploying the example app on Begin and set up local development.
 
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-forms)
 
+```bash
+# Clone your app repo locally
+git clone https://github.com/username/begin-app-project-name.git
+
+# cd into your Begin project dir
+cd begin-app-project-name
+
+# Install NPM packages
+npm install
+
+# Build the code 
+npm run build
+
+# Start Sandbox
+npm start
+```
+
 2. Review the app structure
 
-Implementing a *Model* *View* *Controller* (MVC) structure with Architect is straightforward. Models or the *data access layer* go into `src/shared` so all runtime Lambda function code can access them. View logic added to `src/views` is copied into runtime Lambdas that handle HTTP `GET` requests. Lambdas are Controller logic.
+Let's take a look at how we can implement a common design pattern called [*Model* *View* *Controller* (MVC)](https://developer.mozilla.org/en-US/docs/Glossary/MVC) with Architect and AWS Lambda functions.
+
+- Models or the *data access layer* go into `src/shared` and can be accessed by all runtime Lambda functions.
+
+- View logic is added to `src/views` and will be copied into runtime Lambdas that handle HTTP `GET` requests. 
+
+- Lambda functions are Controller logic which will route user actions between models and views.
+
+Writing your applications this way will give you and your collaborators a consistent process for maintaining the code base. 
+
+Learn more about [project structures in the Begin Docs](https://docs.begin.com/en/getting-started/project-structure)
 
 ### Data access layer
 
-Every backend has a data access layer. This code is responsible for interacting with the database which in our case is DynamoDB. In this example the CRUD logic is all in `src/shared/drafts.js` and we utilize the `@begin/data` client library for DynamoDB. Everything in `src/shared` gets copied into all Lambdas `node_modules/@architect/shared` at runtime so any Lambda function can `require('@architect/shared/drafts')`.
+The data access layer is a fancy way to describe logic to interact with your backend database. 
+
+The CRUD logic is contained in `src/shared/drafts.js` and we utilize the [`@begin/data` client library](https://docs.begin.com/en/data/begin-data) for DynamoDB. 
+
+Everything in `src/shared` gets copied into all Lambdas `node_modules/@architect/shared` at runtime so any Lambda function can use `require('@architect/shared/drafts')` to access these methods. 
 
 ```javascript
+// src/shared/drafts.js
 let data = require('@begin/data')
 let xss = require('xss')
 
@@ -83,15 +117,13 @@ async function destroy(draft) {
     ...draft
   })
 }
-
-
 ```
 
-> Notice that `src/shared` can also have its own `package.json` for dependencies
+> Notice that `src/shared` can also have its own `package.json` for dependencies. When `@architect/sandbox` is started, it will rehydrate these dependencies if necessary
 
 ### View layer
 
-View layers are for templating logic. Everything in `src/views` gets copied into HTTP `GET` Lambda functions `node_modules/@architect/views`.
+View layers are for templating logic. Everything in `src/views` gets copied into the `node_modules` folder of `/http/get-*` Lambda functions. [Learn more about how Architect uses shared view login in Lambdas](https://blog.begin.com/serverless-front-end-patterns-with-architect-views-cf4748aa1ec7)
 
 ```javascript
 // src/views/admin.js
@@ -135,7 +167,7 @@ ${body}
 Plain HTML forms create easy to follow logic when you know every route is a Lambda function.
 
 ```javascript
-// `src/views/form.js`
+// src/views/form.js
 module.exports = function form(draft) {
   if (!draft) {
     return `
@@ -163,7 +195,7 @@ module.exports = function form(draft) {
 ```
 
 ```javascript
-// `src/views/signin.js`
+// src/views/signin.js
 module.exports = function signin() {
 
   let client_id = process.env.GITHUB_CLIENT_ID
@@ -180,13 +212,23 @@ module.exports = function signin() {
 </body>
 </html>`
 }
-````
+```
+> You can add full Github OAuth functionality by following the method in the previous sections on [Environment Variables and Authentication](/basic/state/env). You will need to create environment variables for `GITHUB_CLIENT_ID`, `GITHUB_REDIRECT`, and `GITHUB_REPO`
 
+```bash
+# .arc-env
+@testing
+GITHUB_CLIENT_ID xxx
+GITHUB_CLIENT_SECRET xxx
+GITHUB_REDIRECT http://localhost:3333/admin
+GITHUB_REPO github-user/project-repo
+```
 ### Controller layer
 
-You can consider Lambda functions as controllers. HTTP functions marshal user input, talk to the database and either render a web page or redirect the user elsewhere. Most of this apps frontend is static except the admin page:
+You can consider Lambda functions as controllers. HTTP functions marshal user input, talk to the database and either render a web page or redirect the user elsewhere. Most of this apps frontend is static except the admin page. This Lambda function will check if there is an active session, read drafts from DynamoDB or instruct the user to sign in. 
 
 ```javascript
+// src/http/get-admin/index.js
 let arc = require('@architect/functions')
 let drafts = require('@architect/shared/drafts')
 let signin = require('@architect/views/signin')
@@ -207,19 +249,19 @@ async function http(req) {
 exports.handler = arc.http.async(http)
 ```
 
-The `get /admin` route handler checks for `req.session.account` and renders the admin view (or prompts sign in if the user has not authenticated). All other controller logic in this app is form posts which is great because form posts always redirect back to a view. (So they have no view logic.) It is possible to render HTML from a form post…but you never want that behavior because it often results in double form submissions.
+When the `/admin` route receives a `GET` request, it invokes the Lambda code at `src/http/get-admin/index.js`. This function checks for an account session and renders the `admin.js` view (or prompts sign in if the user has not authenticated). All other controller logic in this app are HTML form `POST` operations. This is great because HTML form `POST`s always redirect back to a view. (So they have no view logic.) It is possible to render HTML from a form post, but you never want that behavior because it often results in duplicate form submissions.
 
-The 'create' Lambda at `post /drafts` code:
+To 'create' drafts, take a look at the Lambda function in `src/http/post-drafts/index.js`. This function checks for an authenticated account and redirects if it is not available. 
 
 ```javascript
-// src/http/post-drafts
+// src/http/post-drafts/index.js
 let arc = require('@architect/functions')
 let drafts = require('@architect/shared/drafts')
 
 async function http(req) {
   if (!req.session.account) {
     return {
-      location: '/?authorized=fase'
+      location: '/?authorized=false'
     }
   }
   try {
@@ -241,11 +283,12 @@ async function http(req) {
 exports.handler = arc.http.async(http)
 ```
 
-This method checks for an authenticated account and redirects if it is not available. If everything checks out we use `@begin/data` to save a draft.
+This method checks for an authenticated account and redirects if it is not available. If everything checks out we use `@begin/data` to save a draft to DynamoDB.
 
 To destroy a record we have `post /drafts/:key/destroy` code:
 
 ```javascript
+// src/http/post-drafts-000key-destroy/index.js
 let arc = require('@architect/functions')
 let drafts = require('@architect/shared/drafts')
 
@@ -269,6 +312,7 @@ Again we check for a legit session and if it exists we destroy the record and re
 The final method worth noticing is `post /drafts/:key/publish`:
 
 ```javascript
+// src/http/post-drafts-000key-publish/index.js
 let arc = require('@architect/functions')
 let drafts = require('@architect/shared/drafts')
 let github = require('./github')
@@ -312,6 +356,7 @@ exports.handler = arc.http.async(publish)
 Similar to previous controller logic we check the session. If legit, we grab a copy of the draft and attempt to write it to GitHub. If that all works out we'll destroy the record and redirect back to the admin view. Let's quickly check out the GitHub publish portion of this exercise:
 
 ```javascript
+// src/http/post-drafts-000key-publish/github.js
 let { put } = require('tiny-json-http')
 
 module.exports = async function publish({token, draft}) {
@@ -335,7 +380,7 @@ module.exports = async function publish({token, draft}) {
 }
 ```
 
-GitHub has an amazing API. This method write a new markdown document into our `src/md` folder.
+GitHub has an amazing API. This method will write a new markdown document into our `src/md` folder on Github.
 
 ---
 
@@ -365,9 +410,11 @@ REST is often likened to CRUD for HTTP. The verbs map well and it provides a fra
   </td>
   <tr>
     <td>Delete</td>
-    <td style=background:lightyellow>POST /drafts/:key/destroy</td>
+    <td style="background-color:#fff6e3">POST /drafts/:key/destroy</td>
     <td>DELETE /drafts/:key</td>
   </td>
 </table>
 
 > The problem is HTTP verbs `PATCH`, `DELETE` and `PUT` are not supported by HTML forms in web browsers. `XMLHTTPRequest` and `fetch` support all verbs but this makes JavaScript a hard requirement for your application to function in addition to [less favorable accessibility behavior](https://www.w3.org/WAI/tutorials/forms/).  The workaround is to add some extra state denoting deletion (which we do in the highlighted cell above by appending `destroy` to the resource URL.
+
+So go ahead and give it a try, see if you can complete it working locally and ship it to production on [Begin](https://www.begin.com).
