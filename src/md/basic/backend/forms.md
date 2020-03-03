@@ -219,11 +219,10 @@ module.exports = function signin() {
 # .arc-env
 @testing
 GITHUB_CLIENT_ID xxx
+GITHUB_CLIENT_SECRET xxx
 GITHUB_REDIRECT http://localhost:3333/admin
 GITHUB_REPO github-user/project-repo
 ```
-
-
 ### Controller layer
 
 You can consider Lambda functions as controllers. HTTP functions marshal user input, talk to the database and either render a web page or redirect the user elsewhere. Most of this apps frontend is static except the admin page. This Lambda function will check if there is an active session, read drafts from DynamoDB or instruct the user to sign in. 
