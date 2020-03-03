@@ -5,7 +5,7 @@ title: serverless web dev training with architect
 
 # Single-page applications
 
-The are many ways to build a single-page application. Larger applications can benefit from using a frontend library and bundler. Various libraries help us organize code, and the bundler helps us package it for optimal production delivery.
+There are many ways to build a single-page application. Larger applications can benefit from using a frontend library and bundler. Various libraries help us organize code, and the bundler helps us package it for optimal production delivery.
 
 In this guide, we'll be using the frontend library <a href=https://reactjs.org/ target=blank>React</a> with the <a href=https://parceljs.org/recipes.html target=blank>Parcel bundler</a>. React is probably the most popular framework and works with many bundlers, but we like Parcel because of its speed and simplicity.
 
