@@ -99,23 +99,16 @@ async function Nav() {
         <span
         class="
           d-none-lg
-          d-flex
-          ai-c
           fs-off-scale
           fw-medium
           uppercase
-          lh2
           pr0
-          pl-1
           c-p26
           c-h3
           c-a5
-          bg-a7
-          br-pill
           transition-all
-          mb-2
+          mb-1
           mb-none-lg
-          mr1-lg
         "
         >
           Your profile
