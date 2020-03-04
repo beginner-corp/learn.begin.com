@@ -121,7 +121,7 @@ module.exports = function layout(params) {
       class="
         w-100
         max-h-0
-        mh-infinity-lg
+        max-h-infinity-lg
         p-absolute
         p-static-lg
         d-flex-lg
@@ -1001,6 +1001,7 @@ module.exports = function layout(params) {
           c-p1
           br0
           cu-pointer
+          shadow-card
         "
         style="
           background-image: linear-gradient(45deg, #007ACC, #9C24FF);"

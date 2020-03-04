@@ -96,7 +96,28 @@ async function Nav() {
             style="object-fit: cover;"
           >
         </div>
-        <span class="d-none-lg">
+        <span
+        class="
+          d-none-lg
+          d-flex
+          ai-c
+          fs-off-scale
+          fw-medium
+          uppercase
+          lh2
+          pr0
+          pl-1
+          c-p26
+          c-h3
+          c-a5
+          bg-a7
+          br-pill
+          transition-all
+          mb-2
+          mb-none-lg
+          mr1-lg
+        "
+        >
           Your profile
         </span>
       </a>
@@ -184,15 +205,19 @@ async function Popup() {
 
     let html = ''
     for (let section of Object.keys(course.basic)) {
+      let label = section[0].toUpperCase() + section.slice(1)
       html += `
-     <li class="d-flex fw-book">
-      <b class="fw-medium">${section}</b> ${ keys[section] || 0 } of 3
+     <li class="d-flex fw-book c-p8">
+      <b class="fs0 fw-medium mr-1">${label}</b><span>${ keys[section] || 0 } of 3</span>
      </li>
       `
     }
     popup.innerHTML = `
   <div
     class="
+      d-flex
+      fd-c
+      ai-c
       bg-p1
       br1
       pt0
@@ -202,12 +227,13 @@ async function Popup() {
     "
     style="
       margin-top: -13vh;
-      max-width:20rem;
+      width:20rem;
       box-shadow: 0 1px 2px var(--p4);
     "
   >
     <div
       class="
+        mb-1
         d-flex
         br-100
         b
