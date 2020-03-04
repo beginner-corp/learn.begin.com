@@ -32,6 +32,7 @@ async function Nav() {
   let nav = document.getElementById('js-nav')
   let doc = document.getElementById('doc')
   let menu = document.getElementById('js-menu')
+  let appsLink = document.getElementById('js-apps-link')
   if (menu) {
     menu.onclick = e => {
       e.preventDefault()
@@ -46,20 +47,63 @@ async function Nav() {
     nav.classList.toggle('max-h-infinity')
   }
   if (state.authorized) {
-    document.querySelector('nav').innerHTML += `
+    appsLink.classList.remove('d-none')
+    appsLink.classList.add('d-flex')
+    document.querySelector('nav')
+      .innerHTML += `
     <div
       class="
         d-flex-lg
       "
     >
       <a
-        id=show
+        href="https://begin.com/account"
         class="
           d-flex
           ai-c
           fs-off-scale
           fw-medium
           upper
+          lh2
+          pr0
+          pl-3
+          pr-none-lg
+          pl-none-lg
+          c-p26
+          c-h3
+          c-a5
+          bg-a7
+          br-pill
+          transition-all
+          mb-2
+          mb-none-lg
+        "
+      >
+        <div
+          class="
+            avatar
+            mr-3
+            mr-none-lg
+          "
+        >
+          <img
+            src="${state.account.avatar}"
+            alt="Profile avatar"
+            class="
+              br-100
+              o-hidden
+            "
+            style="object-fit: cover;"
+          >
+        </div>
+        <span
+        class="
+          d-none-lg
+          d-flex
+          ai-c
+          fs-off-scale
+          fw-medium
+          uppercase
           lh2
           pr0
           pl-1
@@ -69,37 +113,20 @@ async function Nav() {
           bg-a7
           br-pill
           transition-all
-          cursor-pointer
+          mb-2
+          mb-none-lg
+          mr1-lg
         "
-      >
-        ${state.account.login}
-      </a>
-      <a
-        class="
-          d-flex
-          ai-c
-          fs-off-scale
-          fw-medium
-          upper
-          lh2
-          pr0
-          pl-1
-          c-p26
-          c-h3
-          c-a5
-          bg-a7
-          br-pill
-          transition-all
-          cursor-pointer
-        "
-        href=/logout
-      >
-        Logout
+        >
+          Your profile
+        </span>
       </a>
     </div>
     `
   }
   else {
+    appsLink.classList.add('d-none')
+    appsLink.classList.remove('d-flex')
     document.querySelector('nav').innerHTML += `
     <span class="mb0 mb-none-lg d-flex fd-c fd-r-lg">
       <a
@@ -122,7 +149,7 @@ async function Nav() {
           c-a5
           bg-a7
           transition-all
-          cursor-pointer
+          cu-pointer
         "
         style="max-width: 6rem;"
       >
@@ -178,12 +205,59 @@ async function Popup() {
 
     let html = ''
     for (let section of Object.keys(course.basic)) {
-      html += `<li><b>${section}</b> ${ keys[section] || 0 } of 3</li>`
+      let label = section[0].toUpperCase() + section.slice(1)
+      html += `
+     <li class="d-flex fw-book c-p8">
+      <b class="fs0 fw-medium mr-1">${label}</b><span>${ keys[section] || 0 } of 3</span>
+     </li>
+      `
     }
     popup.innerHTML = `
-      <img src=${state.account.avatar}>
-      <h3>${state.account.name}</h3>
-      <ul>${html}</ul>
+  <div
+    class="
+      d-flex
+      fd-c
+      ai-c
+      bg-p1
+      br1
+      pt0
+      pr2
+      pb2
+      pl2
+    "
+    style="
+      margin-top: -13vh;
+      width:20rem;
+      box-shadow: 0 1px 2px var(--p4);
+    "
+  >
+    <div
+      class="
+        mb-1
+        d-flex
+        br-100
+        b
+        b-p1
+        of-contain
+        o-hidden
+      "
+      style="
+        margin-top: -5rem;
+        border-width: 1rem;
+        width: 9rem;
+        box-shadow: 0 -1px 2px var(--p4);
+      "
+    >
+      <img
+        src=${state.account.avatar}
+        class="
+s
+        "
+      >
+    </div>
+    <h3>${state.account.name}</h3>
+    <ul>${html}</ul>
+  </div>
     `
   }
 }
@@ -191,12 +265,18 @@ async function Popup() {
 // render check marks
 async function Checks() {
   let state = window.STATE
-  let depth = window.location.pathname.split('/').filter(Boolean).length
+  let depth = window.location.pathname
+    .split('/')
+    .filter(Boolean)
+    .length
   if (state.authorized && depth <= 3) {
     let els = document.querySelectorAll('div > section > ul > li > a')
     for (let el of els) {
       let path = (new URL(el.href)).pathname
-      let txt = state.progress[path] && state.progress[path].complete? el.innerText.replace('‣', '✔') : el.innerText.replace('✔', '‣')
+      let txt = state.progress[path]
+        && state.progress[path].complete
+          ? el.innerText.replace('‣', '✔')
+          : el.innerText.replace('✔', '‣')
       el.innerText = txt
     }
   }
@@ -204,13 +284,18 @@ async function Checks() {
 
 // toggle the popup visability
 async function ShowProgress() {
+  let state = window.STATE || {}
   let popup = document.getElementById('popup')
-  let show = false // Comment out for now. document.getElementById('show')
-  if (show) {
-    show.addEventListener('click', function click(e) {
-      popup.style.display =  popup.style.display === 'none' ? 'flex' : 'none'
+  let show = document.getElementById('js-show-progress')
+  if (show && state.authorized) {
+    show.classList.remove('d-none')
+    popup.addEventListener('click', togglePopup, false)
+    show.addEventListener('click', togglePopup, false)
+    function togglePopup(e) {
       e.preventDefault()
-    }, false)
+      popup.classList.toggle('d-none')
+      popup.classList.toggle('d-flex')
+    }
   }
 }
 

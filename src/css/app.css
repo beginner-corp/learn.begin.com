@@ -169,8 +169,11 @@ aside div#category {
 .background-size-cover {
   background-size:cover;
 }
-.background-repeat-none {
-  background-repeat:none;
+.background-repeat-no-repeat {
+  background-repeat:no-repeat;
+}
+.of-cover {
+  object-fit: cover;
 }
 .guides-item-bg-h {
   height: 7.777rem;
@@ -384,7 +387,6 @@ pre[class*="language-"] {
 }
 
 #doc blockquote {
-  /*padding-bottom: 0.1px;*/
   background-color: #fff6e3;
   border-left-style: solid;
   border-left-width: 0.222rem;
@@ -568,7 +570,7 @@ body {
 .c-d1:disabled{color:var(--d1);}/* greyish */
 
 /* BACKGROUND */
-.bg-none{background-color:none;}
+.bg-none{background-color:transparent;}
 .bg-p0{background-color:var(--p0);}
 .bg-p1{background-color:var(--p1);}
 .bg-p2{background-color:var(--p2);}
@@ -834,6 +836,8 @@ body {
 .fs-3{font-size:0.422rem;}
 .fs-4{font-size:0.317rem;}
 .fs-5{font-size:0.238rem;}
+.fs-off-scale,
+.fs-code {font-size: 0.888rem;}
 
 /* LINE HEIGHT */
 .lh5{line-height:4.209rem;}
