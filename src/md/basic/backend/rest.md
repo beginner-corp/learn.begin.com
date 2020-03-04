@@ -35,11 +35,25 @@ Roughly, the idea is that resources are represented by URLs and we can act on th
 
 > Create, read, update and delete verbs are often abbreviated as _CRUD app_
 
-1. Create the app on Begin
+1. Start with deploying the completed app on Begin and set up local development.
 
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-rest)
 
-2. Open up the `.arc` file
+```bash
+# Clone your app repo locally
+git clone https://github.com/username/begin-app-project-name.git
+
+# cd into your Begin project dir
+cd begin-app-project-name
+
+# Install NPM packages
+npm install
+
+# Start Sandbox
+npm start
+```
+
+2. Let's take a look at the `.arc` file in the root of the project. This file is a manifest for the entire application. It defines the location of static assets, http routes as separate Lambda handlers, and a DynamoDB table.
 
 ```bash
 @app
@@ -65,7 +79,9 @@ data
   ttl TTL
 ```
 
-3. `src/shared/auth.js` middleware:
+3. `src/shared/auth.js` is shared code middleware checks for a legit session. Notice that you will need to set up `.arc-env` file and enter Environment Variables in the Begin console.
+
+> [Take a peek at the previous section on Environment Variables for reference.](/basic/state/env)
 
 ```javascript
 module.exports = async function auth(req) {
@@ -86,15 +102,63 @@ module.exports = async function auth(req) {
 }
 ```
 
-4. Frontend code
+4. Now let's look at the frontend code in the `/public` folder. 
 
+This is all we need as an entry point for our app.
 ```html
 <!-- public/index.html -->
 <main>loading</main>
 <script type=module src=/index.js></script>
 ```
 
+The JavaScript is in two files. `crud.js` contains the REST API calls to the Lambda functions on the backend and `index.js` contains the event listeners and render methods. 
+
 ```javascript
+// public/crud.js
+/** POST /todos */
+export async function create(params) {
+  let req = await fetch('/todos', {
+    method: 'post',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(params)
+  })
+  return req.json()
+}
+
+/** GET /todos */
+export async function read() {
+  let req = await fetch('/todos')
+  return req.json()
+}
+
+/** PUT /todos/:key */
+export async function update(params) {
+  let req = await fetch(`/todos/${params.key}`, {
+    method: 'put',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(params)
+  })
+  return req.json()
+}
+
+/** DELETE /todos/:key */
+export async function destroy({key}) {
+  let req = await fetch(`/todos/${key}`, {
+    method: 'delete',
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+  return req.json()
+}
+```
+
+```javascript
+// public/index.js
 import {create, read, update, destroy} from './crud.js'
 
 // main render function
@@ -176,9 +240,9 @@ catch(err) {
 
 ```
 
-5. Read todos
+5. Now let's look at the Lambda function to read todos
 
-Add dependencies to `src/shared`
+Make sure the `@begin/data` DynamoDB client is added to `src/shared` 
 
 ```bash
 cd src/shared
@@ -186,7 +250,7 @@ npm init --yes
 npm i @begin/data
 ```
 
-Create a new middleware in `src/shared/read.js`
+`src/shared/read.js` is a middleware function that allows your Lambda functions to get documents from DynamoDB. 
 
 ```javascript
 let data = require('@begin/data')
@@ -204,8 +268,9 @@ module.exports = async function read(req) {
   }
 }
 ```
+> [Check out more documentation about Begin data in the docs.](https://docs.begin.com/en/data/begin-data)
 
-And then modify `src/http/get-todos/index.js`
+With the 'read' middleware in place, the handler found in `src/http/get-todos/index.js` will authenticate a user and retrieve their todos.
 
 ```javascript
 let arc = require('@architect/functions')
@@ -214,8 +279,9 @@ let read = require('@architect/shared/read')
 
 exports.handler = arc.http.async(auth, read)
 ```
+> [For a refresher on `arc.http.async` and middleware, check out the Architect docs.](https://arc.codes/reference/functions/http/node/async)
 
-6. Create a todo `src/http/post-todo`
+6. This handler will create todos, `src/http/post-todos/index.js`
 
 ```javascript
 let arc = require('@architect/functions')
@@ -231,7 +297,7 @@ async function create(req) {
 exports.handler = arc.http.async(auth, create, read)
 ```
 
-7. Update a todo `src/http/put-todo-000key`
+7. This handler updates a todo `src/http/put-todos-000key`
 
 ```javascript
 let arc = require('@architect/functions')
