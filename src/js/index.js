@@ -32,6 +32,7 @@ async function Nav() {
   let nav = document.getElementById('js-nav')
   let doc = document.getElementById('doc')
   let menu = document.getElementById('js-menu')
+  let appsLink = document.getElementById('js-apps-link')
   if (menu) {
     menu.onclick = e => {
       e.preventDefault()
@@ -46,6 +47,8 @@ async function Nav() {
     nav.classList.toggle('max-h-infinity')
   }
   if (state.authorized) {
+    appsLink.classList.remove('d-none')
+    appsLink.classList.add('d-flex')
     document.querySelector('nav')
       .innerHTML += `
     <div
@@ -54,6 +57,7 @@ async function Nav() {
       "
     >
       <a
+        href="https://begin.com/account"
         class="
           d-flex
           ai-c
@@ -96,35 +100,12 @@ async function Nav() {
           Your profile
         </span>
       </a>
-      <a
-        class="
-          pt-4
-          pr-1
-          pb-4
-          pl-1
-          order1
-          order-initial-lg
-          fw-medium
-          fs-off-scale
-          ta-c
-          upper
-          br-pill
-          bg-p26
-          c-p25
-          c-h3
-          c-a5
-          bg-a7
-          transition-all
-          cu-pointer
-        "
-        href=/logout
-      >
-        Logout
-      </a>
     </div>
     `
   }
   else {
+    appsLink.classList.add('d-none')
+    appsLink.classList.remove('d-flex')
     document.querySelector('nav').innerHTML += `
     <span class="mb0 mb-none-lg d-flex fd-c fd-r-lg">
       <a

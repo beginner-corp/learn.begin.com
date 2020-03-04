@@ -46,7 +46,8 @@ module.exports = function layout(params) {
 
 <symbol viewBox="0 0 15 16" id="icon-settings"><path d="M14.636 9.852a1.1 1.1 0 0 1 .233 1.335l-.933 1.626c-.187.32-.552.53-.934.53a.986.986 0 0 1-.342-.062l-1.377-.484c-.466.375-.98.672-1.54.89l-.264 1.446A1.096 1.096 0 0 1 8.436 16H6.57c-.497 0-.956-.383-1.042-.867l-.272-1.445a5.958 5.958 0 0 1-1.54-.891l-1.377.484a1.092 1.092 0 0 1-1.268-.469l-.934-1.624a1.087 1.087 0 0 1 .226-1.336l1.105-.954A5.883 5.883 0 0 1 1.404 8c0-.297.016-.594.063-.898L.362 6.148a1.087 1.087 0 0 1-.226-1.335l.934-1.625c.241-.415.809-.633 1.268-.47l1.377.485a5.958 5.958 0 0 1 1.54-.89L5.527.867A1.083 1.083 0 0 1 6.57 0h1.867c.49 0 .95.383 1.043.867l.264 1.446c.56.218 1.074.515 1.54.89l1.377-.484c.46-.164 1.027.047 1.276.469l.933 1.624a1.1 1.1 0 0 1-.233 1.336l-1.105.954a5.903 5.903 0 0 1 0 1.796l1.105.954zm-.63.835c.008-.015 0-.07-.016-.078l-1.54-1.328.055-.289c.062-.328.1-.664.1-.992 0-.328-.038-.664-.1-.992l-.055-.29 1.54-1.327c.016-.008.024-.063.016-.079l-.934-1.625a.146.146 0 0 0-.07-.03l-1.929.679-.217-.188a4.968 4.968 0 0 0-1.712-.992l-.272-.094-.373-2.007C8.49 1.03 8.452 1 8.436 1H6.57c-.023 0-.062.031-.062.055l-.38 2.008-.273.093a4.967 4.967 0 0 0-1.711.992l-.218.188-1.914-.68a.191.191 0 0 0-.078.031L1 5.313c-.008.015 0 .07.015.078l1.533 1.328-.055.289a5.355 5.355 0 0 0 0 1.984l.055.29-1.54 1.327c-.008.008-.016.063-.008.079l.933 1.624a.117.117 0 0 0 .07.032l1.922-.68.218.188a4.968 4.968 0 0 0 1.71.992l.273.094.381 2.007c0 .024.04.055.062.055h1.867c.016 0 .055-.031.063-.055l.373-2.008.272-.093a4.968 4.968 0 0 0 1.712-.992l.217-.188 1.922.68c.046 0 .07-.024.077-.031l.934-1.626zM7.503 4.75c1.781 0 3.236 1.46 3.236 3.25s-1.455 3.25-3.236 3.25c-1.781 0-3.236-1.46-3.236-3.25s1.455-3.25 3.236-3.25zm0 6A2.748 2.748 0 0 0 10.24 8a2.748 2.748 0 0 0-2.738-2.75A2.748 2.748 0 0 0 4.765 8a2.748 2.748 0 0 0 2.738 2.75z" fill-rule="evenodd"></path></symbol>
 
-<symbol id="icon-learn" viewBox="0 0 37 32"><title>learn</title><path d="M24.571 32.268s-15.429-5.375-16.286-5.768c-1.196-0.536-2.571-1.429-2.571-3.589v-18.839c0-0.304 0.018-0.589 0.071-0.875 0.375-1.946 2.036-3.196 4.25-3.196h20.821v26.286h-2.857v-23.429h-17.964c-0.518 0-1.179 0.125-1.393 0.661-0.25 0.607 0.089 1.286 0.679 1.518 2.036 0.804 14.214 5.411 14.339 5.464l0.911 0.339zM8.571 7.804v15.107c0 0.411 0 0.589 0.875 1 0.571 0.232 7.125 2.571 12.268 4.339v-15.429c-2.857-1.054-10.839-4.107-13.143-5.018z"></path></symbol>
+<symbol viewBox="0 0 16 16" id="icon-sprout"><path d="M13.781 6.774q.109.43.164.863T14 8.5q0 .742-.246 1.394t-.668 1.144q-.43.492-1.019.875t-1.269.625q-.336.117-.699.207t-.746.152l-.102-2.148 2.398-2q.086-.086.102-.176t-.047-.176q-.086-.125-.187-.152t-.219.051L9.15 9.452l-.148-3.953q0-.187-.156-.344t-.344-.156-.344.156-.156.344v9.5q0 .414-.293.707t-.707.293-.707-.293-.293-.707v-2.25q-.844-.187-1.559-.555t-1.262-.891q-.555-.523-.867-1.246t-.312-1.559q0-.867.223-1.726t.574-1.562q.344-.703.848-1.398t.973-1.203T5.659 1.59t.953-.809q.187-.141.387-.289t.402-.289Q7.667 0 8.003 0t.602.203q.414.289.793.582t.949.801q.57.516 1.039 1.023t.977 1.203q.5.695.848 1.398t.574 1.562z"></path></symbol>
+
 </svg>
 <div class="vh-100 d-flex fd-c o-hidden">
 <header
@@ -76,6 +77,7 @@ module.exports = function layout(params) {
       "
     >
       <a
+        id="js-menu"
         class="
           f-p1
           bg-p0
@@ -89,7 +91,7 @@ module.exports = function layout(params) {
           "
         >
           <svg>
-            <use xlink:href="#menu"></use>
+            <use xlink:href="#icon-menu"></use>
           </svg>
         </div>
       </a>
@@ -115,9 +117,10 @@ module.exports = function layout(params) {
       </div>
     </a>
     <nav
+      id="js-nav"
       class="
         w-100
-        mh-none
+        max-h-0
         mh-infinity-lg
         p-absolute
         p-static-lg
@@ -145,9 +148,10 @@ module.exports = function layout(params) {
         "
       >
         <a
+          id="js-apps-link"
           alt="/apps"
           class="
-            d-flex
+            d-none
             ai-c
             fs-off-scale
             fw-medium
@@ -246,8 +250,9 @@ module.exports = function layout(params) {
             mb-2
             mb-none-lg
             mr1-lg
+            active
           "
-          href="https://learn.begin.com"
+          href="#"
           target="_blank"
           rel="noopener"
         >
@@ -262,7 +267,7 @@ module.exports = function layout(params) {
           "
         >
           <svg>
-            <use xlink:href="#icon-learn"></use>
+            <use xlink:href="#icon-sprout"></use>
           </svg>
         </div>
         <span>Learn</span>
@@ -349,106 +354,10 @@ module.exports = function layout(params) {
         </div>
         <span>Support</span>
       </a>
-      </span>
-        <span
-          class="
-            mb0
-            mb-none-lg
-            d-flex
-            fd-c
-            fd-r-lg
-          "
-        >
-          <a
-            alt="/account"
-            class="
-              d-flex
-              ai-c
-              fs-off-scale
-              fw-medium
-              uppercase
-              lh2
-              pr0
-              pl-1
-              c-p26
-              c-h3
-              c-a5
-              bg-a7
-              br-pill
-              transition-all
-              mb-2
-              mb-none-lg
-            "
-            href="/account"
-            target="_self"
-          >
-          <div
-            class="
-              mr-2
-              f-p26
-            "
-            style="
-              width:0.888rem;
-              height:0.777rem;
-            "
-          >
-          <svg>
-            <use xlink:href="#icon-settings"></use>
-          </svg>
-        </div>
-        <span class="d-none-lg">Account settings</span>
-      </a>
-      <a
-        id="js-account-link"
-        href="#"
-        class="
-          d-none
-          d-flex
-          ai-c
-          fs-off-scale
-          fw-medium
-          uppercase
-          lh2
-          pr0
-          pl-3
-          pr-none-lg
-          pl-none-lg
-          c-p26
-          c-h3
-          c-a5
-          bg-a7
-          br-pill
-          transition-all
-          mb-2
-          mb-none-lg
-        "
-      >
-        <div
-          class="
-            avatar
-            mr-3
-            mr-none-lg
-          "
-        >
-          <img
-            id="js-avatar"
-            alt="Profile avatar"
-            class="
-              d-none
-              br-100
-              o-hidden
-            "
-            style="
-              object-fit: cover;
-            "
-          >
-        </div>
-        <span class="d-none-lg">Your profile</span>
-      </a>
     </span>
   </nav>
 </div>
-<div id="disclose-container">
+<div id="js-disclose-container">
   <a
     id="js-disclose"
     href="#"
