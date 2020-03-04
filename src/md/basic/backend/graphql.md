@@ -7,15 +7,17 @@ title: serverless web dev training with architect
 
 GraphQL is a software architectural style that defines a set of constraints for creating web services. Defined by Facebook in parallel with React the principles of GraphQL are extremely useful building blocks for web applications.
 
-GraphQL defines a query language with a complementary schema definition language. Frontend developers author queries with a great deal more flexibility and predictability without needing to implement modifications to the backend data layer. Uncoupling the data layer has always been a good practice but GraphQL formalizes the practice with a strong schemas that confer inherent validation. GraphQL also has concepts for writing data (called mutations) and real time (called subscriptions).
+GraphQL defines a query language with a complementary schema definition language. Frontend developers author queries with a great deal more flexibility and predictability without needing to implement modifications to the backend data layer. Uncoupling the data layer has always been a good practice but GraphQL formalizes the practice with a strong schemas that confer inherent validation. GraphQL also has concepts for writing data (called mutations) and real time data events (called subscriptions).
 
-In this guide we will implement a GraphQL API using Lambda, API Gateway and DynamoDB from scratch.
+In this guide we will implement a GraphQL API using AWS Lambda, API Gateway and DynamoDB from scratch.
 
-Clone the complete project on Begin
+---
 
-[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-forms)
+1. Clone the complete project below and follow along, or start from scratch with a new Architect app on Begin. 
 
-1. To start from scratch create a brand new `.arc` application
+[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-graphql)
+
+2. To start from scratch, create a new `.arc` file. 
 
 ```bash
 @app
@@ -36,9 +38,9 @@ data
   ttl TTL
 ```
 
-We will skip implementing `get /login` and `get /logout` (covered by [OAuth](/basic/state/oauth)) and focus on implementing `post /graphql` endpoint.
+We will skip implementing `get /login` and `post /logout` (covered by [OAuth](/basic/state/oauth)) and focus on implementing `post /graphql` endpoint.
 
-2. Create `public/index.html`
+3. Create the following HTML in `public/index.html`. This will give us the GraphQL Playground, a visual interface for GraphQL
 
 ```html
 <!DOCTYPE html>
@@ -106,9 +108,7 @@ window.addEventListener('load', function main(event) {
 </html>
 ```
 
-3. Create `src/http/post-graphql/index.js`
-
-Middleware is a nice pattern for HTTP functions. In this Lambda we register `auth` to run first and, if it does not respond, `query` will run next.
+4. Create `src/http/post-graphql/index.js`, which will be our main Lambda handler for POSTing authorization and queries to the GraphQL endpoint. 
 
 ```javascript
 let arc = require('@architect/functions')
@@ -117,8 +117,9 @@ let query = require('./middleware/query')
 
 exports.handler = arc.http.async(auth, query)
 ```
+We're going to use Architect's `http.async` helpers again to create some middleware functions. This is a nice pattern for HTPP functions because it allows us to register `auth` to run first and, if it does not respond, `query` will run next.
 
-4. Create `src/http/post-graphql/middleware/auth.js`
+5. Create `src/http/post-graphql/middleware/auth.js`
 
 This middleware ensures the current session is authenticated if they want to run a GraphQL mutation.
 
@@ -144,7 +145,15 @@ module.exports = async function auth(req) {
 }
 ```
 
-5. Create `src/http/post-graphql/middleware/query.js`
+6. Install the dependencies we need to use GraphQL
+
+```bash
+cd /src/http/post-graphql
+npm init -y
+npm i @architect/functions @begin/data graphql graphql-tools xss
+```
+
+7. Create `src/http/post-graphql/middleware/query.js`
 
 This is the GraphQL query boilerplate.
 
@@ -184,10 +193,9 @@ module.exports = async function query({body, session}) {
     }
   }
 }
-
 ```
 
-6. Define `src/http/post-graphql/schema.graphql`
+8. Create and define a schema `src/http/post-graphql/schema.graphql`
 
 ```graphql
 type Account {
@@ -213,12 +221,11 @@ type Mutation {
   save(title: String!, body: String!): Draft
   destroy(key: String!): Boolean
 }
-
 ```
 
-7. Implement `src/http/post-graphql/resolvers.js`
+7. Implement a resolver function `src/http/post-graphql/resolvers.js`
 
-The main event! This is the data access layer implementation for GraphQL. We'll use `@begin/data` with DynamoDB.
+The main event! This is the data access layer implementation for GraphQL. We'll use the `@begin/data` client for DynamoDB.
 
 ```javascript
 let data = require('@begin/data')
@@ -281,12 +288,63 @@ async function destroy(root, draft, session) {
     ...draft
   })
 }
-
 ```
 
 8. Preview by starting the dev server
-
 ```bash
 npm start
 ```
 
+9. Let's use the Playground by navigating to http://localhost:3333 and login with Github auth.
+
+Finally, it's time to write some data with a mutation
+```graphql
+mutation {
+  save(title: "A New Draft", body: "Wow, we're using Serverless GraphQL!") {
+    title
+    body
+    key
+  }
+}
+```
+
+You should see a result like this
+``` graphql
+{
+  "data": {
+    "save": {
+      "title": "A New Draft",
+      "body": "Wow, we're using Serverless GraphQL!",
+      "key": "jYLpR3VQIn"
+    }
+  }
+}
+```
+
+For some more fun(!), query for the data that we just inserted.
+```graphql
+query {
+  drafts {
+    title
+   	body
+    key
+  }
+}
+```
+
+You should now see a result like this
+```graphql
+{
+  "data": {
+    "drafts": [
+      {
+        "title": "A New Draft",
+        "body": "Wow, we're using Serverless GraphQL!",
+        "key": "jYLpR3VQIn"
+      }
+    ]
+  }
+}
+```
+
+### 🎉 Congratulations! You now have a serverless GraphQL endpoint!
