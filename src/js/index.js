@@ -178,18 +178,24 @@ async function Form() {
 
 // render the popup
 async function Popup() {
-  let state = window.STATE
+  // Make a copy of the state object
+  let state = Object.assign({}, window.STATE)
   if (state.authorized) {
     let popup = document.getElementById('popup')
-
+    // Hard coded courses with sections ( just basic for now )
     let course = {
       basic: {foundations:0, frontend:0, state:0, backend:0}
     }
-
-    let keys = Object.keys(state.progress).reduce((a, b) => {
-      let bits = b.split('/').filter(Boolean)
-      // let course = bits.shift() // discard for now while there is only one course
-      let section = bits.shift()
+    // Copy of progress object
+    let progress = Object.assign({}, state.progress)
+    // Remove dynamo keys
+    delete progress.key
+    delete progress.table
+    let keys = Object.keys(progress).reduce((a, b) => {
+      let parts = b.split('/').filter(Boolean)
+      // let course = parts[0] // For later
+      let section = parts[1]
+      // let subSection = parts[2] // For later
       if (!a[section])
         a[section] = 0
       a[section] += 1
