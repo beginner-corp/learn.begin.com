@@ -1055,7 +1055,6 @@ module.exports = function layout(params) {
       transition-transform
       transition-none-lg
       o-auto
-      o-hidden-lg
     "
   >
     <div
