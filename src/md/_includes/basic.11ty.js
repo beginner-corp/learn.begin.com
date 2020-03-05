@@ -384,7 +384,16 @@ module.exports = function layout(params) {
 </div>
 </header>
 
-<div class="h-100 top-0 p-relative p-static-lg fg-1 d-flex-lg o-hidden">
+<div
+  class="
+    h-100
+    top-0
+    p-relative
+    fg-1
+    d-flex-lg
+    o-hidden
+  "
+>
  <aside
     style="min-width:16.666rem;max-width:19.999rem;"
     class="
@@ -1030,37 +1039,35 @@ module.exports = function layout(params) {
     </footer>
   </aside>
 
-  <div class="fg-1 o-auto">
-    <main
-      id="doc"
+  <main
+    id="doc"
+    class="
+      p-absolute
+      p-static-lg
+      trbl
+      min-w0
+      fg-1
+      pt1
+      pl0
+      pr0
+      pb3
+      bg-p1
+      transition-transform
+      transition-none-lg
+      o-auto
+      o-hidden-lg
+    "
+  >
+    <div
       class="
-        p-absolute
-        p-static-lg
-        trbl
-        min-w0
         fg-1
-        pt1
-        pl0
-        pr0
-        pb3
-        bg-p1
-        transition-transform
-        transition-none-lg
-        o-auto
-        o-hidden-lg
+        max-w-60
+        pb2
       "
     >
-      <div
-        class="
-          fg-1
-          max-w-60
-          pb2
-        "
-      >
-        ${params.content}
-      </div>
-    </main>
-  </div>
+      ${params.content}
+    </div>
+  </main>
 </div>
 <section
   id=popup
