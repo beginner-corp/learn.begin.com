@@ -154,8 +154,8 @@ async function Nav() {
 }
 
 // couple of helper strings we reuse a bit
-let on = 'Page complete. Way to go!'
-let off = '☜ Mark this page as complete'
+let on = ' Page complete. Way to go!'
+let off = ' Mark this page as complete'
 
 // render the progress form
 async function Form() {
