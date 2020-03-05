@@ -98,7 +98,7 @@ module.exports = function layout(params) {
     </div>
     <a
       class="mr4"
-      href="/apps"
+      href="https://begin.com"
     >
       <div
         class="
