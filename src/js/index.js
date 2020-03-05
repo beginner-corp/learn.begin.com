@@ -167,7 +167,7 @@ async function Form() {
     let complete = state.progress[page] && state.progress[page].complete
 
     document.querySelector('main').innerHTML += `
-      <form id=progress action=/api/progress method=post>
+      <form class="pb1" id=progress action=/api/progress method=post>
         <input type=hidden name=page value=${page}>
         <input type=checkbox name=complete id=check ${complete? ' checked' : ''}>
         <label for=check>${complete?  on : off}</label>
