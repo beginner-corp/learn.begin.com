@@ -13,7 +13,7 @@ There are currently three ways to deploy an Architect app to AWS:
 
 ---
 
-<h2 id=deploy-begin>Deploy with [Begin.com](https://begin.com/)</h2>
+<h2 id=deploy-begin>Deploy with <a href="https://begin.com/">Begin.com</a></h2>
 
 Create an app on Begin:
 
