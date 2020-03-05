@@ -385,12 +385,6 @@ module.exports = function layout(params) {
 </header>
 
 <div class="h-100 top-0 p-relative p-static-lg fg-1 d-flex-lg o-hidden">
-<div
-  class="
-    d-flex-lg
-    fg-1
-  "
->
  <aside
     style="min-width:16.666rem;max-width:19.999rem;"
     class="
@@ -1067,7 +1061,6 @@ module.exports = function layout(params) {
       </div>
     </main>
   </div>
-</div>
 </div>
 <section
   id=popup
