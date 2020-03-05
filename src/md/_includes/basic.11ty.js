@@ -99,6 +99,8 @@ module.exports = function layout(params) {
     <a
       class="mr4"
       href="https://begin.com"
+      target="_blank"
+      rel="noopener"
     >
       <div
         class="
@@ -1063,6 +1065,7 @@ module.exports = function layout(params) {
         max-w-60
         pb2
       "
+      style="max-width: 44.444rem;"
     >
       ${params.content}
     </div>
