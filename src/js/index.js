@@ -1,38 +1,39 @@
 /* global window document fetch */
-// global state bag; everything renders from this
-window.STATE = {}
-
+const state = {}
+function setState(obj) {
+  render(Object.assign(state, obj))
+}
 // init the app by reading state
 document.addEventListener('DOMContentLoaded', async function main() {
   let request = await fetch('/api/progress')
-  window.STATE = await request.json()
-  return render()
+  let state = await request.json()
+  setState(state)
 }, false)
 
 // prog enhancement yall
-async function render() {
+async function render(state) {
   // render the markup
   await Promise.all([
-    Nav(),
-    Form(),
-    Checks(),
-    Popup(),
+    Nav(state),
+    Form(state),
+    Checks(state),
+    Popup(state),
   ])
   // register the event listeners
   await Promise.all([
     SaveProgress(),
-    ShowProgress(),
+    ShowProgress(state),
   ])
 }
 
 // render login/logout
-async function Nav() {
-  let state = window.STATE
+async function Nav(state) {
   let disclose = document.getElementById('js-disclose')
   let nav = document.getElementById('js-nav')
   let doc = document.getElementById('doc')
   let menu = document.getElementById('js-menu')
   let appsLink = document.getElementById('js-apps-link')
+  let auth = document.getElementById('js-auth')
   if (menu) {
     menu.onclick = e => {
       e.preventDefault()
@@ -49,8 +50,7 @@ async function Nav() {
   if (state.authorized) {
     appsLink.classList.remove('d-none')
     appsLink.classList.add('d-flex')
-    document.querySelector('nav')
-      .innerHTML += `
+    auth && (auth.innerHTML = `
     <div
       class="
         d-flex-lg
@@ -115,12 +115,11 @@ async function Nav() {
         </span>
       </a>
     </div>
-    `
-  }
-  else {
+    `)
+  } else {
     appsLink.classList.add('d-none')
     appsLink.classList.remove('d-flex')
-    document.querySelector('nav').innerHTML += `
+    auth && (auth.innerHTML =  `
     <span class="mb0 mb-none-lg d-flex fd-c fd-r-lg">
       <a
         href=${state.href}
@@ -149,27 +148,49 @@ async function Nav() {
         Login
       </a>
     </span>
-    `
+    `)
   }
 }
 
 // couple of helper strings we reuse a bit
-let on = ' Page complete. Way to go!'
-let off = ' Mark this page as complete'
+let on = 'Page complete. Way to go!'
+let off = 'Mark this page as complete'
 
 // render the progress form
-async function Form() {
-  let state = window.STATE
-  let depth = window.location.pathname.split('/').filter(Boolean).length
+async function Form(state) {
+  let form = document.getElementById('js-form')
+  let depth = window.location.pathname
+    .split('/').filter(Boolean).length
+
   if (state.authorized && depth === 3) {
-
     let page = window.location.pathname
-    let complete = state.progress[page] && state.progress[page].complete
+    let complete = state.progress[page] &&
+      state.progress[page].complete
 
-    document.querySelector('main').innerHTML += `
-      <form class="pb1" id=progress action=/api/progress method=post>
-        <input type=hidden name=page value=${page}>
-        <input type=checkbox name=complete id=check ${complete? ' checked' : ''}>
+    form.innerHTML = `
+      <form
+        class="
+          d-inline-flex
+          ai-c
+          pb1
+        "
+        id=progress
+        action=/api/progress
+        method=post
+      >
+        <input
+          type=hidden
+          name=page
+          value=${page}
+        />
+        <input
+          class="mr-2"
+          type=checkbox
+          name=complete
+          id=check
+          ${complete ? 'disabled' : ''}
+          ${complete ? 'checked' : ''}
+        />
         <label for=check>${complete?  on : off}</label>
       </form>
     `
@@ -177,30 +198,42 @@ async function Form() {
 }
 
 // render the popup
-async function Popup() {
-  // Make a copy of the state object
-  let state = Object.assign({}, window.STATE)
+async function Popup(state) {
   if (state.authorized) {
     let popup = document.getElementById('popup')
     // Hard coded courses with sections ( just basic for now )
     let course = {
-      basic: {foundations:0, frontend:0, state:0, backend:0}
+      basic: {
+        foundations:0,
+        frontend:0,
+        state:0,
+        backend:0
+      }
     }
     // Copy of progress object
     let progress = Object.assign({}, state.progress)
     // Remove dynamo keys
     delete progress.key
     delete progress.table
-    let keys = Object.keys(progress).reduce((a, b) => {
-      let parts = b.split('/').filter(Boolean)
-      // let course = parts[0] // For later
-      let section = parts[1]
-      // let subSection = parts[2] // For later
-      if (!a[section])
-        a[section] = 0
-      a[section] += 1
-      return a
-    }, {})
+    let keys = Object.keys(progress)
+      .reduce((a, b) => {
+          let parts = b.split('/').filter(Boolean)
+          // let course = parts[0] // For later
+          let section = parts[1]
+          // let subSection = parts[2] // For later
+          // Add up all the completed subsections of a section
+          if (!a[section]) {
+            // Since you can't add a number to undefined we need to initialize to zero
+            // Mark it zero Donnie!
+            a[section] = 0
+          }
+          // Add it up
+          a[section] += 1
+          return a
+        },
+        // Initialization object to populate during reduce
+        {}
+      )
 
     let html = ''
     for (let section of Object.keys(course.basic)) {
@@ -262,28 +295,27 @@ s
 }
 
 // render check marks
-async function Checks() {
-  let state = window.STATE
+async function Checks(state) {
   let depth = window.location.pathname
     .split('/')
     .filter(Boolean)
     .length
   if (state.authorized && depth <= 3) {
-    let els = document.querySelectorAll('div > section > ul > li > a')
+    let els = document.querySelectorAll('.js-list-item')
     for (let el of els) {
       let path = (new URL(el.href)).pathname
-      let txt = state.progress[path]
-        && state.progress[path].complete
-          ? el.innerText.replace('‣', '✔')
-          : el.innerText.replace('✔', '‣')
-      el.innerText = txt
+      if (state.progress[path]
+        && state.progress[path].complete) {
+        el.querySelector('.js-check')
+          .classList
+          .remove('d-none')
+      }
     }
   }
 }
 
 // toggle the popup visability
-async function ShowProgress() {
-  let state = window.STATE || {}
+async function ShowProgress(state) {
   let popup = document.getElementById('popup')
   let show = document.getElementById('js-show-progress')
   if (show && state.authorized) {
@@ -322,12 +354,7 @@ async function SaveProgress() {
       })
       // updates state
       let json = await request.json()
-      window.STATE.progress = json.progress
-      // re-render
-      await Promise.all([
-        Checks(),
-        Popup()
-      ])
+      setState(json)
     }
   }
 }

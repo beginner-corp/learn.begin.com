@@ -28,7 +28,7 @@ module.exports = function layout(params) {
   <link rel=stylesheet type=text/css href=/_static/css/app.css>
   <link rel=stylesheet href=https://fonts.begin.com/fonts.css>
 </head>
-<body style="opacity:0;">
+<body class="o-hidden" style="opacity:0;">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="display:none;">
 <symbol viewBox="0 0 16 14" id="icon-apps"><path fill-rule="evenodd" d="M12.26 8.215l1.207-.773L16 8.908 8 14 0 8.908l2.525-1.466 1.215.773-1.286.741L8 12.486l5.538-3.53-1.278-.74zM8 9.713L0 4.622 8 0l8 4.622-8 5.091zM2.454 4.677L8 8.207l5.538-3.53L8 1.474 2.454 4.677z"></path></symbol>
 
@@ -49,10 +49,11 @@ module.exports = function layout(params) {
 <symbol viewBox="0 0 16 16" id="icon-sprout"><path d="M13.781 6.774q.109.43.164.863T14 8.5q0 .742-.246 1.394t-.668 1.144q-.43.492-1.019.875t-1.269.625q-.336.117-.699.207t-.746.152l-.102-2.148 2.398-2q.086-.086.102-.176t-.047-.176q-.086-.125-.187-.152t-.219.051L9.15 9.452l-.148-3.953q0-.187-.156-.344t-.344-.156-.344.156-.156.344v9.5q0 .414-.293.707t-.707.293-.707-.293-.293-.707v-2.25q-.844-.187-1.559-.555t-1.262-.891q-.555-.523-.867-1.246t-.312-1.559q0-.867.223-1.726t.574-1.562q.344-.703.848-1.398t.973-1.203T5.659 1.59t.953-.809q.187-.141.387-.289t.402-.289Q7.667 0 8.003 0t.602.203q.414.289.793.582t.949.801q.57.516 1.039 1.023t.977 1.203q.5.695.848 1.398t.574 1.562z"></path></symbol>
 
 </svg>
-<div class="vh-100 d-flex fd-c o-hidden">
+<div class="vh-100-hide-chrome d-flex fd-c o-hidden">
 <header
   class="
-    p-relative
+    p-sticky
+    t0
     d-flex
     ai-c
     jc-b
@@ -357,6 +358,7 @@ module.exports = function layout(params) {
         <span>Support</span>
       </a>
     </span>
+    <span id="js-auth"></span>
   </nav>
 </div>
 <div id="js-disclose-container">
@@ -430,38 +432,43 @@ module.exports = function layout(params) {
       >
         <li
           class="
+            d-flex
+            ai-c
             c-p3
             c-h0
             c-a0
             fw-book
           "
         >
-          <a
-            href=/basic/foundations/setup
-            class="
-              d-block
-              fw-book
-              c-p8
-              c-h0
-              c-a6
-              ${params.page.url === '/basic/foundations/setup/'
-                ? 'active'
-                : ''
-               }
-              "
-            >
-              ${params.page.url === '/basic/foundations/setup/'
-                ? `
-                <span class="d-inline-flex ai-c mr-4 f-p3"
-                  style="width:0.6111rem;height:0.666rem;"
-                >
-                  <svg>
-                    <use xlink:href="#icon-left-arrow"></use>
-                  </svg>
-                </span>`
-                : ''
-              }
-              Setup
+            <a
+              href=/basic/foundations/setup
+              class="
+                d-inline-flex
+                ai-c
+                js-list-item
+                fw-book
+                c-p8
+                c-h0
+                c-a6
+                ${params.page.url === '/basic/foundations/setup/'
+                  ? 'active'
+                  : ''
+                 }
+                "
+              >
+                ${params.page.url === '/basic/foundations/setup/'
+                  ? `
+                  <span class="mr-4 f-p3"
+                    style="width:0.6111rem;height:0.666rem;"
+                  >
+                    <svg>
+                      <use xlink:href="#icon-left-arrow"></use>
+                    </svg>
+                  </span>`
+                  : ''
+                }
+                Setup
+                <span class="js-check ml-2 d-none">✔</span>
             </a>
         </li>
         <li
@@ -475,6 +482,7 @@ module.exports = function layout(params) {
           <a
             href=/basic/foundations/hello-world
             class="
+              js-list-item
               d-block
               fw-book
               c-p8
@@ -498,6 +506,7 @@ module.exports = function layout(params) {
                 : ''
               }
               Hello world
+              <span class="js-check ml-2 d-none">✔</span>
           </a>
         </li>
         <li
@@ -511,6 +520,7 @@ module.exports = function layout(params) {
           <a
             href=/basic/foundations/deployment
             class="
+              js-list-item
               d-block
               fw-book
               c-p8
@@ -534,6 +544,7 @@ module.exports = function layout(params) {
                 : ''
                }
             Deploy
+            <span class="js-check ml-2 d-none">✔</span>
           </a>
         </li>
       </ul>
@@ -569,6 +580,7 @@ module.exports = function layout(params) {
           <a
             href=/basic/frontend/spa
             class="
+              js-list-item
               d-block
               fw-book
               c-p8
@@ -592,6 +604,7 @@ module.exports = function layout(params) {
                 : ''
                }
               Single page applications
+              <span class="js-check ml-2 d-none">✔</span>
           </a>
         </li>
         <li
@@ -605,6 +618,7 @@ module.exports = function layout(params) {
           <a
             href=/basic/frontend/ssg
             class="
+              js-list-item
               d-block
               fw-book
               c-p8
@@ -628,6 +642,7 @@ module.exports = function layout(params) {
                 : ''
               }
               Static site generators
+              <span class="js-check ml-2 d-none">✔</span>
           </a>
         </li>
 
@@ -642,6 +657,7 @@ module.exports = function layout(params) {
           <a
             href=/basic/frontend/ssr
             class="
+              js-list-item
               d-block
               fw-book
               c-p8
@@ -653,18 +669,19 @@ module.exports = function layout(params) {
               }
             "
           >
-              ${params.page.url === '/basic/frontend/ssr/'
-                ? `
-                <span class="d-inline-flex ai-c mr-4 f-p3"
-                  style="width:0.6111rem;height:0.666rem;"
-                >
-                  <svg>
-                    <use xlink:href="#icon-left-arrow"></use>
-                  </svg>
-                </span>`
-                : ''
-              }
+            ${params.page.url === '/basic/frontend/ssr/'
+              ? `
+              <span class="d-inline-flex ai-c mr-4 f-p3"
+                style="width:0.6111rem;height:0.666rem;"
+              >
+                <svg>
+                  <use xlink:href="#icon-left-arrow"></use>
+                </svg>
+              </span>`
+              : ''
+            }
             Server side rendering
+            <span class="js-check ml-2 d-none">✔</span>
           </a>
         </li>
       </ul>
@@ -700,6 +717,7 @@ module.exports = function layout(params) {
           <a
             href=/basic/state/sessions
             class="
+              js-list-item
               d-block
               fw-book
               c-p8
@@ -723,6 +741,7 @@ module.exports = function layout(params) {
               : ''
             }
             Tracking sessions
+            <span class="js-check ml-2 d-none">✔</span>
           </a>
         </li>
         <li
@@ -736,6 +755,7 @@ module.exports = function layout(params) {
           <a
             href=/basic/state/env
             class="
+              js-list-item
               d-block
               fw-book
               c-p8
@@ -759,6 +779,7 @@ module.exports = function layout(params) {
               : ''
             }
             Environment variables
+            <span class="js-check ml-2 d-none">✔</span>
           </a>
         </li>
         <li
@@ -772,6 +793,7 @@ module.exports = function layout(params) {
           <a
             href=/basic/state/oauth
             class="
+              js-list-item
               d-block
               fw-book
               c-p8
@@ -795,6 +817,7 @@ module.exports = function layout(params) {
               : ''
             }
             Authentication
+            <span class="js-check ml-2 d-none">✔</span>
           </a>
         </li>
       </ul>
@@ -831,6 +854,7 @@ module.exports = function layout(params) {
           <a
             href=/basic/backend/forms
             class="
+              js-list-item
               d-block
               fw-book
               c-p8
@@ -854,6 +878,7 @@ module.exports = function layout(params) {
               : ''
             }
             HTML forms
+            <span class="js-check ml-2 d-none">✔</span>
           </a>
         </li>
        <li
@@ -867,6 +892,7 @@ module.exports = function layout(params) {
         <a
           href=/basic/backend/rest
           class="
+            js-list-item
             d-block
             fw-book
             c-p8
@@ -890,45 +916,48 @@ module.exports = function layout(params) {
             : ''
           }
           REST
+          <span class="js-check ml-2 d-none">✔</span>
         </a>
       </li>
-        <li
-          class="mb0 c-p3 c-h0 c-a0 fw-book"
-        >
-          <a
-            href=/basic/backend/graphql
-            class="
-              d-block
-              fw-book
-              c-p8
-              c-h0
-              c-a6
-              ${params.page.url === '/basic/backend/graphql/'
-                ? 'active'
-                : ''
-              }
-            "
-          >
+      <li
+        class="mb0 c-p3 c-h0 c-a0 fw-book"
+      >
+        <a
+          href=/basic/backend/graphql
+          class="
+            js-list-item
+            d-block
+            fw-book
+            c-p8
+            c-h0
+            c-a6
             ${params.page.url === '/basic/backend/graphql/'
-              ? `
-              <span class="d-inline-flex ai-c mr-4 f-p3"
-                style="width:0.6111rem;height:0.666rem;"
-              >
-                <svg>
-                  <use xlink:href="#icon-left-arrow"></use>
-                </svg>
-              </span>`
+              ? 'active'
               : ''
             }
-            GraphQL
-          </a>
-        </li>
-      </ul>
+          "
+        >
+          ${params.page.url === '/basic/backend/graphql/'
+            ? `
+            <span class="d-inline-flex ai-c mr-4 f-p3"
+              style="width:0.6111rem;height:0.666rem;"
+            >
+              <svg>
+                <use xlink:href="#icon-left-arrow"></use>
+              </svg>
+            </span>`
+            : ''
+          }
+          GraphQL
+          <span class="js-check ml-2 d-none">✔</span>
+        </a>
+      </li>
+    </ul>
 
-      <hr
-        class="mb0 b-b b-p18"
-        style="border-width:0.5px"
-      />
+    <hr
+      class="mb0 b-b b-p18"
+      style="border-width:0.5px"
+    />
 
       <ul
         class="
@@ -1069,6 +1098,7 @@ module.exports = function layout(params) {
     >
       ${params.content}
     </div>
+    <div id="js-form"></div>
   </main>
 </div>
 <section
