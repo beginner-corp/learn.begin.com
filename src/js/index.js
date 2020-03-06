@@ -5,6 +5,7 @@ function setState(obj) {
 }
 // init the app by reading state
 document.addEventListener('DOMContentLoaded', async function main() {
+  window.scrollTo(0, 1)
   let request = await fetch('/api/progress')
   let state = await request.json()
   setState(state)
