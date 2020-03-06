@@ -35,7 +35,9 @@ cd begin-app-project-name
 npm install
 ```
 
-4. Create a file called `.arc-env` in the root of the project directory and add the GitHub Client ID, Github Secret Key and redirect values from the Github OAuth apps created in step 2. This will allow you to test your app locally.
+4. Create a file called `.arc-env` in the root of the project directory and add the GitHub Client ID, Github Secret Key and redirect values from the Github OAuth apps created in step 2. The Architect Sandbox will load environment variables from the `.arc-env` file for local testing only. 
+
+These environment variables can be accessed using `process.env.YOUR_ENV_VARIABLE`. For example, in the code we make a reference to `process.env.GITHUB_CLIENT_ID` which will reference the `.arc-env` file. This let's us manage secrets and keys without hard coding them into the application. 
 
 ```bash
 # .arc-env
@@ -46,7 +48,11 @@ GITHUB_REDIRECT http://localhost:3333/login
 ```
 > ⚠️ **Do not commit**  `.arc-env` to revision control. Make sure it is added to your `.gitignore`. 
 
-4. Add the environment variables for `staging` and `production` on Begin. To add your environment variables, open `Environments` in the left nav of your project's console.
+4. Add the environment variables for `staging` and `production` on Begin, since they are not committed to the Github repo. 
+
+To add your environment variables, open `Environments` in the left nav of your project's console. 
+
+[Check out the docs for more documentation on environment variables on Begin.](https://docs.begin.com/en/getting-started/environments#overview)
 
 ![Environment Variables Screenshot](/assets/screenshots/env-screenshot.jpg)
 
