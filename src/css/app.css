@@ -11,9 +11,6 @@ body {
   opacity: 1.0 !important;
   transition: opacity .15s ease-in-out;
 }
-.top-1 {
-  top: -1;
-}
 .trbl, .top-0 {
   top: 0;
 }
