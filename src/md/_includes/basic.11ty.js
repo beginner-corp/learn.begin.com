@@ -29,7 +29,7 @@ module.exports = function layout(params) {
   <link rel=stylesheet type=text/css href=/_static/css/app.css>
   <link rel=stylesheet href=https://fonts.begin.com/fonts.css>
 </head>
-<body class="d-flex-lg fd-c o-auto" style="opacity:0;">
+<body class="vh-100 d-flex-lg fd-c o-auto" style="opacity:0;">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="display:none;">
 <symbol viewBox="0 0 16 14" id="icon-apps"><path fill-rule="evenodd" d="M12.26 8.215l1.207-.773L16 8.908 8 14 0 8.908l2.525-1.466 1.215.773-1.286.741L8 12.486l5.538-3.53-1.278-.74zM8 9.713L0 4.622 8 0l8 4.622-8 5.091zM2.454 4.677L8 8.207l5.538-3.53L8 1.474 2.454 4.677z"></path></symbol>
 
