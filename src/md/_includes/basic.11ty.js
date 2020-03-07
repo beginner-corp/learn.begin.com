@@ -1,5 +1,6 @@
 module.exports = function layout(params) {
-  return `<!doctype html>
+  return `
+<!doctype html>
 <html>
 <head>
   <title>${params.title}</title>
@@ -28,7 +29,7 @@ module.exports = function layout(params) {
   <link rel=stylesheet type=text/css href=/_static/css/app.css>
   <link rel=stylesheet href=https://fonts.begin.com/fonts.css>
 </head>
-<body class="o-hidden" style="opacity:0;">
+<body class="d-flex fd-c o-auto" style="opacity:0;">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="display:none;">
 <symbol viewBox="0 0 16 14" id="icon-apps"><path fill-rule="evenodd" d="M12.26 8.215l1.207-.773L16 8.908 8 14 0 8.908l2.525-1.466 1.215.773-1.286.741L8 12.486l5.538-3.53-1.278-.74zM8 9.713L0 4.622 8 0l8 4.622-8 5.091zM2.454 4.677L8 8.207l5.538-3.53L8 1.474 2.454 4.677z"></path></symbol>
 
@@ -49,11 +50,10 @@ module.exports = function layout(params) {
 <symbol viewBox="0 0 16 16" id="icon-sprout"><path d="M13.781 6.774q.109.43.164.863T14 8.5q0 .742-.246 1.394t-.668 1.144q-.43.492-1.019.875t-1.269.625q-.336.117-.699.207t-.746.152l-.102-2.148 2.398-2q.086-.086.102-.176t-.047-.176q-.086-.125-.187-.152t-.219.051L9.15 9.452l-.148-3.953q0-.187-.156-.344t-.344-.156-.344.156-.156.344v9.5q0 .414-.293.707t-.707.293-.707-.293-.293-.707v-2.25q-.844-.187-1.559-.555t-1.262-.891q-.555-.523-.867-1.246t-.312-1.559q0-.867.223-1.726t.574-1.562q.344-.703.848-1.398t.973-1.203T5.659 1.59t.953-.809q.187-.141.387-.289t.402-.289Q7.667 0 8.003 0t.602.203q.414.289.793.582t.949.801q.57.516 1.039 1.023t.977 1.203q.5.695.848 1.398t.574 1.562z"></path></symbol>
 
 </svg>
-<div class="vh- d-flex fd-c o-auto">
 <header
   class="
-    p-relative
-    top-1
+    p-sticky
+    top-0
     d-flex
     ai-c
     jc-b
@@ -1118,7 +1118,6 @@ module.exports = function layout(params) {
   type=module
   src=/_static/js/index.js
 ></script>
-</div>
 </body>
 </html>`
 }
