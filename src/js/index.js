@@ -3,19 +3,13 @@ const state = {}
 function setState(obj) {
   render(Object.assign(state, obj))
 }
+
 // init the app by reading state
 document.addEventListener('DOMContentLoaded', async function main() {
-  goAway()
   let request = await fetch('/api/progress')
   let state = await request.json()
   setState(state)
 }, false)
-
-function goAway() {
-  /mobile/i.test(window.navigator.userAgent)
-    && !window.location.hash
-    && setTimeout(() => window.scrollTo(0, 1), 1000)
-}
 
 // prog enhancement yall
 async function render(state) {
