@@ -55,6 +55,8 @@ async function Nav(state) {
     <div
       class="
         d-flex-lg
+        mb0
+        mb-none-lg
       "
     >
       <a
@@ -108,8 +110,6 @@ async function Nav(state) {
           c-h3
           c-a5
           transition-all
-          mb-1
-          mb-none-lg
         "
         >
           Your profile
