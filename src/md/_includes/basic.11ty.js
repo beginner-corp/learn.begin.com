@@ -953,6 +953,67 @@ module.exports = function layout(params) {
       </li>
     </ul>
 
+    <h2
+        class="
+          pt-3
+          pb-3
+          fs-1
+          fw-medium
+          c-p8
+          uppercase
+          nowrap
+          cu-pointer
+          uppercase
+        "
+      >
+        Testing
+    </h2>
+    <ul
+      class="
+        mb-1
+        pl0
+      "
+    >
+      <li
+        class="
+          c-p3
+          c-h0
+          c-a0
+          fw-book
+        "
+      >
+        <a
+          href=/basic/testing/unit-tests
+          class="
+            js-list-item
+            d-block
+            fw-book
+            c-p8
+            c-h0
+            c-a6
+            ${params.page.url === '/basic/testing/unit-tests/'
+              ? 'active'
+              : ''
+            }
+          "
+        >
+          ${params.page.url === '/basic/testing/unit-tests/'
+            ? `
+            <span class="d-inline-flex ai-c mr-4 f-p3"
+              style="width:0.6111rem;height:0.666rem;"
+            >
+              <svg>
+                <use xlink:href="#icon-left-arrow"></use>
+              </svg>
+            </span>`
+            : ''
+          }
+          Unit Tests
+          <span class="js-check ml-2 d-none">✔</span>
+        </a>
+      </li>
+    </ul>
+
     <hr
       class="mb0 b-b b-p18"
       style="border-width:0.5px"

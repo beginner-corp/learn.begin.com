@@ -3,19 +3,13 @@ const state = {}
 function setState(obj) {
   render(Object.assign(state, obj))
 }
+
 // init the app by reading state
 document.addEventListener('DOMContentLoaded', async function main() {
-  goAway()
   let request = await fetch('/api/progress')
   let state = await request.json()
   setState(state)
 }, false)
-
-function goAway() {
-  /mobile/i.test(window.navigator.userAgent)
-    && !window.location.hash
-    && setTimeout(() => window.scrollTo(0, 1), 1000)
-}
 
 // prog enhancement yall
 async function render(state) {
@@ -61,6 +55,8 @@ async function Nav(state) {
     <div
       class="
         d-flex-lg
+        mb0
+        mb-none-lg
       "
     >
       <a
@@ -114,8 +110,6 @@ async function Nav(state) {
           c-h3
           c-a5
           transition-all
-          mb-1
-          mb-none-lg
         "
         >
           Your profile
