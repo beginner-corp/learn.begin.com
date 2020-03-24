@@ -208,7 +208,8 @@ async function Popup(state) {
         foundations:0,
         frontend:0,
         state:0,
-        backend:0
+        backend:0,
+        testing: 0
       }
     }
     // Copy of progress object
