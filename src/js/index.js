@@ -6,8 +6,7 @@ function setState(obj) {
 
 // init the app by reading state
 document.addEventListener('DOMContentLoaded', async function main() {
-  let request = await fetch('/api/progress')
-  let state = await request.json()
+  let state = await (await fetch('/api/progress')).json()
   setState(state)
 }, false)
 
