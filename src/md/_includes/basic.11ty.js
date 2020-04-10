@@ -26,6 +26,27 @@ module.exports = function layout(params) {
   <link rel="apple-touch-icon" sizes="72x72" href="https://static.begin.com/web/favicon/favicon-72.png">
   <link rel="apple-touch-icon" sizes="60x60" href="https://static.begin.com/web/favicon/favicon-60.png">
   <link rel="apple-touch-icon" sizes="57x57" href="https://static.begin.com/web/favicon/favicon-57.png">
+
+  <!-- HTML Meta Tags -->
+    <title>${params.title}</title>
+    <meta name="description" content="https://begin.com"/>
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="Begin - Modern apps built fast af.">
+    <meta itemprop="description" content="Begin is a ridiculously quick platform for building modern web apps, sites, & APIs. Get started for free, no credit card required.">
+    <meta itemprop="image" content="http://s3.us-west-1.amazonaws.com/begin-staging/web/begin-meta-6f864404ab.png">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://begin.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Begin - Modern apps built fast af.">
+    <meta property="og:description" content="Begin is a ridiculously quick platform for building modern web apps, sites, & APIs. Get started for free, no credit card required.">
+    <meta property="og:image" content="http://s3.us-west-1.amazonaws.com/begin-staging/web/begin-meta-6f864404ab.png">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Begin - Modern apps built fast af.">
+    <meta name="twitter:description" content="Begin is a ridiculously quick platform for building modern web apps, sites, & APIs. Get started for free, no credit card required.">
+    <meta name="twitter:image" content="http://s3.us-west-1.amazonaws.com/begin-staging/web/begin-meta-6f864404ab.png">
+    <!-- Meta Tags end-->
+    
   <link rel=stylesheet type=text/css href=/_static/css/app.css>
   <link rel=stylesheet href=https://fonts.begin.com/fonts.css>
 </head>
