@@ -117,7 +117,7 @@ let query = require('./middleware/query')
 
 exports.handler = arc.http.async(auth, query)
 ```
-We're going to use Architect's `http.async` helpers again to create some middleware functions. This is a nice pattern for HTPP functions because it allows us to register `auth` to run first and, if it does not respond, `query` will run next.
+We're going to use Architect's `http.async` helpers again to create some middleware functions. This is a nice pattern for HTTP functions because it allows us to register `auth` to run first and, if it does not respond, `query` will run next.
 
 5. Create `src/http/post-graphql/middleware/auth.js`
 
