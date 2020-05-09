@@ -133,4 +133,4 @@ export class App extends Component<Props, State> {
 
 8. Clone the example source: 
 
-[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-ssr)
+[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-deno-ssr)
