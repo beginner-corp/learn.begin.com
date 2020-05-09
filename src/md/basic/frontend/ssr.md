@@ -12,16 +12,7 @@ Leverage the Deno runtime to render JSX on the backend.
 ```bash
 npm init @architect --runtime deno ./mydeno
 cd mydeno
-npm init -f
-npm install -D @architect/sandbox 
-npm install -D rollup
-npm install -D typescript
-npm install -D tslib
-npm install react
-npm install react-dom
-npm install -D @rollup/plugin-typescript@2.0
-npm install -D @types/react
-npm install -D @types/react-dom
+npm install -D mkdirp
 ```
 
 2. Update the build folder configuration in `.arc`
@@ -41,49 +32,27 @@ get /
 
 ```javascript
 "scripts": {
-  "build": "rollup -c .rollup.config.js",
-  "start": "npm run build && npx sandbox"
+  "build": "mkdirp dist && deno bundle src/browser.tsx > dist/browser.js",
+  "start": "npm run build && sandbox"
 }
 ```
 
-4. Add a `.rollup.config.js` config file 
+> The `npm init` command above will install `@architect/architect`; you can remove that module and install `@architect/sandbox` if you want to make the install step faster 
 
-```javascript
-import typescript from '@rollup/plugin-typescript'
-
-export default {
-  input: 'src/browser.tsx',
-  output: {
-    dir: 'dist'
-  },
-  plugins: [typescript({
-    emitDecoratorMetadata: true,
-    experimentalDecorators: true,
-    forceConsistentCasingInFileNames: true,
-    jsx: "react",
-    module: "es6",
-    moduleResolution: "node",
-    noImplicitAny: true,
-    outDir: "./dist",
-    preserveConstEnums: true,
-    target: "es5"
-  })]
-}
-```
-
-5. Add `src/browser.tsx` for a browser entry file
+4. Add `src/browser.tsx` for a browser entry file; notice since Deno by default compiles TypeScript for backend defaults we need to tell it to ignore the `window` global
 
 ```typescript
 import { React, ReactDOM } from 'https://unpkg.com/es-react@16.8.60/index.js'
 import { App } from './http/get-index/app.tsx'
 
 window.addEventListener('DOMContentLoaded', () => {
+  //@ts-ignore
   let el = window.document.getElementById('app')
   ReactDOM.hydrate(<App/>, el)
 })
 ```
 
-6. Modify `src/http/get-index/index.ts` to call into a render function
+5. Modify `src/http/get-index/index.ts` to call into a render function
 
 ```typescript
 import { render } from './render.tsx'
@@ -98,15 +67,15 @@ export async function handler() {
 }
 ```
 
-7. Add `src/http/get-index/render.tsx`
+6. Add `src/http/get-index/render.tsx`
 
 ```typescript
-import React from 'https://dev.jspm.io/react'
-import ReactDOMServer from 'https://dev.jspm.io/react-dom/server'
-import { App } from './app.tsx'
+import ReactDOMServer from 'https://dev.jspm.io/react-dom/server';
+import { React } from "https://unpkg.com/es-react";
+import { App } from './app.tsx';
 
 export async function render() {
-  let body = ReactDOMServer.renderToString(<App/>)
+  let body = ReactDOMServer.renderToString(<App/>);
   return `<!DOCTYPE html>
 <html>
 <body>
@@ -114,54 +83,54 @@ export async function render() {
 <script type="module" src=/_static/browser.js></script>
 </body>
 </html>
-`
+`;
 }
 ```
 
 > `/_static` is a proxy to the compiled static assets on S3 which is useful when you have a Lambda function serving `get /`
 
-8. Last of all, with all this scaffolding out of the way, add `src/http/get-index/app.tsx`
+7. Last of all, with all this scaffolding out of the way, add `src/http/get-index/app.tsx`
 
 ```typescript
-import React from 'https://dev.jspm.io/react'
+import React, { Component } from "https://unpkg.com/es-react";
 
-export class App extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {date: new Date()};
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      p: any;
+    }
   }
+}
+
+type Props = {};
+
+type State = {
+  time: Date;
+};
+
+export class App extends Component<Props, State> {
+  state = {
+    time: new Date(),
+  };
 
   componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timerID);
+    setInterval(() => this.tick(), 1000);
   }
 
   tick() {
+    //@ts-ignore
     this.setState({
-      date: new Date()
+      time: new Date(),
     });
   }
 
   render() {
-    return (
-      <div>
-        <h1>Hello, world!</h1>
-        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-      </div>
-    );
+    //@ts-ignore
+    return <p>The current time is {this.state.time.toLocaleTimeString()}</p>;
   }
 }
 ```
 
-9. Clone the example source: 
+8. Clone the example source: 
 
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-ssr)
-
-
