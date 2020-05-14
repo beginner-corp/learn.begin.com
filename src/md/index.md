@@ -10,7 +10,7 @@ Learn how to build a fully [serverless](https://learn.begin.com/jargon#serverles
 
 ### Course highlights
 
-- Understand the benefits and drawbacks of serverless architectures with [Node](https://nodejs.org/en/) and [Deno]((https://deno.land/))
+- Understand the benefits and drawbacks of serverless architectures with [Node](https://nodejs.org/en/) and [Deno](https://deno.land/)
 - Build a [single page app](/jargon#single-page-application) and upgrade it into a serverless side rendered app with [JSX](https://reactjs.org/docs/introducing-jsx.html) and [Preact](https://preactjs.com/)
 - Learn how to compose [AWS Lambda](https://aws.amazon.com/lambda/), [API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html), [DynamoDB](https://aws.amazon.com/dynamodb/) into REST, GraphQL and web socket APIs
 
