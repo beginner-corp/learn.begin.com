@@ -333,4 +333,4 @@ async function destroy(req) {
 exports.handler = arc.http.async(auth, destroy, read)
 ```
 
-And because all network requests return the same payload rendering on the client can be one pure function.
+And because all network requests return the same payload, rendering on the client can be one pure function.
