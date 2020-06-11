@@ -152,7 +152,7 @@ my-app
 npm init --yes
 ```
 
-4. To install testing tools `tape` and `tap-sec`, along with `@architect/sandbox` as development dependencies, run the following command:
+4. To install testing tools `tape` and `tap-spec`, along with `@architect/sandbox` as development dependencies, run the following command:
 
 ```bash
 npm i tape tap-spec @architect/sandbox -D
