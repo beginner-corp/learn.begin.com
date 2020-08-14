@@ -62,6 +62,7 @@ export async function handler() {
     headers: {
       'content-type': 'text/html; charset=utf8'
     },
+    statusCode: 200,
     body: await render()
   }
 }
