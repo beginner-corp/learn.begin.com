@@ -5,7 +5,7 @@ title: serverless web dev training with architect
 
 # HTML forms
 
-Before implementing complete REST and GraphQL backend APIs, we can prove things out using HTML forms. Often they suffice and in many cases a basic HTML form is the best option for writing data in a web application. Our example follows a similar Create, Read, Update, and Delete (CRUD) pattern that you may see in Rails, Sinatra, Django or Flask except now the operations will be backed by AWS Lambda functions. 
+Before implementing complete REST and GraphQL backend APIs, we can prove things out using HTML forms. Often they suffice and in many cases a basic HTML form is the best option for writing data in a web application. Our example follows a similar Create, Read, Update, and Delete (CRUD) pattern that you may see in Rails, Sinatra, Django or Flask except now the operations will be backed by AWS Lambda functions.
 
 For more on HTML Forms, [check out this article](https://developer.mozilla.org/en-US/docs/Learn/Forms).
 
@@ -25,7 +25,7 @@ cd begin-app-project-name
 # Install NPM packages
 npm install
 
-# Build the code 
+# Build the code
 npm run build
 
 # Start Sandbox
@@ -38,21 +38,21 @@ Let's take a look at how we can implement a common design pattern called [*Model
 
 - Models or the *data access layer* go into `src/shared` and can be accessed by all runtime Lambda functions.
 
-- View logic is added to `src/views` and will be copied into runtime Lambdas that handle HTTP `GET` requests. 
+- View logic is added to `src/views` and will be copied into runtime Lambdas that handle HTTP `GET` requests.
 
 - Lambda functions are Controller logic which will route user actions between models and views.
 
-Writing your applications this way will give you and your collaborators a consistent process for maintaining the code base. 
+Writing your applications this way will give you and your collaborators a consistent process for maintaining the code base.
 
 Learn more about [project structures in the Begin Docs](https://docs.begin.com/en/getting-started/project-structure)
 
 ### Data access layer
 
-The data access layer is a fancy way to describe logic to interact with your backend database. 
+The data access layer is a fancy way to describe logic to interact with your backend database.
 
-The CRUD logic is contained in `src/shared/drafts.js` and we utilize the [`@begin/data` client library](https://docs.begin.com/en/data/begin-data) for DynamoDB. 
+The CRUD logic is contained in `src/shared/drafts.js` and we utilize the [`@begin/data` client library](https://docs.begin.com/en/data/begin-data) for DynamoDB.
 
-Everything in `src/shared` gets copied into all Lambdas `node_modules/@architect/shared` at runtime so any Lambda function can use `require('@architect/shared/drafts')` to access these methods. 
+Everything in `src/shared` gets copied into all Lambdas `node_modules/@architect/shared` at runtime so any Lambda function can use `require('@architect/shared/drafts')` to access these methods.
 
 ```javascript
 // src/shared/drafts.js
@@ -213,19 +213,19 @@ module.exports = function signin() {
 </html>`
 }
 ```
-> You can add full Github OAuth functionality by following the method in the previous sections on [Environment Variables and Authentication](/basic/state/env). You will need to create environment variables for `GITHUB_CLIENT_ID`, `GITHUB_REDIRECT`, and `GITHUB_REPO`
+> You can add full Github OAuth functionality by following the method in the previous sections on [Environment Variables and Authentication](/basic/state/env). You will need to create environment variables for `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, `GITHUB_REDIRECT`, and `GITHUB_REPO`
 
 ```bash
 # .arc-env
 @testing
 GITHUB_CLIENT_ID xxx
 GITHUB_CLIENT_SECRET xxx
-GITHUB_REDIRECT http://localhost:3333/admin
+GITHUB_REDIRECT http://localhost:3333/login
 GITHUB_REPO github-user/project-repo
 ```
 ### Controller layer
 
-You can consider Lambda functions as controllers. HTTP functions marshal user input, talk to the database and either render a web page or redirect the user elsewhere. Most of this apps frontend is static except the admin page. This Lambda function will check if there is an active session, read drafts from DynamoDB or instruct the user to sign in. 
+You can consider Lambda functions as controllers. HTTP functions marshal user input, talk to the database and either render a web page or redirect the user elsewhere. Most of this apps frontend is static except the admin page. This Lambda function will check if there is an active session, read drafts from DynamoDB or instruct the user to sign in.
 
 ```javascript
 // src/http/get-admin/index.js
@@ -251,7 +251,7 @@ exports.handler = arc.http.async(http)
 
 When the `/admin` route receives a `GET` request, it invokes the Lambda code at `src/http/get-admin/index.js`. This function checks for an account session and renders the `admin.js` view (or prompts sign in if the user has not authenticated). All other controller logic in this app are HTML form `POST` operations. This is great because HTML form `POST`s always redirect back to a view. (So they have no view logic.) It is possible to render HTML from a form post, but you never want that behavior because it often results in duplicate form submissions.
 
-To 'create' drafts, take a look at the Lambda function in `src/http/post-drafts/index.js`. This function checks for an authenticated account and redirects if it is not available. 
+To 'create' drafts, take a look at the Lambda function in `src/http/post-drafts/index.js`. This function checks for an authenticated account and redirects if it is not available.
 
 ```javascript
 // src/http/post-drafts/index.js
