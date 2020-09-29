@@ -52,7 +52,7 @@ You should see the terminal output:
 ⚬ Create Bootstrapping new Architect project
   | Project name .. my-node-app
   | Creating in ... /my-node-app
-✓ Create Created Architect project manifest (.arc)
+✓ Create Created Architect project manifest (app.arc)
 ✓ Create Created new project files in src/http
 ✓ Create Done!
 ```
@@ -100,7 +100,7 @@ You should see output like this, as with your Node app:
 ⚬ Create Bootstrapping new Architect project
   | Project name .. my-deno-app
   | Creating in ... /my-deno-app
-✓ Create Created Architect project manifest (.arc)
+✓ Create Created Architect project manifest (app.arc)
 ✓ Create Created new project files in src/http
 ✓ Create Done!
 ```

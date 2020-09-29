@@ -11,7 +11,7 @@ IaC is a practice to capture the cloud infrastructure resource configuration req
 
 Architect takes the developer defined high level `.arc` file definition and compiles it into the low level `sam.yaml` CloudFormation template required for deployment to AWS. While the AWS cloud is vast Architect is a shortcut to using only the most common serverless service primitives you need to build a very scalable application, very rapidly and at a very low cost. 
 
-An example `.arc` file:
+An example `app.arc` file:
 
 ```bash
 # this is a comment
