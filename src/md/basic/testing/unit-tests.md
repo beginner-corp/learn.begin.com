@@ -80,7 +80,7 @@ Let's reference the [Backend REST example]('/basics/backend/rest).
 
 The Lambda function at `/src/http/get-todos/index.js` executes  `auth.js` and `read.js`, in that order. If a user has a valid account session, they will be redirected to a list of todos, otherwise it will return the HTTP status code 403. 
 
-Tape is invoked with a test name which will be displayed in the output, and then a function which is passed a test object. The code will then make some assertion on that test object. In this case we want to assert that if a user is not authenticated, then the get-todo function will return an http status code of 403. 
+Tape is invoked with a test name which will be displayed in the output, and then a function which is passed a test object. The code will then make some assertion on that test object. In this case we want to assert that if a user is not authenticated, then the `get-todo` function will return a HTTP status code of `403`. 
 
 ```javascript
 // test/get-todos-test.js

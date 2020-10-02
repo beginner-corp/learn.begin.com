@@ -15,7 +15,7 @@ cd mydeno
 npm install -D mkdirp
 ```
 
-2. Update the build folder configuration in `.arc`
+2. Update the build folder configuration in `app.arc`
 
 ```bash
 @app

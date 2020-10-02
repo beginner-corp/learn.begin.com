@@ -13,7 +13,9 @@ REST-ish
 XMLHTTPRequest
 ACM
 APIs
+auth
 backend
+Backend
 bundler
 bundlers
 CDN
@@ -50,8 +52,10 @@ JSX
 K8s
 Kristofer
 LeRoux
+lifecycle
 lockfile
 minified
+nav
 namespace
 OAuth
 OpenJS
@@ -60,6 +64,7 @@ pre-rendered
 Preact
 proxied
 realtime
+rehydrate
 repo
 Rollup
 Route53

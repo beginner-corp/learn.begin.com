@@ -52,7 +52,7 @@ You should see the terminal output:
 ⚬ Create Bootstrapping new Architect project
   | Project name .. my-node-app
   | Creating in ... /my-node-app
-✓ Create Created Architect project manifest (.arc)
+✓ Create Created Architect project manifest (app.arc)
 ✓ Create Created new project files in src/http
 ✓ Create Done!
 ```
@@ -100,7 +100,7 @@ You should see output like this, as with your Node app:
 ⚬ Create Bootstrapping new Architect project
   | Project name .. my-deno-app
   | Creating in ... /my-deno-app
-✓ Create Created Architect project manifest (.arc)
+✓ Create Created Architect project manifest (app.arc)
 ✓ Create Created new project files in src/http
 ✓ Create Done!
 ```
@@ -161,30 +161,33 @@ npm i tape tap-spec @architect/sandbox -D
 5. To add tests to your app, open your `package.json` file in a text editor and replace the test script line with:  
 
 ```javascript
-    "test": "tape test/index-test.js | tap-spec"
+    "start": "arc sandbox", // start script
+    "test": "tape test/index-test.js | tap-spec" // test script
 ```
 
-6. To add the test scaffolding, create a `test` folder with `index-test.js` file in it, and add the following to your `test/index-test.js` file inside your project directory:
+6. To add the test scaffolding, create a `test` folder in the root of your project with `index-test.js` file in it, and add the following to your `test/index-test.js` file inside your project directory:
 
 ```javascript
 // example sandbox start/stop
+
 let sandbox = require('@architect/sandbox')
 let test = require('tape')
-let end
 
-test('sandbox.start', async t=> {
-  t.plan(1)
-  end = await sandbox.start()
-  t.ok(true, 'start the sandbox')
-})
-
-// your tests will go here
-
-test('end', async t=> {
-  t.plan(1)
-  end()
-  t.ok(true, 'shut down sandbox')
-})
+test('Start the Sandbox', async t => {
+    t.plan(1)
+    let result = await sandbox.start()
+    t.ok(result, 'Sandbox successfully started')
+  })
+  
+//   test('Tests go here', t => {
+//     // Make use of various Sandbox resources in your tests...
+//   })
+  
+  test('Shut down the Sandbox', async t => {
+    t.plan(1)
+    let result = await sandbox.end()
+    t.ok(result, 'Sandbox successfully shut down')
+  })
 ```
 
 7. Run the tests using `npm`:

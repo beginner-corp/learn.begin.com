@@ -9,7 +9,7 @@ The open standard for authorization on the web is OAuth and it is implemented vi
 
 [View the completed app here →](https://fly-ogy.begin.app/)
 
-### 1. Add the following dependencies to your http functions.
+### 1. Add the following dependencies to your HTTP functions.
 By now, you should have a local copy of the source code. Each function has its own `package.json` to keep them isolated and performant.
 
 ```bash
@@ -180,4 +180,4 @@ exports.handler = arc.http.async(logout)
 npm start
 ```
 
-### 7. Deploy your changes with [Begin.com](https://begin.com) by committing your code to the `master` branch on Github. Check out your shiny new OAuth app! 
+### 7. Deploy your changes with [Begin.com](https://begin.com) by committing your code to the `master` branch on GitHub. Check out your shiny new OAuth app! 

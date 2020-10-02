@@ -5,7 +5,7 @@ title: serverless web dev training with architect
 
 # Sessions
 
-Hyper Text Transfer Protocol (HTTP) is how messages are formatted and transmitted over the internet. So far we've only built applications that utilize HTTP `GET` which *reads* information. HTTP `POST` is how a web browser _writes_ information. You are ready to move beyond HTTP GET requests. The web is rich, interactive and _stateful_ place which is a fancy way of saying we read and write data. 
+[Hyper Text Transfer Protocol (HTTP)](https://docs.begin.com/en/http-functions/introduction) is how messages are formatted and transmitted over the internet. So far we've only built applications that utilize HTTP `GET` which *reads* information. HTTP `POST` is how a web browser _writes_ information. You are ready to move beyond HTTP `GET` requests. The web is rich, interactive and _stateful_ place which is a fancy way of saying we read and write data. 
 
 Developing database backed stateful web applications used to require a web server, a database server, a whole supporting cast of software and frameworks and all the near-constant maintenance those things required. Now anyone with a text editor can handle `POST` requests directly with a Lambda function and API Gateway.
 
@@ -18,7 +18,7 @@ mkdir -p ./mysesh
 cd mysesh
 ```
 
-2. Create a `.arc` file
+2. Create a `app.arc` file
 
 ```bash
 @app

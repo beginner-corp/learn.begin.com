@@ -15,12 +15,12 @@
   "author": "Brian LeRoux <b@brian.io>",
   "license": "Apache-2.0",
   "dependencies": {
-    "@11ty/eleventy": "^0.10.0",
-    "@architect/sandbox": "^1.7.2"
+    "@11ty/eleventy": "^0.11.0",
+    "@architect/sandbox": "^2.0.1"
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
-    "@architect/architect": "^6.1.8",
+    "@architect/architect": "^7.0.4",
     "eslint": "^6.8.0",
     "spellchecker-cli": "^4.0.2"
   }
