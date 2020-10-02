@@ -9,7 +9,7 @@ Before implementing complete REST and GraphQL backend APIs, we can prove things 
 
 For more on HTML Forms, [check out this article](https://developer.mozilla.org/en-US/docs/Learn/Forms).
 
-This guide will walk through a prototype CRUD app that combines concepts from the previous lessons. We will use [Eleventy](https://www.11ty.dev/), with an authenticated `/admin` route using Github OAuth. Users will be able to login with their Github account to create and save drafts of markdown files. When the user is ready to publish the file, the application will directly publish the markdown file to Github.
+This guide will walk through a prototype CRUD app that combines concepts from the previous lessons. We will use [Eleventy](https://www.11ty.dev/), with an authenticated `/admin` route using GitHub OAuth. Users will be able to login with their GitHub account to create and save drafts of markdown files. When the user is ready to publish the file, the application will directly publish the markdown file to GitHub.
 
 ## Set up
 
@@ -217,7 +217,7 @@ module.exports = function signin() {
 </html>`
 }
 ```
-> You can add full Github OAuth functionality by following the method in the previous sections on [Environment Variables and Authentication](/basic/state/env). You will need to create environment variables for `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, `GITHUB_REDIRECT`, and `GITHUB_REPO`
+> You can add full GitHub OAuth functionality by following the method in the previous sections on [Environment Variables and Authentication](/basic/state/env). You will need to create environment variables for `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, `GITHUB_REDIRECT`, and `GITHUB_REPO`
 
 ```bash
 # .arc-env
@@ -385,7 +385,7 @@ module.exports = async function publish({token, draft}) {
 }
 ```
 
-GitHub has an amazing API. This method will write a new markdown document into our `src/md` folder on Github.
+GitHub has an amazing API. This method will write a new markdown document into our `src/md` folder on GitHub.
 
 ---
 

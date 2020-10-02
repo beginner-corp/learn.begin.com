@@ -295,7 +295,7 @@ async function destroy(root, draft, session) {
 npm start
 ```
 
-9. Let's use the Playground by navigating to `http://localhost:3333` and login with Github auth.
+9. Let's use the Playground by navigating to `http://localhost:3333` and login with GitHub auth.
 
 Finally, it's time to write some data with a mutation
 ```graphql
