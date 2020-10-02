@@ -15,7 +15,7 @@ title: FASTstack training
 - <a href=#compare>How does Architect compare to <code>$DEPLOY_TOOL</code>?</a>
 - <a href=#what-resources>What cloud resources are currently supported by Architect?</a>
 - <a href=#how-to-extend>How do I extend Architect to use AWS resources not directly supported?</a>
-- <a href=#how-to-eject>How do I export `.arc` to raw CloudFormation?</a>
+- <a href=#how-to-eject>How do I export `app.arc` to raw CloudFormation?</a>
 - <a href=#where-are-examples>Where can I find examples?</a>
 
 
@@ -71,7 +71,7 @@ Architect is an Infra as Code (IaC) implementation for building serverless web a
 
 <h1 id=how-architect>How does Architect work?</h1>
 
-Architect implements an Infrastructure as Code  manifest file in the following formats: `.arc`, `arc.json`, `arc.yaml` and `arc.toml`.
+Architect implements an Infrastructure as Code  manifest file in the following formats: `app.arc`, `arc.json`, `arc.yaml` and `arc.toml`.
 
 Architect takes the developer defined high level definition and compiles it into CloudFormation for deployment to AWS. While the AWS cloud is vast, Architect is a shortcut to using only the most common serverless service primitives you need to build a very scalable application, very rapidly and at a very low cost. 
 
@@ -154,9 +154,9 @@ Architect curates AWS to the minimum essential complexity so you can focus on sh
 
 Architect has a capability called `@macros` that allow you to intercept and modify generated CloudFormation prior to deployment. You can change any Architect defaults and extend it into any AWS service supported by CloudFormation.
 
-<h1 id=how-to-eject>How do I export `.arc` to raw CloudFormation?</h1>
+<h1 id=how-to-eject>How do I export `app.arc` to raw CloudFormation?</h1>
 
-Running `arc package` will export the current `.arc` file as raw AWS CloudFormation.
+Running `arc package` will export the current `app.arc` file as raw AWS CloudFormation.
 
 <h1 id=where-are-examples>Where can I find examples?</h1>
 

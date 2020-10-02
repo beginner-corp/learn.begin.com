@@ -16,7 +16,7 @@ npm init -f
 npm install @architect/sandbox @11ty/eleventy @11ty/eleventy-plugin-syntaxhighlight
 ```
 
-2. Change your build folder configuration in the `.arc` file inside your project to the following, and then save the file.
+2. Change your build folder configuration in the `app.arc` file inside your project to the following, and then save the file.
 
 ```bash
 @app
@@ -37,7 +37,7 @@ folder _site
 ```
 > Note: We opt out of loading `index.html` by setting `ARC_STATIC_SPA=false` in the sandbox in one of the npm start scripts.
 
-4. Add an `.eleventy.js` configuration file to enable syntax highlighting and to set the source directory to `src/md`.
+4. Add an `.eleventy.js` configuration file to the root of your project to enable syntax highlighting and to set the source directory to `src/md`.
 
 ```javascript
 let syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");

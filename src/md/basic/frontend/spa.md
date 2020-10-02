@@ -20,9 +20,9 @@ npm init -f
 npm install react react-dom parcel-bundler @architect/sandbox
 ```
 
-2. Update the build folder configuration in `.arc`
+2. Update the build folder configuration in `app.arc`
 
-Edit the `.arc` file in the root of your project directory so it shows the following:
+Edit the `app.arc` file in the root of your project directory so it shows the following:
 
 ```bash
 @app
@@ -50,7 +50,7 @@ Replace the contents of your `index.html` file with the following:
 <!doctype html>
 <html>
 <body>
-<div id=app></div>
+  <div id=app></div>
 <script src=/index.js></script>
 </body>
 </html>
@@ -58,7 +58,7 @@ Replace the contents of your `index.html` file with the following:
 
 5. Add `public/index.js`
 
-Create an `index.js` file and add the following to it:
+Create an `index.js` file in the `public` directory and add the following to it:
 
 ```javascript
 import React from "react";

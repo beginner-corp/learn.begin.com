@@ -48,7 +48,7 @@ To manually deploy to a production run:
 arc deploy production
 ```
 
-> Protip: there are many other options for Architect deployment…it is a deployment tool!
+> Protip: there are many other options for Architect deployment…it is a deployment tool! [(Learn more)](https://arc.codes/reference/cli/deploy)
 
 <h2 id=deploy-sam>Deploy with SAM</h2>
 
@@ -69,7 +69,7 @@ sam deploy
   --capabilities CAPABILITY_IAM,CAPABILITY_AUTO_EXPAND \
   --region [AWS_REGION]
 ```
-> Note: `s3-bucket`, `stack-name` and `region parameters` are required
+> Note: `s3-bucket`, `stack-name` and `region parameters` are required.
 
 ---
 

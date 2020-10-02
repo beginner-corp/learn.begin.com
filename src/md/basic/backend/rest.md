@@ -53,7 +53,7 @@ npm install
 npm start
 ```
 
-2. Let's take a look at the `.arc` file in the root of the project. This file is a manifest for the entire application. It defines the location of static assets, http routes as separate Lambda handlers, and a DynamoDB table.
+2. Let's take a look at the `app.arc` file in the root of the project. This file is a manifest for the entire application. It defines the location of static assets, http routes as separate Lambda handlers, and a DynamoDB table.
 
 ```bash
 @app

@@ -17,7 +17,7 @@ In this guide we will implement a GraphQL API using AWS Lambda, API Gateway and 
 
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-graphql)
 
-2. To start from scratch, create a new `.arc` file. 
+2. To start from scratch, create a new `app.arc` file. 
 
 ```bash
 @app
@@ -295,7 +295,7 @@ async function destroy(root, draft, session) {
 npm start
 ```
 
-9. Let's use the Playground by navigating to http://localhost:3333 and login with Github auth.
+9. Let's use the Playground by navigating to `http://localhost:3333` and login with Github auth.
 
 Finally, it's time to write some data with a mutation
 ```graphql

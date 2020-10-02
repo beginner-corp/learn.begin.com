@@ -4,6 +4,7 @@ title: FASTstack training
 ---
 
 # For beginners
+
 ## Become a backend serverless expert
 
 Learn how to build a fully [serverless](https://learn.begin.com/jargon#serverless) web application completely from scratch with [OpenJS Architect](https://arc.codes/). Clear explanations followed with step-by-step instructions for deploying highly scalable cloud native applications on AWS with standard [SAM/CloudFormation](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html).

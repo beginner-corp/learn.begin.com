@@ -5,11 +5,13 @@ title: serverless web dev training with architect
 
 # HTML forms
 
-Before implementing complete REST and GraphQL backend APIs, we can prove things out using HTML forms. Often they suffice and in many cases a basic HTML form is the best option for writing data in a web application. Our example follows a similar Create, Read, Update, and Delete (CRUD) pattern that you may see in Rails, Sinatra, Django or Flask except now the operations will be backed by AWS Lambda functions.
+Before implementing complete REST and GraphQL backend APIs, we can prove things out using HTML forms. Often they suffice, and in many cases, a basic HTML form is the best option for writing data in a web application. Our example follows a similar Create, Read, Update, and Delete (CRUD) pattern that you may see in Rails, Sinatra, Django, or Flask, except now the operations will be backed by AWS Lambda functions.
 
 For more on HTML Forms, [check out this article](https://developer.mozilla.org/en-US/docs/Learn/Forms).
 
-In this guide we will walk through a prototype CRUD app that combines concepts from the previous lessons. We will use [Eleventy](https://www.11ty.dev/), with an authenticated `/admin` route using Github OAuth. Users will be able to login with their Github account to create and save drafts of markdown files. When the user is ready to publish the file, the application will publish the markdown file directly to Github.
+This guide will walk through a prototype CRUD app that combines concepts from the previous lessons. We will use [Eleventy](https://www.11ty.dev/), with an authenticated `/admin` route using Github OAuth. Users will be able to login with their Github account to create and save drafts of markdown files. When the user is ready to publish the file, the application will directly publish the markdown file to Github.
+
+## Set up
 
 1. Start with deploying the example app on Begin and set up local development.
 
@@ -44,9 +46,9 @@ Let's take a look at how we can implement a common design pattern called [*Model
 
 Writing your applications this way will give you and your collaborators a consistent process for maintaining the code base.
 
-Learn more about [project structures in the Begin Docs](https://docs.begin.com/en/getting-started/project-structure)
+> Learn more about [project structures in the Begin Docs](https://docs.begin.com/en/getting-started/project-structure)
 
-### Data access layer
+## Data access layer
 
 The data access layer is a fancy way to describe logic to interact with your backend database.
 
@@ -121,9 +123,11 @@ async function destroy(draft) {
 
 > Notice that `src/shared` can also have its own `package.json` for dependencies. When `@architect/sandbox` is started, it will rehydrate these dependencies if necessary
 
-### View layer
+## View layer
 
-View layers are for templating logic. Everything in `src/views` gets copied into the `node_modules` folder of `/http/get-*` Lambda functions. [Learn more about how Architect uses shared view login in Lambdas](https://blog.begin.com/serverless-front-end-patterns-with-architect-views-cf4748aa1ec7)
+View layers are for templating logic. Everything in `src/views` gets copied into the `node_modules` folder of `/http/get-*` Lambda functions. 
+
+[Learn more about how Architect uses shared view login in Lambdas](https://blog.begin.com/serverless-front-end-patterns-with-architect-views-cf4748aa1ec7)
 
 ```javascript
 // src/views/admin.js
@@ -223,7 +227,8 @@ GITHUB_CLIENT_SECRET xxx
 GITHUB_REDIRECT http://localhost:3333/login
 GITHUB_REPO github-user/project-repo
 ```
-### Controller layer
+
+## Controller layer
 
 You can consider Lambda functions as controllers. HTTP functions marshal user input, talk to the database and either render a web page or redirect the user elsewhere. Most of this apps frontend is static except the admin page. This Lambda function will check if there is an active session, read drafts from DynamoDB or instruct the user to sign in.
 
