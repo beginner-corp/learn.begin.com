@@ -169,25 +169,24 @@ npm i tape tap-spec @architect/sandbox -D
 
 ```javascript
 // example sandbox start/stop
-
 let sandbox = require('@architect/sandbox')
 let test = require('tape')
+let end
 
-test('Start the Sandbox', async t => {
-    t.plan(1)
-    let result = await sandbox.start()
-    t.ok(result, 'Sandbox successfully started')
-  })
-  
-//   test('Tests go here', t => {
-//     // Make use of various Sandbox resources in your tests...
-//   })
-  
-  test('Shut down the Sandbox', async t => {
-    t.plan(1)
-    let result = await sandbox.end()
-    t.ok(result, 'Sandbox successfully shut down')
-  })
+test('sandbox.start', async t=> {
+  t.plan(1)
+  await sandbox.start()
+  t.ok(true, 'start the sandbox')
+})
+
+// your tests will go here
+
+test('end', async t=> {
+  t.plan(1)
+  await sandbox.end()
+  t.ok(true, 'shut down sandbox')
+})
+
 ```
 
 7. Run the tests using `npm`:
