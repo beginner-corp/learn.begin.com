@@ -7,7 +7,7 @@ title: serverless web dev training with architect
 
 Representational state transfer (REST) is a software architectural style that defines a set of constraints for creating web services. Defined by [Roy Fielding](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm) in parallel with HTTP 1.1 the principles of REST are fundamental building blocks for web applications.
 
-Roughly, the idea is that resources are represented by URLs and we can act on those resources with a common set of HTTP verbs. 
+Roughly, the idea is that resources are represented by URLs and we can act on those resources with a common set of HTTP verbs.
 
 <table>
   <tr>
@@ -40,16 +40,16 @@ Roughly, the idea is that resources are represented by URLs and we can act on th
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-node-rest)
 
 ```bash
-# Clone your app repo locally
-git clone https://github.com/username/begin-app-project-name.git
+# Clone your repo locally after clicking the Deploy to Begin button above
+git clone https://github.com/[your-github-user-name]/learn-node-rest.git
 
 # cd into your Begin project dir
-cd begin-app-project-name
+cd learn-node-rest
 
 # Install NPM packages
 npm install
 
-# Start Sandbox
+# Start Sandbox and open http://localhost:3333 to see a link to sign into the app
 npm start
 ```
 
@@ -80,6 +80,13 @@ data
 ```
 
 3. `src/shared/auth.js` is shared code middleware checks for a legit session. Notice that you will need to set up `.arc-env` file and enter Environment Variables in the Begin console.
+```bash
+# example .arc-env file
+@testing
+GITHUB_CLIENT_SECRET [your GitHub client secret]
+GITHUB_REDIRECT http://localhost:3333/login
+GITHUB_CLIENT_ID [your GitHub client ID]
+```
 
 > [Take a peek at the previous section on Environment Variables for reference.](/basic/state/env)
 
@@ -102,7 +109,7 @@ module.exports = async function auth(req) {
 }
 ```
 
-4. Now let's look at the frontend code in the `/public` folder. 
+4. Now let's look at the frontend code in the `/public` folder.
 
 This is all we need as an entry point for our app.
 ```html
@@ -111,7 +118,7 @@ This is all we need as an entry point for our app.
 <script type=module src=/index.js></script>
 ```
 
-The JavaScript is in two files. `crud.js` contains the REST API calls to the Lambda functions on the backend and `index.js` contains the event listeners and render methods. 
+The JavaScript is in two files. `crud.js` contains the REST API calls to the Lambda functions on the backend and `index.js` contains the event listeners and render methods.
 
 ```javascript
 // public/crud.js
@@ -169,7 +176,7 @@ async function render(payload) {
     main.innerHTML = `<a href=${payload.href}>${payload.message}</a>`
     return;
   }
-  
+
   let html = `
     <a href=/logout>logout</a>
     <input type=text id=new-todo placeholder="todo text here">
@@ -233,7 +240,7 @@ try {
     let res = await read()
     await render(res)
   })()
-} 
+}
 catch(err) {
   console.log('err', err)
 }
@@ -242,7 +249,7 @@ catch(err) {
 
 5. Now let's look at the Lambda function to read todos
 
-Make sure the `@begin/data` DynamoDB client is added to `src/shared` 
+Make sure the `@begin/data` DynamoDB client is added to `src/shared`
 
 ```bash
 cd src/shared
@@ -250,7 +257,7 @@ npm init --yes
 npm i @begin/data
 ```
 
-`src/shared/read.js` is a middleware function that allows your Lambda functions to get documents from DynamoDB. 
+`src/shared/read.js` is a middleware function that allows your Lambda functions to get documents from DynamoDB.
 
 ```javascript
 let data = require('@begin/data')
