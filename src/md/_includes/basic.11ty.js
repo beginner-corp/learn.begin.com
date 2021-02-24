@@ -296,7 +296,7 @@ module.exports = function layout(params) {
         <span>Learn</span>
        </a>
        <a
-        alt="https://spectrum.chat/begin"
+        alt="https://github.com/smallwins/begin-community"
         class="
           d-flex
           ai-c
@@ -316,7 +316,7 @@ module.exports = function layout(params) {
           mb-none-lg
           mr1-lg
         "
-        href="https://spectrum.chat/begin"
+        href="https://github.com/smallwins/begin-community"
         target="_blank"
         rel="noopener"
       >
