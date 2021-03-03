@@ -3,16 +3,16 @@ layout: basic.11ty.js
 title: serverless web dev training with architect
 ---
 
-# Server side rendering 
+# Server side rendering
 
-Leverage the Deno runtime to render JSX on the backend.
+Leverage the Deno runtime to render HTML on the backend.
 
 1. Create a fresh Architect project
 
 ```bash
-npm init @architect --runtime deno ./mydeno
+npm init @architect ./mydeno
 cd mydeno
-npm install -D mkdirp
+
 ```
 
 2. Update the build folder configuration in `app.arc`
@@ -22,116 +22,102 @@ npm install -D mkdirp
 mydeno
 
 @static
-folder dist
 
 @http
 get /
 ```
 
-3. Update the build script in `package.json`:
+3. Update the `arc.config` file in `src/http/get-index`:
 
+```bash
+# arc.config
+@aws
+runtime deno
+```
+
+4. Update the `get-index` function with the following:
 ```javascript
-"scripts": {
-  "build": "mkdirp dist && deno bundle src/browser.tsx > dist/browser.js",
-  "start": "npm run build && sandbox"
-}
-```
+// src/http/get-index/index.js
 
-> The `npm init` command above will install `@architect/architect`; you can remove that module and install `@architect/sandbox` if you want to make the install step faster 
+import HTML from './components/html.js'
 
-4. Add `src/browser.tsx` for a browser entry file; notice since Deno by default compiles TypeScript for backend defaults we need to tell it to ignore the `window` global
-
-```typescript
-import { React, ReactDOM } from 'https://unpkg.com/es-react@16.8.60/index.js'
-import { App } from './http/get-index/app.tsx'
-
-window.addEventListener('DOMContentLoaded', () => {
-  //@ts-ignore
-  let el = window.document.getElementById('app')
-  ReactDOM.hydrate(<App/>, el)
-})
-```
-
-5. Modify `src/http/get-index/index.ts` to call into a render function
-
-```typescript
-import { render } from './render.tsx'
-
-export async function handler() {
+export async function handler(req) {
   return {
+    statusCode: 200,
     headers: {
+      'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
       'content-type': 'text/html; charset=utf8'
     },
-    statusCode: 200,
-    body: await render()
+    body: HTML({
+      title: 'Deno Clock'
+    })
   }
 }
 ```
 
-6. Add `src/http/get-index/render.tsx`
+5. Create `src/http/get-index/components/html.js`:
+```javascript
+import Main from './main.js'
 
-```typescript
-import ReactDOMServer from 'https://dev.jspm.io/react-dom/server';
-import { React } from "https://unpkg.com/es-react";
-import { App } from './app.tsx';
-
-export async function render() {
-  let body = ReactDOMServer.renderToString(<App/>);
-  return `<!DOCTYPE html>
+export default function (state = {}) {
+  let { title } = state
+  return `
+<!DOCTYPE html>
 <html>
-<body>
-<div id=app>${body}</div>
-<script type="module" src=/_static/browser.js></script>
-</body>
+<head>
+  <title>${title}</title>
+  <style>
+   h1 {
+     font-size: 3em;
+   }
+   p {
+     font-size: 2em;
+   }
+  </style>
+</head>
+ <body>
+  ${Main()}
+  <script src='_static/index.js'> </script>
+ </body>
 </html>
-`;
+  `
 }
 ```
 
-> `/_static` is a proxy to the compiled static assets on S3 which is useful when you have a Lambda function serving `get /`
+6. Create `src/http/get-index/components/main.js`
+```javascript
+export default function Main(state={}) {
 
-7. Last of all, with all this scaffolding out of the way, add `src/http/get-index/app.tsx`
-
-```typescript
-import React, { Component } from "https://unpkg.com/es-react";
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      p: any;
-    }
-  }
-}
-
-type Props = {};
-
-type State = {
-  time: Date;
-};
-
-export class App extends Component<Props, State> {
-  state = {
-    time: new Date(),
-  };
-
-  componentDidMount() {
-    setInterval(() => this.tick(), 1000);
-  }
-
-  tick() {
-    //@ts-ignore
-    this.setState({
-      time: new Date(),
-    });
-  }
-
-  render() {
-    //@ts-ignore
-    return <p>The current time is {this.state.time.toLocaleTimeString()}</p>;
-  }
+  return `
+  <div>
+  <h1> Hello From Deno </h1>
+  <p> It is now <span id='time'></span> </p>
+  </div>
+  `
 }
 ```
 
-8. Clone the example source: 
+7. Create `public/index.js`
+
+```javascript
+console.log('Hello World from client-side JS')
+let timeSpan = document.querySelector('#time')
+
+function myTimer() {
+  let date = new Date()
+  let time = date.toLocaleTimeString()
+  timeSpan.textContent = time
+}
+
+let updateTime = setInterval(myTimer, 1000)
+```
+
+8. Start the local dev server and check out your work at http://localhost:3333.
+
+```bash
+npm start
+```
+
+8. Clone the example source:
 
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/learn-deno-ssr)
