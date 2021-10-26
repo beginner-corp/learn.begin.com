@@ -5,7 +5,7 @@
 
 
 # Introduction
-By participating and contributing to the Small Wins (aka Begin) community -- including, but not limited to its open source projects, any related online venues such as Github, Slack, in-person events, etc. -- you agree to this Code of Conduct. Lack of familiarity with this Code of Conduct is not an excuse for not adhering to it.
+By participating and contributing to the Small Wins (aka Begin) community -- including, but not limited to its open source projects, any related online venues such as Github, Slack, Discord, in-person events, etc. -- you agree to this Code of Conduct. Lack of familiarity with this Code of Conduct is not an excuse for not adhering to it.
 
 
 # The Code of Conduct & you
