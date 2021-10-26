@@ -21,4 +21,4 @@ Come to get help, ask questions and provide suggestions for ways we can improve.
 
 - Sign up for a free account with us at [Begin.com](https://begin.com)
 - Star the open source project [`@architect/architect`](https://github.com/architect/architect) on GitHub
-- [Come chat with us in Slack](https://join.slack.com/t/architecture-as-text/shared_invite/MjE2MzU4Nzg0NTY1LTE1MDA2NzgyMzYtODE2NzRkOGRmYw)
+- [Come chat with us on Discord](https://discord.gg/y5A2eTsCRX)
