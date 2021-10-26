@@ -10,7 +10,8 @@
     "build": "eleventy",
     "watch": "eleventy --serve",
     "start": "npm run build && ARC_STATIC_SPA=false PORT=5555 sandbox",
-    "start:staging": "ARC_CLOUDFORMATION=LearnBeginStaging NODE_ENV=staging ARC_LOCAL=true AWS_PROFILE=smallwins AWS_REGION=us-west-1 npm run start"
+    "start:staging": "ARC_CLOUDFORMATION=LearnBeginStaging NODE_ENV=staging ARC_LOCAL=true AWS_PROFILE=smallwins AWS_REGION=us-west-1 npm run start",
+    "test": "npm run lint"
   },
   "author": "Brian LeRoux <b@brian.io>",
   "license": "Apache-2.0",

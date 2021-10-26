@@ -41,6 +41,7 @@ FaaS
 FASTstack
 frontend
 GraphQL
+http
 IaC
 IAM
 Idempotence
@@ -53,6 +54,7 @@ K8s
 Kristofer
 LeRoux
 lifecycle
+localhost:3333
 lockfile
 minified
 nav
