@@ -180,4 +180,4 @@ exports.handler = arc.http.async(logout)
 npm start
 ```
 
-### 7. Deploy your changes with [Begin.com](https://begin.com) by committing your code to the `master` branch on GitHub. Check out your shiny new OAuth app! 
+### 7. Deploy your changes with [Begin.com](https://begin.com) by committing your code to the `main` branch on GitHub. Check out your shiny new OAuth app!

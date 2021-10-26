@@ -96,7 +96,7 @@ module.exports = function layout(params) {
   <main id="doc">${params.content}</main>
 </div>
 <footer>
-  <a href=https://github.com/smallwins/training.begin.com/blob/master/${params.page.inputPath}>Edit this page on GitHub</a>
+  <a href=https://github.com/beginner-corp/learn.begin.com/blob/main/${params.page.inputPath}>Edit this page on GitHub</a>
 </footer>
 <section id=popup style=display:none></section>
 <script type=module src=/_static/js/index.js></script>

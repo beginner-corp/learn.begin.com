@@ -19,17 +19,17 @@ Create an app on Begin:
 
 [![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/node-minimal)
 
-To deploy to your staging environment, all you need to do is make a change in your GitHub repo and push it to master:
+To deploy to your staging environment, all you need to do is make a change in your GitHub repo and push it to main:
 
 ```bash
-git push origin master
+git push origin main
 ```
 
 Git tags deploy to production:
 
 ```bash
 npm version patch
-git push origin master
+git push origin main
 ```
 
 Congrats, you've deployed to your production environment!

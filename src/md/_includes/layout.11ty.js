@@ -59,7 +59,7 @@ module.exports = function layout(params) {
     <meta name="twitter:description" content="Begin is a ridiculously quick platform for building modern web apps, sites, & APIs. Get started for free, no credit card required.">
     <meta name="twitter:image" content="http://s3.us-west-1.amazonaws.com/begin-staging/web/begin-meta-6f864404ab.png">
     <!-- Meta Tags end-->
-    
+
   <style>
     html {
       font-size: 18px;
@@ -289,7 +289,7 @@ module.exports = function layout(params) {
     </div>
     <footer>
       <a
-        href=https://github.com/smallwins/training.begin.com/blob/master/${params.page.inputPath}
+        href=https://github.com/beginner-corp/learn.begin.com/blob/main/${params.page.inputPath}
         class="
           c-p3
           c-h0
