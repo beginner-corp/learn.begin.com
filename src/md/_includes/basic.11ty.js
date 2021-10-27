@@ -275,7 +275,7 @@ module.exports = function layout(params) {
             mb-none-lg
             mr1-lg
           "
-          href="#"
+          href="https://blog.begin.com"
           target="_blank"
           rel="noopener"
         >
