@@ -232,6 +232,7 @@ module.exports = function layout(params) {
             mb-2
             mb-none-lg
             mr1-lg
+            active
           "
           href="https://docs.begin.com"
           target="_blank"
@@ -273,7 +274,6 @@ module.exports = function layout(params) {
             mb-2
             mb-none-lg
             mr1-lg
-            active
           "
           href="#"
           target="_blank"
